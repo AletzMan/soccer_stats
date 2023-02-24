@@ -1,0 +1,12 @@
+$color_: #0E131F;
+$color_: #38405F ;
+$color_: #59546C;
+$color_: #8B939C;
+$color_: #FF0035;
+
+.team {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(auto-fill, min-max(6rem, 1fr));
+    background-color: #0E131F;
+}

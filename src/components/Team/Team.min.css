@@ -1,0 +1,1 @@
+.team{display:grid;grid-auto-flow:column;grid-template-columns:repeat(auto-fill,min-max(6rem,1fr));background-color:#0E131F}

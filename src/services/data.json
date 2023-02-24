@@ -1,0 +1,1326 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "id": "10_01_0168_2022_13_0_8",
+            "lastUpdate": "2023-02-24T03:51:34.022Z",
+            "classificationHead": {
+                "classificationType": {
+                    "alternateNames": {
+                        "enEN": "General",
+                        "esES": "General"
+                    },
+                    "id": 10,
+                    "name": "General"
+                },
+                "group": {
+                    "id": "0",
+                    "name": "Único",
+                    "romanNumerals": "",
+                    "alternateNames": {
+                        "enEN": "Only",
+                        "esES": "Único"
+                    }
+                },
+                "phase": {
+                    "alternateNames": {
+                        "enEN": "Regular season",
+                        "esES": "Fase regular"
+                    },
+                    "id": 13,
+                    "name": "Fase regular"
+                },
+                "subphase": {},
+                "season": {
+                    "id": 2022,
+                    "name": "2022-23"
+                },
+                "sport": {
+                    "alternateNames": {
+                        "enEN": "Football",
+                        "esES": "Fútbol"
+                    },
+                    "id": "01",
+                    "name": "Fútbol",
+                    "type": "match"
+                },
+                "tournament": {
+                    "alternateNames": {
+                        "enEN": "Liga Mexicana Clausura MX",
+                        "esES": "Liga Mexicana Clausura MX",
+                        "itIT": "",
+                        "ptBR": ""
+                    },
+                    "id": "0168",
+                    "name": "Liga Mexicana Clausura",
+                    "isNational": false
+                },
+                "matchDay": 8
+            },
+            "rank": [
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "80.00",
+                            "won": "4",
+                            "position": "1",
+                            "points": "12",
+                            "played": "5",
+                            "lost": "1",
+                            "for": "9",
+                            "drawn": "0",
+                            "against": "4"
+                        },
+                        "away": {
+                            "wonPercentage": "100.00",
+                            "won": "3",
+                            "position": "4",
+                            "points": "9",
+                            "played": "3",
+                            "lost": "0",
+                            "for": "7",
+                            "drawn": "0",
+                            "against": "3"
+                        },
+                        "wonPercentage": "87.50",
+                        "posVariation": "0",
+                        "for": "16",
+                        "against": "7",
+                        "drawn": "0",
+                        "lost": "1",
+                        "won": "7",
+                        "played": "8",
+                        "points": "21",
+                        "position": "1"
+                    },
+                    "_id": "63f83450e5e9c9001273b1e6",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Monterrey",
+                    "name": "Monterrey",
+                    "id": "741",
+                    "alternateCommonNames": {
+                        "enEN": "Monterrey",
+                        "esES": "Monterrey",
+                        "itIT": "Monterrey",
+                        "ptBR": "Monterrey"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/741.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/741.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/741.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/741.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/741.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/741.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/741.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/741.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "50.00",
+                            "won": "2",
+                            "position": "4",
+                            "points": "8",
+                            "played": "4",
+                            "lost": "0",
+                            "for": "8",
+                            "drawn": "2",
+                            "against": "3"
+                        },
+                        "away": {
+                            "wonPercentage": "75.00",
+                            "won": "3",
+                            "position": "3",
+                            "points": "10",
+                            "played": "4",
+                            "lost": "0",
+                            "for": "6",
+                            "drawn": "1",
+                            "against": "1"
+                        },
+                        "wonPercentage": "62.50",
+                        "posVariation": "0",
+                        "for": "14",
+                        "against": "4",
+                        "drawn": "3",
+                        "lost": "0",
+                        "won": "5",
+                        "played": "8",
+                        "points": "18",
+                        "position": "2"
+                    },
+                    "_id": "63f83450e5e9c9001273b1e5",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Tigres",
+                    "name": "Tigres",
+                    "id": "1294",
+                    "alternateCommonNames": {
+                        "enEN": "Tigres",
+                        "esES": "Tigres",
+                        "itIT": "Tigres",
+                        "ptBR": "Tigres"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1294.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1294.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1294.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1294.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1294.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1294.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1294.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1294.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "60.00",
+                            "won": "3",
+                            "position": "2",
+                            "points": "11",
+                            "played": "5",
+                            "lost": "0",
+                            "for": "12",
+                            "drawn": "2",
+                            "against": "4"
+                        },
+                        "away": {
+                            "wonPercentage": "33.33",
+                            "won": "1",
+                            "position": "6",
+                            "points": "5",
+                            "played": "3",
+                            "lost": "0",
+                            "for": "7",
+                            "drawn": "2",
+                            "against": "5"
+                        },
+                        "wonPercentage": "50.00",
+                        "posVariation": "0",
+                        "for": "19",
+                        "against": "9",
+                        "drawn": "4",
+                        "lost": "0",
+                        "won": "4",
+                        "played": "8",
+                        "points": "16",
+                        "position": "3"
+                    },
+                    "_id": "63f83450e5e9c9001273b1e4",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "América",
+                    "name": "América",
+                    "id": "1292",
+                    "alternateCommonNames": {
+                        "enEN": "América",
+                        "esES": "América",
+                        "itIT": "América",
+                        "ptBR": "América"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1292.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1292.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1292.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1292.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1292.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1292.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1292.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1292.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "60.00",
+                            "won": "3",
+                            "position": "3",
+                            "points": "10",
+                            "played": "5",
+                            "lost": "1",
+                            "for": "13",
+                            "drawn": "1",
+                            "against": "6"
+                        },
+                        "away": {
+                            "wonPercentage": "66.67",
+                            "won": "2",
+                            "position": "5",
+                            "points": "6",
+                            "played": "3",
+                            "lost": "1",
+                            "for": "5",
+                            "drawn": "0",
+                            "against": "6"
+                        },
+                        "wonPercentage": "62.50",
+                        "posVariation": "0",
+                        "for": "18",
+                        "against": "12",
+                        "drawn": "1",
+                        "lost": "2",
+                        "won": "5",
+                        "played": "8",
+                        "points": "16",
+                        "position": "4"
+                    },
+                    "_id": "63f83450e5e9c9001273b1e3",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Pachuca",
+                    "name": "Pachuca",
+                    "id": "1295",
+                    "alternateCommonNames": {
+                        "enEN": "Pachuca",
+                        "esES": "Pachuca",
+                        "itIT": "Pachuca",
+                        "ptBR": "Pachuca"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1295.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1295.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1295.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1295.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1295.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1295.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1295.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1295.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "33.33",
+                            "won": "1",
+                            "position": "11",
+                            "points": "5",
+                            "played": "3",
+                            "lost": "0",
+                            "for": "5",
+                            "drawn": "2",
+                            "against": "3"
+                        },
+                        "away": {
+                            "wonPercentage": "60.00",
+                            "won": "3",
+                            "position": "2",
+                            "points": "10",
+                            "played": "5",
+                            "lost": "1",
+                            "for": "10",
+                            "drawn": "1",
+                            "against": "4"
+                        },
+                        "wonPercentage": "50.00",
+                        "posVariation": "0",
+                        "for": "15",
+                        "against": "7",
+                        "drawn": "3",
+                        "lost": "1",
+                        "won": "4",
+                        "played": "8",
+                        "points": "15",
+                        "position": "5"
+                    },
+                    "_id": "63f83450e5e9c9001273b1e2",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Toluca",
+                    "name": "Toluca",
+                    "id": "1286",
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1286.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1286.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1286.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1286.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1286.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1286.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1286.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1286.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "33.33",
+                            "won": "1",
+                            "position": "14",
+                            "points": "4",
+                            "played": "3",
+                            "lost": "1",
+                            "for": "4",
+                            "drawn": "1",
+                            "against": "4"
+                        },
+                        "away": {
+                            "wonPercentage": "60.00",
+                            "won": "3",
+                            "position": "1",
+                            "points": "11",
+                            "played": "5",
+                            "lost": "0",
+                            "for": "6",
+                            "drawn": "2",
+                            "against": "3"
+                        },
+                        "wonPercentage": "50.00",
+                        "posVariation": "0",
+                        "for": "10",
+                        "against": "7",
+                        "drawn": "3",
+                        "lost": "1",
+                        "won": "4",
+                        "played": "8",
+                        "points": "15",
+                        "position": "6"
+                    },
+                    "_id": "63f83450e5e9c9001273b1e1",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Guadalajara",
+                    "name": "Guadalajara",
+                    "id": "1283",
+                    "alternateCommonNames": {
+                        "enEN": "Guadalajara",
+                        "esES": "Guadalajara",
+                        "itIT": "Guadalajara",
+                        "ptBR": "Guadalajara"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1283.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1283.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1283.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1283.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1283.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1283.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1283.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1283.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "66.67",
+                            "won": "2",
+                            "position": "8",
+                            "points": "6",
+                            "played": "3",
+                            "lost": "1",
+                            "for": "4",
+                            "drawn": "0",
+                            "against": "2"
+                        },
+                        "away": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "7",
+                            "points": "5",
+                            "played": "4",
+                            "lost": "1",
+                            "for": "4",
+                            "drawn": "2",
+                            "against": "4"
+                        },
+                        "wonPercentage": "42.86",
+                        "posVariation": "0",
+                        "for": "8",
+                        "against": "6",
+                        "drawn": "2",
+                        "lost": "2",
+                        "won": "3",
+                        "played": "7",
+                        "points": "11",
+                        "position": "7"
+                    },
+                    "_id": "63f83450e5e9c9001273b1e0",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "León",
+                    "name": "León",
+                    "id": "1293",
+                    "alternateCommonNames": {
+                        "enEN": "León",
+                        "esES": "León",
+                        "itIT": "León",
+                        "ptBR": "León"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1293.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1293.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1293.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1293.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1293.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1293.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1293.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1293.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "50.00",
+                            "won": "2",
+                            "position": "5",
+                            "points": "7",
+                            "played": "4",
+                            "lost": "1",
+                            "for": "7",
+                            "drawn": "1",
+                            "against": "3"
+                        },
+                        "away": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "11",
+                            "points": "4",
+                            "played": "4",
+                            "lost": "2",
+                            "for": "5",
+                            "drawn": "1",
+                            "against": "8"
+                        },
+                        "wonPercentage": "37.50",
+                        "posVariation": "0",
+                        "for": "12",
+                        "against": "11",
+                        "drawn": "2",
+                        "lost": "3",
+                        "won": "3",
+                        "played": "8",
+                        "points": "11",
+                        "position": "8"
+                    },
+                    "_id": "63f83450e5e9c9001273b1df",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "FC Juárez",
+                    "name": "Juárez",
+                    "id": "10991",
+                    "alternateCommonNames": {
+                        "enEN": "Juárez",
+                        "esES": "Juárez",
+                        "itIT": "Juárez",
+                        "ptBR": "Juárez"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/10991.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/10991.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/10991.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/10991.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/10991.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/10991.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/10991.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/10991.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "12",
+                            "points": "5",
+                            "played": "4",
+                            "lost": "1",
+                            "for": "4",
+                            "drawn": "2",
+                            "against": "4"
+                        },
+                        "away": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "10",
+                            "points": "4",
+                            "played": "4",
+                            "lost": "2",
+                            "for": "4",
+                            "drawn": "1",
+                            "against": "6"
+                        },
+                        "wonPercentage": "25.00",
+                        "posVariation": "0",
+                        "for": "8",
+                        "against": "10",
+                        "drawn": "3",
+                        "lost": "3",
+                        "won": "2",
+                        "played": "8",
+                        "points": "9",
+                        "position": "9"
+                    },
+                    "_id": "63f83450e5e9c9001273b1de",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Atlético San Luis",
+                    "name": "Atlético San Luis",
+                    "id": "9491",
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/9491.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/9491.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/9491.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/9491.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/9491.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/9491.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/9491.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/9491.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "15",
+                            "points": "4",
+                            "played": "4",
+                            "lost": "2",
+                            "for": "5",
+                            "drawn": "1",
+                            "against": "10"
+                        },
+                        "away": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "8",
+                            "points": "5",
+                            "played": "4",
+                            "lost": "1",
+                            "for": "6",
+                            "drawn": "2",
+                            "against": "7"
+                        },
+                        "wonPercentage": "25.00",
+                        "posVariation": "0",
+                        "for": "11",
+                        "against": "17",
+                        "drawn": "3",
+                        "lost": "3",
+                        "won": "2",
+                        "played": "8",
+                        "points": "9",
+                        "position": "10"
+                    },
+                    "_id": "63f83450e5e9c9001273b1dd",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Santos Laguna",
+                    "name": "Santos Laguna",
+                    "id": "1287",
+                    "alternateCommonNames": {
+                        "enEN": "Santos Laguna",
+                        "esES": "Santos Laguna",
+                        "itIT": "Santos Laguna",
+                        "ptBR": "Santos Laguna"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1287.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1287.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1287.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1287.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1287.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1287.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1287.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1287.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "50.00",
+                            "won": "2",
+                            "position": "6",
+                            "points": "7",
+                            "played": "4",
+                            "lost": "1",
+                            "for": "9",
+                            "drawn": "1",
+                            "against": "6"
+                        },
+                        "away": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "15",
+                            "points": "1",
+                            "played": "4",
+                            "lost": "3",
+                            "for": "3",
+                            "drawn": "1",
+                            "against": "10"
+                        },
+                        "wonPercentage": "25.00",
+                        "posVariation": "0",
+                        "for": "12",
+                        "against": "16",
+                        "drawn": "2",
+                        "lost": "4",
+                        "won": "2",
+                        "played": "8",
+                        "points": "8",
+                        "position": "11"
+                    },
+                    "_id": "63f83450e5e9c9001273b1dc",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Pumas UNAM",
+                    "name": "Pumas UNAM",
+                    "id": "1297",
+                    "alternateCommonNames": {
+                        "enEN": "Pumas UNAM",
+                        "esES": "Pumas UNAM",
+                        "itIT": "Pumas UNAM",
+                        "ptBR": "Pumas UNAM"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1297.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1297.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1297.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1297.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1297.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1297.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1297.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1297.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "50.00",
+                            "won": "2",
+                            "position": "7",
+                            "points": "7",
+                            "played": "4",
+                            "lost": "1",
+                            "for": "7",
+                            "drawn": "1",
+                            "against": "5"
+                        },
+                        "away": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "18",
+                            "points": "0",
+                            "played": "4",
+                            "lost": "4",
+                            "for": "4",
+                            "drawn": "0",
+                            "against": "8"
+                        },
+                        "wonPercentage": "25.00",
+                        "posVariation": "0",
+                        "for": "11",
+                        "against": "13",
+                        "drawn": "1",
+                        "lost": "5",
+                        "won": "2",
+                        "played": "8",
+                        "points": "7",
+                        "position": "12"
+                    },
+                    "_id": "63f83450e5e9c9001273b1db",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Necaxa",
+                    "name": "Necaxa",
+                    "id": "1174",
+                    "alternateCommonNames": {
+                        "enEN": "Necaxa",
+                        "esES": "Necaxa",
+                        "itIT": "Necaxa",
+                        "ptBR": "Necaxa"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1174.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1174.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1174.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1174.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1174.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1174.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1174.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1174.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "33.33",
+                            "won": "1",
+                            "position": "16",
+                            "points": "3",
+                            "played": "3",
+                            "lost": "2",
+                            "for": "3",
+                            "drawn": "0",
+                            "against": "4"
+                        },
+                        "away": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "9",
+                            "points": "4",
+                            "played": "4",
+                            "lost": "2",
+                            "for": "5",
+                            "drawn": "1",
+                            "against": "6"
+                        },
+                        "wonPercentage": "28.57",
+                        "posVariation": "0",
+                        "for": "8",
+                        "against": "10",
+                        "drawn": "1",
+                        "lost": "4",
+                        "won": "2",
+                        "played": "7",
+                        "points": "7",
+                        "position": "13"
+                    },
+                    "_id": "63f83450e5e9c9001273b1da",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Cruz Azul",
+                    "name": "Cruz Azul",
+                    "id": "853",
+                    "alternateCommonNames": {
+                        "enEN": "Cruz Azul",
+                        "esES": "Cruz Azul",
+                        "itIT": "Cruz Azul",
+                        "ptBR": "Cruz Azul"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/853.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/853.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/853.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/853.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/853.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/853.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/853.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/853.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "20.00",
+                            "won": "1",
+                            "position": "13",
+                            "points": "5",
+                            "played": "5",
+                            "lost": "2",
+                            "for": "4",
+                            "drawn": "2",
+                            "against": "6"
+                        },
+                        "away": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "12",
+                            "points": "2",
+                            "played": "3",
+                            "lost": "1",
+                            "for": "5",
+                            "drawn": "2",
+                            "against": "6"
+                        },
+                        "wonPercentage": "12.50",
+                        "posVariation": "0",
+                        "for": "9",
+                        "against": "12",
+                        "drawn": "4",
+                        "lost": "3",
+                        "won": "1",
+                        "played": "8",
+                        "points": "7",
+                        "position": "14"
+                    },
+                    "_id": "63f83450e5e9c9001273b1d9",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Atlas",
+                    "name": "Atlas",
+                    "id": "1284",
+                    "alternateCommonNames": {
+                        "enEN": "Atlas",
+                        "esES": "Atlas",
+                        "itIT": "Atlas",
+                        "ptBR": "Atlas"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1284.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1284.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1284.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1284.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1284.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1284.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1284.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1284.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "25.00",
+                            "won": "1",
+                            "position": "10",
+                            "points": "6",
+                            "played": "4",
+                            "lost": "0",
+                            "for": "3",
+                            "drawn": "3",
+                            "against": "2"
+                        },
+                        "away": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "14",
+                            "points": "1",
+                            "played": "4",
+                            "lost": "3",
+                            "for": "3",
+                            "drawn": "1",
+                            "against": "8"
+                        },
+                        "wonPercentage": "12.50",
+                        "posVariation": "0",
+                        "for": "6",
+                        "against": "10",
+                        "drawn": "4",
+                        "lost": "3",
+                        "won": "1",
+                        "played": "8",
+                        "points": "7",
+                        "position": "15"
+                    },
+                    "_id": "63f83450e5e9c9001273b1d8",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Club Tijuana",
+                    "name": "Tijuana",
+                    "id": "4690",
+                    "alternateCommonNames": {
+                        "enEN": "Tijuana",
+                        "esES": "Tijuana",
+                        "itIT": "Tijuana",
+                        "ptBR": "Tijuana"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/4690.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/4690.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/4690.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/4690.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/4690.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/4690.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/4690.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/4690.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "50.00",
+                            "won": "2",
+                            "position": "9",
+                            "points": "6",
+                            "played": "4",
+                            "lost": "2",
+                            "for": "7",
+                            "drawn": "0",
+                            "against": "6"
+                        },
+                        "away": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "16",
+                            "points": "1",
+                            "played": "4",
+                            "lost": "3",
+                            "for": "3",
+                            "drawn": "1",
+                            "against": "11"
+                        },
+                        "wonPercentage": "25.00",
+                        "posVariation": "0",
+                        "for": "10",
+                        "against": "17",
+                        "drawn": "1",
+                        "lost": "5",
+                        "won": "2",
+                        "played": "8",
+                        "points": "7",
+                        "position": "16"
+                    },
+                    "_id": "63f83450e5e9c9001273b1d7",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Puebla",
+                    "name": "Puebla",
+                    "id": "1296",
+                    "alternateCommonNames": {
+                        "enEN": "Puebla",
+                        "esES": "Puebla",
+                        "itIT": "Puebla",
+                        "ptBR": "Puebla"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/1296.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1296.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/1296.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/1296.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/1296.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/1296.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/1296.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/1296.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "17",
+                            "points": "2",
+                            "played": "3",
+                            "lost": "1",
+                            "for": "4",
+                            "drawn": "2",
+                            "against": "7"
+                        },
+                        "away": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "13",
+                            "points": "2",
+                            "played": "4",
+                            "lost": "2",
+                            "for": "1",
+                            "drawn": "2",
+                            "against": "5"
+                        },
+                        "wonPercentage": "0.00",
+                        "posVariation": "0",
+                        "for": "5",
+                        "against": "12",
+                        "drawn": "4",
+                        "lost": "3",
+                        "won": "0",
+                        "played": "7",
+                        "points": "4",
+                        "position": "17"
+                    },
+                    "_id": "63f83450e5e9c9001273b1d6",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Querétaro",
+                    "name": "Querétaro",
+                    "id": "4047",
+                    "alternateCommonNames": {
+                        "enEN": "Querétaro",
+                        "esES": "Querétaro",
+                        "itIT": "Querétaro",
+                        "ptBR": "Querétaro"
+                    },
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/4047.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/4047.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/4047.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/4047.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/4047.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/4047.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/4047.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/4047.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                },
+                {
+                    "standing": {
+                        "home": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "18",
+                            "points": "0",
+                            "played": "3",
+                            "lost": "3",
+                            "for": "5",
+                            "drawn": "0",
+                            "against": "8"
+                        },
+                        "away": {
+                            "wonPercentage": "0.00",
+                            "won": "0",
+                            "position": "17",
+                            "points": "1",
+                            "played": "4",
+                            "lost": "3",
+                            "for": "3",
+                            "drawn": "1",
+                            "against": "12"
+                        },
+                        "wonPercentage": "0.00",
+                        "posVariation": "0",
+                        "for": "8",
+                        "against": "20",
+                        "drawn": "1",
+                        "lost": "6",
+                        "won": "0",
+                        "played": "7",
+                        "points": "1",
+                        "position": "18"
+                    },
+                    "_id": "63f83450e5e9c9001273b1d5",
+                    "alternateCountryNames": {
+                        "enEN": "Mexico",
+                        "esES": "México"
+                    },
+                    "countryName": "México",
+                    "country": "MEX",
+                    "fullName": "Mazatlán",
+                    "name": "Mazatlán",
+                    "id": "16906",
+                    "imageUrlSizes": {
+                        "XS": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/16x16/16906.png",
+                        "S": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/16906.png",
+                        "M": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/80x80/16906.png",
+                        "L": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/128x128/16906.png"
+                    },
+                    "imageUrl": "https://e00-marca.uecdn.es/assets/datos-deportivos/escudos/opta/png/35x35/16906.png",
+                    "images": {
+                        "urlLogo": [
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/144x144/16906.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/72x72/16906.png",
+                            "https://e00-marca.uecdn.es/assets/sports/logos/football/png/36x36/16906.png"
+                        ],
+                        "urlFlag": [
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/144x144/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/72x72/MEX.png",
+                            "https://e00-marca.uecdn.es/assets/sports/flags/png/36x36/MEX.png"
+                        ]
+                    }
+                }
+            ],
+            "blocked": false
+        }
+    ],
+    "timestamp": "2023-02-24T03:52:28.127Z"
+}
