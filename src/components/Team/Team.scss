@@ -1,12 +1,50 @@
-$color_: #0E131F;
-$color_: #38405F ;
-$color_: #59546C;
-$color_: #8B939C;
-$color_: #FF0035;
+$color_back: #0E131F;
+$color_title: #38405F;
+$color_mark: #59546C;
+$color_font: #8B939C;
+$color_select: #FF0035;
+
 
 .team {
     display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fill, min-max(6rem, 1fr));
+    grid-template-columns: 1fr 2fr 2fr 2fr;
     background-color: #0E131F;
+    padding: 0.2rem 0.2rem 0.2rem 0;
+    border-bottom: 1px solid $color_mark;
+    height: 1.7rem;
+
+    @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+            border-left: 2px solid #27ccf5;
+        }
+    }
+
+    @for $i from 6 through 13 {
+        &:nth-child(#{$i}) {
+            border-left: 2px solid #e97a12;
+        }
+    }
+
+    &__unit {
+        //margin-bottom: 0.1rem;
+    }
+
+    &__position {
+        margin-bottom: 0.1rem;
+        color: #27ccf5;
+
+    }
+
+    &__image {
+        width: 1.5rem;
+        margin-bottom: 0.1rem;
+        padding: 0 0 0.1rem 0;
+        justify-self: center;
+    }
+
+    &__name {
+        grid-column: 3 / span 2;
+        text-align: left;
+        margin-bottom: 0.1rem;
+    }
 }

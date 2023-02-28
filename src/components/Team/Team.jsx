@@ -2,20 +2,22 @@ import './Team.css'
 
 function Team({ props }) {
     const { name, standing, images } = props;
-    //console.log(imageUrlSizes.S)
-    return(
+    const team = name.split(' ');
+
+    let nameTeam = '';
+    if (team.length === 3) {
+        nameTeam = team[1] + ' ' + team[2];
+    } else if (team.length === 2 && team[0].startsWith('C')) {
+        nameTeam = team[0] + ' ' + team[1];
+    } else {
+        nameTeam = team[0];
+    }
+
+    return (
         <div className="team">
-            <span className="team__position">{standing.position}</span>
-            <img  className="team__image" src={images.urlLogo[2]}></img>
-            <span className="team__name">{name}</span>
-            <span className="team__played">{standing.played}</span>
-            <span className="team__won">{standing.won}</span>
-            <span className="team__drawn">{standing.drawn}</span>
-            <span className="team__lost">{standing.lost}</span>
-            <span className="team__for">{standing.for}</span>
-            <span className="team__against">{standing.against}</span>
-            <span className="team__dif">{standing.for - standing.against}</span>
-            <span className="team__points">{standing.points}</span>
+            <span className="team__position team__unit">{standing.position}</span>
+            <img className="team__image team__unit" src={images.urlLogo[2]}></img>
+            <span className="team__name team__unit team__unit">{nameTeam}</span>
         </div>
     )
 }

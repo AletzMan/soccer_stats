@@ -1,0 +1,48 @@
+.stats {
+  width: 100%;
+  min-width: 8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #59546C;
+  height: 1.7rem;
+}
+.stats__played {
+  margin-bottom: 0.1rem;
+  color: #ffa571;
+}
+.stats__won {
+  color: #71ff89;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+}
+.stats__drawn {
+  color: #ffde71;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+}
+.stats__lost {
+  color: #f86b58;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+}
+.stats__for {
+  color: #71ff89;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+}
+.stats__against {
+  color: #f86b58;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+}
+.stats__dif {
+  color: #ffde71;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+}
+.stats__points {
+  color: #71fff8;
+  font-weight: 300;
+  margin-bottom: 0.1rem;
+}
