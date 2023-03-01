@@ -1,0 +1,63 @@
+$color_back: #0E131F;
+$color_title: #38405F;
+$color_mark: #59546C;
+$color_font: #8B939C;
+$color_select: #FF0035;
+
+
+.header {
+    background-color: $color_back;
+
+    &__title {
+        background-color: #FFFFFF10;
+        color: $color_select;
+    }
+
+}
+
+.nav__menu {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+
+    &__li {
+        width: 100%;
+
+        &:nth-child(2) {
+            border-left: 1px solid $color_font;
+            border-right: 1px solid $color_font;
+        }
+    }
+
+    &__item {
+        width: 100%;
+        padding: 0.2rem 0;
+        font-size: 0.8rem;
+        background-color: $color_title;
+        border: 1px solid transparent;
+        transition: all 0.3s linear;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color_select;
+        }
+
+
+
+
+        &--true {
+            background-color: $color_select;
+            color: #FFFFFF;
+            font-weight: 600;
+            cursor: auto;
+
+        }
+    }
+}

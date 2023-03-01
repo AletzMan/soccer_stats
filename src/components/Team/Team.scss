@@ -15,13 +15,13 @@ $color_select: #FF0035;
 
     @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
-            border-left: 2px solid #27ccf5;
+            border-left: 2px solid #03a71e;
         }
     }
 
     @for $i from 6 through 13 {
         &:nth-child(#{$i}) {
-            border-left: 2px solid #e97a12;
+            border-left: 2px solid #e9b012;
         }
     }
 

@@ -14,6 +14,7 @@
 .table__stats {
   width: 100%;
   min-width: 13rem;
+  background-color: #191b22;
 }
 
 .container__stats {

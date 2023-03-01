@@ -21,10 +21,11 @@ $color_select: #FF0035;
     &__stats {
         width: 100%;
         min-width: 13rem;
+        background-color: #191b22;
         
     }
-  
-
+    
+    
 }
 
 .container__stats {
@@ -33,6 +34,7 @@ $color_select: #FF0035;
     height: 100%;
     background-color: $color_back;
     overflow-x: auto;
+    
 }
 
 
@@ -44,12 +46,12 @@ $color_select: #FF0035;
         background-color: $color_title;
         color: #cee5ff;
         border-bottom: 1px solid $color_font;
-
+        
         &--pos {
             max-width: 3rem;
             grid-column: 1 / 2;
         }
-
+        
         &--team {
             grid-column: 2 / span 3;
         }
