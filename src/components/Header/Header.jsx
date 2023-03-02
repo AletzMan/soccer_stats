@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import './Header.css'
 
-function Header({classSelected, setClassSelected}) {
+function Header({classSelected, setClassSelected, currentDay}) {
+   
     
-    const [title, setTitle] = useState('JORNADA')
+    const [title, setTitle] = useState(`JORNADA ${currentDay}`);
     return (
         <header className='header'>
             <nav className='header__nav nav'>
                 <ul className="nav__menu menu">
                     <li className='menu__li'>
-                        <button onClick={() => (setClassSelected([true, false, false]), setTitle('JORNADA'))} className={`menu__matchday menu__item menu__item--${classSelected[0]}`}>JORNADA</button>
+                        <button onClick={() => (setClassSelected([true, false, false]), setTitle(`JORNADA ${currentDay}`))} className={`menu__matchday menu__item menu__item--${classSelected[0]}`}>JORNADA</button>
                     </li>
                     <li className="menu__li">
                         <button onClick={() => (setClassSelected([false, true, false]), setTitle('RESULTADOS'))} className={`menu__allmatch menu__item menu__item--${classSelected[1]}`}>RESULTADOS</button>

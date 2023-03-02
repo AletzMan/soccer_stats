@@ -1,11 +1,11 @@
 //https://api.unidadeditorial.es/sports/v1/classifications/current/?site=2&type=10&tournament=0168
-import dataStats from '../../services/data.json';
+//import dataStats from '../../services/data.json';
 import { Stats } from '../Stats/Stats';
 import { Team } from '../Team/Team';
 import './Positions.css'
 
-function Positions() {
-    const TEAMS = dataStats.data[0].rank;
+function Positions({positionsData}) {
+    const TEAMS = positionsData;
     
     return (
         <div className='table'>

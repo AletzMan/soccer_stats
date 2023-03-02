@@ -1,15 +1,21 @@
 import './Fixtures.css'
-import dataMatches from '../../services/dataMatches.json';
-function Fixtures() {
-    let MATCHES_OF_THE_DAY = dataMatches['sports-content'].schedule[0]['sports-event'].filter(match => match['event-metadata']['event-metadata-soccer'].week === "10")
-    
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const DATE = new Date(MATCHES_OF_THE_DAY[0]['event-metadata']['start-date-time']).toLocaleDateString('es-MX', options);
-    const DATE_FULL = DATE.charAt(0).toUpperCase() + DATE.slice(1);
-    console.log(MATCHES_OF_THE_DAY)
-    return(
-        <div className='fixtures'>
+//import dataMatches from '../../services/dataMatches.json';
+import { Match } from '../Match/Match';
 
+function Fixtures({calendar}) {
+    console.log(calendar)
+    const SOURCE_MATCHES = calendar;
+    const MATCHES = [parseInt(SOURCE_MATCHES[0]['event-metadata']['event-metadata-soccer'].week), parseInt(SOURCE_MATCHES[1]['event-metadata']['event-metadata-soccer'].week)];
+    const CURRENT_DAY = Math.max(...MATCHES);
+    const MATCHES_OF_THE_DAY = calendar.filter(match => match['event-metadata']['event-metadata-soccer'].week === `${CURRENT_DAY}`)
+   
+    
+
+    return (
+        <div className='fixtures'>
+            {MATCHES_OF_THE_DAY.map(({ "event-metadata": key, "event-metadata": eventData, team }) => (
+                <Match key={key['event-key']} team={team} eventData={eventData} />
+            ))}
         </div>
     )
 }

@@ -1,0 +1,54 @@
+.match {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #0E131F;
+  margin-bottom: 0.4rem;
+  transition: transform 0.3s linear;
+  box-shadow: 0 0 10px 1px #00000055;
+}
+.match:hover {
+  transform: scale(1.05);
+}
+.match__teams {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  place-items: center;
+  grid-column: 1/span 3;
+  grid-row: 1/2;
+}
+.match__teams--name {
+  color: #8B939C;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.match__date {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #778eec;
+}
+.match__hour {
+  grid-column: 2/3;
+  grid-row: 3/4;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #ecc377;
+}
+.match__site {
+  grid-column: 2/3;
+  grid-row: 4/5;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: #FF0035;
+}
+
+.team__logo {
+  height: 3rem;
+  object-fit: cover;
+  grid-row: 1/5;
+  -webkit-filter: drop-shadow(0px 0px 5px rgba(150, 150, 150, 0.7));
+  filter: drop-shadow(0px 0px 5px rgba(150, 150, 150, 0.7));
+}
