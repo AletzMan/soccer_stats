@@ -1,10 +1,10 @@
 import { useReducer, useEffect } from "react";
-import { getTablePositions, getMatchesDay, getCalendar } from "../services/getData";
+import { getTablePositions, getResultsDay, getCalendar } from "../services/getData";
 
 function useStats() {
     const initState = {
         positionsData: '',
-        matchesData: '',
+        resultData: '',
         calendarData: '',
     }
 
@@ -18,7 +18,7 @@ function useStats() {
             return {
                 ...state,
                 positionsData: action.payload[0],
-                matchesData: action.payload[1],
+                resultData: action.payload[1],
                 calendarData: action.payload[2],
             }
         } else {
@@ -26,11 +26,17 @@ function useStats() {
         }
     }
     const [statsData, dispatch] = useReducer(reducer, initState);
+    let today = new Date();
+    let day = today.getDate() < 9? '0' + (today.getDate() + 2):today.getDate() + 2;
+    let month = today.getMonth() < 9? '0' + (today.getMonth() + 1):today.getMonth() + 1;
+    let year = today.getFullYear();
+    let dateToday = `${year}-${month}-${day}`;
+   //console.log(dateToday)
     
     useEffect(() => {
         Promise.all([
             getTablePositions(),
-            getMatchesDay(),
+            getResultsDay(),
             getCalendar()
         ]).then(value => {
             
@@ -38,7 +44,7 @@ function useStats() {
                 type: ACTIONS_TYPES.ALL_UPDATE,
                 payload:
                     [value[0].data[0].rank,
-                    value[1].data,
+                    value[1]['sports-content'].schedule[0]['sports-event'].filter(match => match['event-metadata']['start-date-time']  <= `${dateToday}T07:05:00Z`),
                     value[2]['sports-content'].schedule[0]['sports-event'].filter(match => match['event-metadata']['event-metadata-soccer'].week)],
             })            
         })

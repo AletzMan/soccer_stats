@@ -3,3 +3,7 @@
   flex-direction: column;
   gap: 0.3rem;
 }
+.results__title {
+  font-size: 1.5rem;
+  color: #8B939C;
+}

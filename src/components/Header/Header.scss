@@ -8,6 +8,17 @@ $color_select: #FF0035;
 .header {
     background-color: $color_back;
 
+    &__back {
+        width: 2.5rem;
+        padding: 0.5rem;
+        display: flex;
+        transition: transform 0.3s linear;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
     &__title {
         background-color: #FFFFFF10;
         color: $color_select;

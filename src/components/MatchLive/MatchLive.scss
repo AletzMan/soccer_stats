@@ -5,8 +5,75 @@ $color_font: #8B939C;
 $color_select: #FF0035;
 
 .matchlive {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    place-items: center;
+    padding: 0.4rem;
     background-color: $color_back;
+    border-bottom: 1px solid #7ec929BB;
+
     &__img {
-        height: 3rem;
+        height: 2.2rem;
+        -webkit-filter: drop-shadow(0px 0px 3px rgba(150, 150, 150, 0.7));
+        filter: drop-shadow(0px 0px 3px rgba(150, 150, 150, 0.7));
+
+        &--ball {
+            width: 0.7rem;
+            height: 0.7rem;
+        }
+    }
+
+    &__status {
+        grid-column: 4 / 5;
+        font-size: 0.8rem;
+        grid-row: 3 / 4;
+
+        &--finished {
+            color: #FF0035;
+        }
+
+        &--uninitiated {
+            color: #c9ab29;
+        }
+    }
+
+    &__result {
+        font-size: 2rem;
+        font-weight: 400;
+        color: #f8ce8e;
+    }
+
+    &__scores {
+        font-size: 0.7rem;
+        color: #b0bbeb;
+        display: flex;
+        flex-direction: row;
+        gap: 0.3rem;
+        align-items: center;
+        justify-content: left;
+
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        width: 100%;
+    }
+}
+
+.container__home {
+    grid-column: 2 / span 2;
+
+    @media (max-width: 500px) {
+        grid-column: 1 / span 3;
+    }
+}
+
+.container__away {
+    grid-column: 5 / span 2;
+
+    @media (max-width: 500px) {
+        grid-column: 5 / span 3;
     }
 }

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import backImage from '../../assets/backbutton.svg';
 import './Header.css'
 
 function Header({classSelected, setClassSelected, currentDay}) {
@@ -7,6 +9,9 @@ function Header({classSelected, setClassSelected, currentDay}) {
     const [title, setTitle] = useState(`JORNADA ${currentDay}`);
     return (
         <header className='header'>
+            <NavLink to={'/'}>
+                <img className='header__back' src={backImage}/>
+            </NavLink>
             <nav className='header__nav nav'>
                 <ul className="nav__menu menu">
                     <li className='menu__li'>

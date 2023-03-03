@@ -1,6 +1,15 @@
 .header {
   background-color: #0E131F;
 }
+.header__back {
+  width: 2.5rem;
+  padding: 0.5rem;
+  display: flex;
+  transition: transform 0.3s linear;
+}
+.header__back:hover {
+  transform: scale(1.05);
+}
 .header__title {
   background-color: #FFFFFF10;
   color: #FF0035;
