@@ -23,6 +23,13 @@ $color_select: #FF0035;
         }
     }
 
+    &__time {
+        grid-column: 4 / 5;
+        font-size: 0.8rem;
+        grid-row: 2 / 3;
+        color: #24e2e2;
+    }
+
     &__status {
         grid-column: 4 / 5;
         font-size: 0.8rem;
@@ -34,6 +41,25 @@ $color_select: #FF0035;
 
         &--uninitiated {
             color: #c9ab29;
+        }
+
+        &--inter {
+            color: #d88c28;
+        }
+
+        &--live {
+            position: relative;
+            color: #83eb59;
+
+            &::before {
+                content: '';
+                width: 50%;
+                height: 100%;
+                transform-origin: left;
+                position: absolute;
+                border-top: 1px solid #83eb59;
+                animation: animationLive 0.7s linear infinite alternate;
+            }
         }
     }
 
@@ -59,6 +85,17 @@ $color_select: #FF0035;
         flex-direction: column;
         list-style: none;
         width: 100%;
+    }
+}
+
+@keyframes animationLive {
+    0% {
+        transform: translate(0rem);
+        
+    }
+
+    100% {
+        transform: translate(2.0rem);
     }
 }
 
