@@ -2,14 +2,26 @@ import './Fixtures.css'
 //import dataMatches from '../../services/dataMatches.json';
 import { Match } from '../Match/Match';
 
-function Fixtures({calendar}) {
-    console.log(calendar)
-    const SOURCE_MATCHES = calendar;
-    const MATCHES = [parseInt(SOURCE_MATCHES[0]['event-metadata']['event-metadata-soccer'].week), parseInt(SOURCE_MATCHES[1]['event-metadata']['event-metadata-soccer'].week)];
-    const CURRENT_DAY = Math.max(...MATCHES);
-    const MATCHES_OF_THE_DAY = calendar.filter(match => match['event-metadata']['event-metadata-soccer'].week === `${CURRENT_DAY}`)
-   
+function Fixtures({ calendar }) {
+    let lastMatches = 0;
+    let matches = [];
+    let currentDay = 0;
+    const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);
+    console.log(SOURCE_MATCHES)
     
+
+    const FIND_MATCH = calendar.find((match, index) => {
+        if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES}`) {
+            lastMatches = index;
+            currentDay = match['event-metadata']['event-metadata-soccer'].week;
+            return match
+        }        
+    })
+    const MATCHES_OF_THE_DAY = calendar.filter(match => match['event-metadata']['event-metadata-soccer'].week === `${currentDay}`)
+    
+    for (let index = 0; index < lastMatches; index++) {
+        matches.push(parseInt(calendar[index]['event-metadata']['event-metadata-soccer'].week))        
+    }
 
     return (
         <div className='fixtures'>

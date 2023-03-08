@@ -1,0 +1,94 @@
+$color_back: #0E131F;
+$color_title: #38405F;
+$color_mark: #59546C;
+$color_font: #8B939C;
+$color_select: #FF0035;
+
+.betting {
+    width: 100%;
+    background-color: $color_back;
+    margin-bottom: 0.4rem;
+    box-shadow: 0 0 10px 1px #00000055;
+    border-bottom: 1px solid #7ec929bb;
+}
+
+.bettingmatch {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
+    gap: 0.2rem;
+    padding: 0.15rem;
+
+    &__name {
+        color: $color_font;
+        font-weight: 400;
+        font-size: 1rem;
+
+        &--home {
+            grid-column: 2 / 3;
+            margin: 0 0rem;
+        }
+
+        &--away {
+            grid-column: 4 / 5;
+        }
+    }
+
+    &__image {        
+        width: 2.5rem;
+        object-fit: cover;
+        -webkit-filter: drop-shadow(0px 0px 5px rgba(150, 150, 150, 0.7));
+        filter: drop-shadow(0px 0px 5px rgba(150, 150, 150, 0.7));
+
+        &--home {
+            grid-column: 1 / 2;
+        }
+
+        &--away {
+            grid-column: 5 / 6;
+        }
+    }
+}
+
+.bettingcheck {
+    display: flex;
+    gap: 0.3rem;
+    flex-direction: row;
+    
+    &__container {
+        position: relative;
+        width: 2rem;
+        height: 2rem;
+        background-color: $color_mark;
+        border: 1px solid $color_font;
+    }
+
+    &__check {
+        position: absolute;
+        width: 2.2rem;
+        height: 2.2rem;
+        left: -0.4rem;
+        top: -0.3rem;
+        opacity: 0;
+
+        &:checked ~ .bettingcheck__mark {
+            opacity: 1;
+        }
+    }
+
+    &__mark {
+        position: absolute;
+        opacity: 0;
+        width: 1.3rem;
+        height: 1.4rem;
+        left: 0.2rem;
+        top: 0.2rem;
+        padding: 0.1rem 0.1rem 0 0.1rem;
+        font-weight: 600;
+        background-color: #19b42d;
+        transition: all 0.3s linear;
+        border: 1px solid $color_title;
+        pointer-events: none;
+    }
+}

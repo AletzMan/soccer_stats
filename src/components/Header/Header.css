@@ -10,6 +10,11 @@
 .header__back:hover {
   transform: scale(1.05);
 }
+.header__navlink {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #f2f8ff;
+}
 .header__title {
   background-color: #FFFFFF10;
   color: #FF0035;
@@ -34,7 +39,7 @@
 }
 .menu__item {
   width: 100%;
-  padding: 0.2rem 0;
+  padding: 0.4rem 0;
   font-size: 0.8rem;
   background-color: #38405F;
   border: 1px solid transparent;

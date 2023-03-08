@@ -37,7 +37,7 @@ function useStats() {
         Promise.all([
             getTablePositions(),
             getResultsDay(),
-            getCalendar()
+            //getCalendar()
         ]).then(value => {
             
             dispatch({
@@ -45,7 +45,7 @@ function useStats() {
                 payload:
                     [value[0].data[0].rank,
                     value[1]['sports-content'].schedule[0]['sports-event'].filter(match => match['event-metadata']['start-date-time']  <= `${dateToday}T07:05:00Z`),
-                    value[2]['sports-content'].schedule[0]['sports-event'].filter(match => match['event-metadata']['event-metadata-soccer'].week)],
+                    value[1]['sports-content'].schedule[0]['sports-event'].filter(match => match['event-metadata']['event-metadata-soccer'].week === '11')],
             })            
         })
     }, [])

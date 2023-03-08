@@ -1,0 +1,20 @@
+.fixtures {
+  padding: 0.5rem;
+  background-color: #38405F;
+}
+.fixtures__label {
+  justify-self: left;
+}
+.fixtures__input {
+  padding: 0.4rem 0.6rem;
+  margin: 0.5rem 0.7rem 0.5rem 0.2rem;
+}
+.fixtures__send {
+  padding: 0.4rem 1.5rem;
+  background-color: #FF0035;
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+.fixtures__send:hover {
+  border-color: #8B939C;
+}
