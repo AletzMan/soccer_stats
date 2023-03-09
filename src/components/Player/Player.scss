@@ -1,0 +1,37 @@
+$color_back: #0E131F;
+$color_title: #38405F;
+$color_mark: #59546C;
+$color_font: #8B939C;
+$color_select: #FF0035;
+
+.player {
+    display: grid;
+    grid-template-columns: 2fr repeat(9, 1fr);
+    grid-column: 1 / span 10;
+    margin: 0rem;
+
+    &__name {
+        width: 100%;
+        background-color: $color_back;
+        grid-column: 1 / 2;
+        padding: 0.2rem 0;
+        font-size: 0.8rem;
+        min-width: 5rem;
+        margin: 0.0025em;
+        border-bottom: 1px solid #7ec929bb;
+    }
+
+    &__result {
+        width: 100%;
+        align-self: center;
+        justify-self: center;
+        background-color: $color_mark;
+        padding: 0.1rem 0;
+        color: #e6c73d;
+        font-weight: 600;
+        min-width: 3.2rem;
+        border-left: 1px solid #2b302c;
+        border-right: 1px solid #2b302c;
+        border-top: 1px solid #2b302c;
+    }
+}

@@ -51,6 +51,9 @@
   background-color: #59546C;
   border: 1px solid #8B939C;
 }
+.bettingcheck__container:hover {
+  border-color: #0be62c;
+}
 .bettingcheck__check {
   position: absolute;
   width: 2.2rem;
@@ -58,6 +61,7 @@
   left: -0.4rem;
   top: -0.3rem;
   opacity: 0;
+  cursor: pointer;
 }
 .bettingcheck__check:checked ~ .bettingcheck__mark {
   opacity: 1;

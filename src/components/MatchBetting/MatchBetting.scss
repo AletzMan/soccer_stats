@@ -62,8 +62,12 @@ $color_select: #FF0035;
         height: 2rem;
         background-color: $color_mark;
         border: 1px solid $color_font;
-    }
 
+        &:hover {
+            border-color: #0be62c;
+        }
+    }
+    
     &__check {
         position: absolute;
         width: 2.2rem;
@@ -71,6 +75,9 @@ $color_select: #FF0035;
         left: -0.4rem;
         top: -0.3rem;
         opacity: 0;
+        cursor: pointer;
+
+        
 
         &:checked ~ .bettingcheck__mark {
             opacity: 1;
