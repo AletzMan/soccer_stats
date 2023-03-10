@@ -4,6 +4,7 @@ import { StatsPage } from './routes/Stats/StatsPage'
 import { useStats } from './Hooks/UseData';
 import { HomePage } from './routes/Home/HomaPage';
 import { BettingPage } from './routes/Betting/BettingPage';
+import { Header } from './components/Header/Header';
 
 function App() {
   

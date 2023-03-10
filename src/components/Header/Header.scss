@@ -6,6 +6,8 @@ $color_select: #FF0035;
 
 
 .header {
+    display: flex;
+    flex-direction: column;
     background-color: $color_back;
 
     &__back {
@@ -17,12 +19,12 @@ $color_select: #FF0035;
         &:hover {
             transform: scale(1.05);
         }
-    }
+    }    
 
     &__navlink {
         width: 2.5rem;
         height: 2.5rem;
-        background-color: #f2f8ff;
+        margin: 0 0 1rem 0;
     }
 
     &__title {
@@ -30,6 +32,26 @@ $color_select: #FF0035;
         color: $color_select;
     }
 
+}
+
+.userinfo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.4rem 1.4rem 0 0;
+    position: absolute;
+    right: 0;
+
+    &__name {
+        font-size: 0.8rem;
+    }
+
+    &__photo {
+        border-radius: 50%;
+        border: 2px solid #e9e9e9;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
 }
 
 .nav__menu {

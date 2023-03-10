@@ -26,9 +26,17 @@
 .bettingmatch__name--away {
   grid-column: 4/5;
 }
+.bettingmatch__container {
+  display: flex;
+  width: 5rem;
+  height: 2.5rem;
+  background-color: #8B939C00;
+  overflow: hidden;
+}
 .bettingmatch__image {
-  width: 2.5rem;
-  object-fit: cover;
+  width: 7rem;
+  object-fit: contain;
+  opacity: 0.8;
   -webkit-filter: drop-shadow(0px 0px 5px rgba(150, 150, 150, 0.7));
   filter: drop-shadow(0px 0px 5px rgba(150, 150, 150, 0.7));
 }
@@ -52,7 +60,7 @@
   border: 1px solid #8B939C;
 }
 .bettingcheck__container:hover {
-  border-color: #0be62c;
+  border-color: #c0d031;
 }
 .bettingcheck__check {
   position: absolute;
@@ -75,7 +83,7 @@
   top: 0.2rem;
   padding: 0.1rem 0.1rem 0 0.1rem;
   font-weight: 600;
-  background-color: #19b42d;
+  background-color: #17d627aa;
   transition: all 0.3s linear;
   border: 1px solid #38405F;
   pointer-events: none;

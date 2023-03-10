@@ -5,8 +5,8 @@ function Player({name, results}) {
     return(
         <div  className="player">
             <span className='player__name'>{name}</span>
-            {results.map(result => (
-                <span className='player__result' key={uuid()}>{result}</span>
+            {results.map((result, index) => (
+                <span className={`player__result player__result--${index}`} key={uuid()}>{result}</span>
             ))}
         </div>
     )

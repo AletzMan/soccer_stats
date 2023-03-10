@@ -4,6 +4,9 @@
   grid-column: 1/span 10;
   margin: 0rem;
 }
+.player:hover {
+  filter: brightness(180%);
+}
 .player__name {
   width: 100%;
   background-color: #0E131F;

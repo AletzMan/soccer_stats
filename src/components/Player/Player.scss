@@ -10,6 +10,11 @@ $color_select: #FF0035;
     grid-column: 1 / span 10;
     margin: 0rem;
 
+    &:hover {
+        filter: brightness(180%);
+    }
+    
+
     &__name {
         width: 100%;
         background-color: $color_back;
@@ -33,5 +38,6 @@ $color_select: #FF0035;
         border-left: 1px solid #2b302c;
         border-right: 1px solid #2b302c;
         border-top: 1px solid #2b302c;
+        
     }
 }

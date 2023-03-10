@@ -6,6 +6,7 @@
   gap: 2rem;
   height: 90vh;
   background-color: #0E131F;
+  border: 1px solid #FFFFFF40;
   background-image: url("../../assets/back.webp");
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,18 +16,59 @@
 .home__logo {
   width: 12rem;
 }
+.home__greetings {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.home__labellogin {
+  padding: 0.4rem 1rem;
+  background-color: #FFFFFF10;
+  border: 1px solid #FFFFFF25;
+  color: #c0d031;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+}
 .home__button {
-  width: 6rem;
+  width: 15rem;
   text-decoration: none;
-  padding: 0.3rem 1rem;
+  padding: 0.7rem 0.5rem 0.7rem 2rem;
   color: #f3f6f8;
-  background-color: #FF0035;
-  border: 2px solid transparent;
+  background-color: #0E131F;
+  border: 1px solid #8B939C;
   transition: all 0.2s linear;
+  font-family: "Raleway", sans-serif;
+  font-size: 0.9rem;
+  user-select: none;
+  cursor: pointer;
+}
+.home__button--stats {
+  background-image: url("../../assets/stats-icon.png");
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 0.5rem center;
+}
+.home__button--betting {
+  background-image: url("../../assets/check-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 0.5rem center;
 }
 .home__button:hover {
-  filter: brightness(130%);
-  border: 2px solid #8B939C;
+  filter: brightness(140%);
+  background-color: #1b253b;
+}
+.home__login {
+  background-image: url("../../assets/google-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 0.5rem center;
+  cursor: pointer;
+}
+.home__logout {
+  background-image: url("../../assets/logout-icon.png");
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 0.5rem center;
 }
 .home__logoag {
   position: absolute;

@@ -3,23 +3,27 @@ import { NavLink } from 'react-router-dom';
 import backImage from '../../assets/backbutton.svg';
 import './Header.css'
 
-function Header({classSelected, setClassSelected, calendar, names}) {
+function Header({ classSelected, setClassSelected, calendar, names, user }) {
     let currentDay = 0;
-    const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);    
+    const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);
 
     const FIND_MATCH = calendar?.find(match => {
-        if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES }`) {
+        if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES}`) {
             currentDay = match['event-metadata']['event-metadata-soccer'].week;
             return match
-        }        
+        }
     })
-    
+
     const [title, setTitle] = useState(`JORNADA ${currentDay}`);
     return (
         <header className='header'>
             <NavLink className='header__navlink' to={'/'}>
-                <img className='header__back' src={backImage}/>
+                <img className='header__back' src={backImage} />
             </NavLink>
+            {user && <div className='header__userinfo userinfo'>
+                <span className='userinfo__name'>{user?.displayName}</span>
+                <img className='userinfo__photo' src={user?.profilePicture} alt={`profile photo of ${user?.displayName}`} />
+            </div>}
             <nav className='header__nav nav'>
                 <ul className="nav__menu menu">
                     {names[0] && <li className='menu__li'>

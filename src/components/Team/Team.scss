@@ -13,6 +13,13 @@ $color_select: #FF0035;
     border-bottom: 1px solid $color_mark;
     height: 1.7rem;
 
+    &:hover {
+        filter: brightness(150%);
+        & .stats {
+            filter: brightness(150%);
+        }
+    }
+
     @for $i from 1 through 5 {
         &:nth-child(#{$i}) {
             border-left: 2px solid #03a71e;

@@ -12,29 +12,78 @@ $color_select: #FF0035;
     gap: 2rem;
     height: 90vh;
     background-color: $color_back;
+    border: 1px solid #FFFFFF40;
     background-image: url('../../assets/back.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
-    background-blend-mode:soft-light;
+    background-blend-mode: soft-light;
 
     &__logo {
         width: 12rem;
     }
 
+    &__greetings {
+        font-size: 1.3rem;
+        font-weight: 400;
+    }
+
+    &__labellogin {
+        padding: 0.4rem 1rem;
+        background-color: #FFFFFF10;
+        border: 1px solid #FFFFFF25;
+        color: #c0d031;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
+    }
+
     &__button {
-        width: 6rem;
+        width: 15rem;
         text-decoration: none;
-        padding: 0.3rem 1rem;
+        padding: 0.7rem 0.5rem 0.7rem 2rem;
         color: #f3f6f8;
-        background-color: $color_select;
-        border: 2px solid transparent;
+        background-color: $color_back;
+        border: 1px solid $color_font;
         transition: all 0.2s linear;
+        font-family: 'Raleway', sans-serif;
+        font-size: 0.9rem;
+        user-select: none;
+        cursor: pointer;
+
+        &--stats {
+            background-image: url('../../assets/stats-icon.png');
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            background-position: 0.5rem center;
+        }
+
+        &--betting {
+            background-image: url('../../assets/check-icon.svg');
+            background-repeat: no-repeat;
+            background-size: 1.5rem;
+            background-position: 0.5rem center;
+        }
+
 
         &:hover {
-            filter: brightness(130%);
-            border: 2px solid $color_font;
+            filter: brightness(140%);
+            background-color: #1b253b;
         }
+    }
+
+    &__login {
+        background-image: url('../../assets/google-icon.svg');
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        background-position: 0.5rem center;
+        cursor: pointer;
+    }
+
+    &__logout {      
+        background-image: url('../../assets/logout-icon.png');
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        background-position: 0.5rem center;
     }
 
     &__logoag {

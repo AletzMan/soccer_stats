@@ -1,4 +1,6 @@
 .header {
+  display: flex;
+  flex-direction: column;
   background-color: #0E131F;
 }
 .header__back {
@@ -13,11 +15,29 @@
 .header__navlink {
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #f2f8ff;
+  margin: 0 0 1rem 0;
 }
 .header__title {
   background-color: #FFFFFF10;
   color: #FF0035;
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.4rem 1.4rem 0 0;
+  position: absolute;
+  right: 0;
+}
+.userinfo__name {
+  font-size: 0.8rem;
+}
+.userinfo__photo {
+  border-radius: 50%;
+  border: 2px solid #e9e9e9;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .nav__menu {

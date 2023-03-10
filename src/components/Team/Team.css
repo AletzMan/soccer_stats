@@ -6,6 +6,12 @@
   border-bottom: 1px solid #59546C;
   height: 1.7rem;
 }
+.team:hover {
+  filter: brightness(150%);
+}
+.team:hover .stats {
+  filter: brightness(150%);
+}
 .team:nth-child(1) {
   border-left: 2px solid #03a71e;
 }
