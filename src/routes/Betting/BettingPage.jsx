@@ -27,31 +27,6 @@ function BettingPage({ calendar }) {
     let playerResults = {};
     const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);
     const names = ['QUINIELA', 'PARTICIPANTES', null];
-    const PLAYERS = [
-        {
-            id: 0,
-            name: 'Marijo',
-            results: ['L', 'E', 'V', 'E', 'L', 'V', 'L', 'E', 'L']
-        },
-        {
-            id: 1,
-            name: 'Evelyn',
-            results: ['E', 'V', 'L', 'L', 'V', 'E', 'E', 'V', 'V']
-        },
-        {
-            id: 2,
-            name: 'Elizabeth',
-            results: ['V', 'L', 'E', 'V', 'E', 'L', 'V', 'L', 'E']
-        },
-        {
-            id: 3,
-            name: 'Mariana',
-            results: ['V', 'L', 'E', 'V', 'E', 'L', 'V', 'L', 'E']
-        },
-    ]
-
-
-    console.log(betsInfo)
 
     useEffect(() => {
         setCurrentUser(userInfo);

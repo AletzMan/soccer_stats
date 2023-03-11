@@ -5,7 +5,7 @@ import './Header.css'
 
 function Header({ classSelected, setClassSelected, calendar, names, user }) {
     let currentDay = 0;
-    const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);
+    const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer']?.week);
 
     const FIND_MATCH = calendar?.find(match => {
         if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES}`) {

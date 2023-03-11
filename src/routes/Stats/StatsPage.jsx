@@ -5,9 +5,11 @@ import { Header } from "../../components/Header/Header";
 import { Positions } from "../../components/Positions/Positions";
 import { Results } from '../../components/Results/Results';
 
+
 function StatsPage({ calendar, results, positionsData }) {
     const [classSelected, setClassSelected] = useState([true, false, false]);
     const [currentUser, setCurrentUser] = useState(null);
+    
     const names = ['JORANDA', 'RESULTADOS', 'POSICIONES'];
     const userInfo = useLocation().state;
     const navigate = useNavigate();
@@ -18,6 +20,8 @@ function StatsPage({ calendar, results, positionsData }) {
             navigate('/');
         }
     },[])
+
+    
 
     return (
         <>

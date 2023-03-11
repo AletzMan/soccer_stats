@@ -22,6 +22,10 @@ export function countdown(targetDate) {
     timeMinutes = timeMinutes < 10 ? '0' + timeMinutes : timeMinutes;
     timeSeconds = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds;
     
+    if(timeHours < 0) {
+        return 'Comenzando'
+    }
+
     return `${timeHours}:${timeMinutes}:${timeSeconds}`
 }
 
