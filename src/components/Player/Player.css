@@ -3,6 +3,7 @@
   grid-template-columns: 2fr repeat(9, 1fr);
   grid-column: 1/span 10;
   margin: 0rem;
+  transition: all 0.3s;
 }
 .player:hover {
   filter: brightness(180%);
@@ -17,11 +18,14 @@
   margin: 0.0025em;
   border-bottom: 1px solid #7ec929bb;
 }
+.player__name--true {
+  background-color: #1c303a;
+}
 .player__result {
   width: 100%;
   align-self: center;
   justify-self: center;
-  background-color: #59546C;
+  background-color: #0E131F;
   padding: 0.1rem 0;
   color: #e6c73d;
   font-weight: 600;
@@ -29,4 +33,7 @@
   border-left: 1px solid #2b302c;
   border-right: 1px solid #2b302c;
   border-top: 1px solid #2b302c;
+}
+.player__result--true {
+  background-color: #182033;
 }

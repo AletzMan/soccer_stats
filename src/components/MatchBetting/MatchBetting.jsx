@@ -1,10 +1,9 @@
-import { useRef, useState } from 'react'
+
 import './MatchBetting.css'
 
 function MatchBetting({ team, eventData, updateResults, index, value }) {
     const handleRadioCheck = (e) => {
-        updateResults(e.target.id, index)
-
+        updateResults(e.target.id, index);    
     }
     return (
         <div className='betting'>

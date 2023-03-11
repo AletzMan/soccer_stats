@@ -14,6 +14,7 @@ function Header({ classSelected, setClassSelected, calendar, names, user }) {
         }
     })
 
+    console.log(user?.profilePicture);
     const [title, setTitle] = useState(`JORNADA ${currentDay}`);
     return (
         <header className='header'>

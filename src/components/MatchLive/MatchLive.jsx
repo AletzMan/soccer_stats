@@ -1,56 +1,50 @@
 import './MatchLive.css';
 import ballImage from '../../assets/ball.png';
+import { useEffect, useState } from 'react';
+import { countdown, statusEvent } from '../../services/utilities';
 
 function MatchLive({ sportEvent, officials, team, eventActions }) {
+    const [timeToStartEvent, setTimeStartEvent] = useState('');
     const HOME_TEAM = team[0]['team-metadata']['team-key'];
     const AWAY_TEAM = team[1]['team-metadata']['team-key'];
-    let SCORES_HOME;
-    let SCORES_AWAY;
+    let visitorsScoring = [];
+    let awayScoring = [];
 
-   
+
     if (eventActions['event-actions-soccer']['action-soccer-score']) {
-        //console.log(eventActions)
         const SCORES = eventActions['event-actions-soccer']['action-soccer-score'];
-        //console.log(SCORES)
-        const SCORES_BY_TEAM = SCORES.map((score) => {
+        const scoresByTeam = SCORES.map((score) => {
             if (score['action-soccer-play-participant'][0]['team-idref'] === HOME_TEAM) {
                 return score = [0, score.minutesElapsed];
             } else if (score['action-soccer-play-participant'][0]['team-idref'] === AWAY_TEAM) {
                 return score = [1, score.minutesElapsed];
             }
         })
-        const PLAYERS_SCORE_HOME = team[0].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
-
-        const PLAYERS_SCORE_AWAY = team[1].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
-
-        SCORES_HOME = SCORES_BY_TEAM.filter(teamSelect => teamSelect[0] === 0)?.map((teamSelect, index) => {
-            return { id: index, minute: teamSelect[1], name: PLAYERS_SCORE_HOME[index][1] + ' ' + PLAYERS_SCORE_HOME[index][2] };
+        const homePlayersScoring = team[0].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
+        const awayPlayersScoring = team[1].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
+        visitorsScoring = scoresByTeam.filter(teamSelect => teamSelect[0] === 0)?.map((teamSelect, index) => {
+            return { id: index, minute: teamSelect[1], name: homePlayersScoring[index][1] + ' ' + homePlayersScoring[index][2] };
         })
-        SCORES_AWAY = SCORES_BY_TEAM.filter(teamSelect => teamSelect[0] === 1)?.map((teamSelect, index) => {
-            return { id: index,  minute: teamSelect[1], name: PLAYERS_SCORE_AWAY[index][1] + ' ' + PLAYERS_SCORE_AWAY[index][2] };
+        awayScoring = scoresByTeam.filter(teamSelect => teamSelect[0] === 1)?.map((teamSelect, index) => {
+            return { id: index, minute: teamSelect[1], name: awayPlayersScoring[index][1] + ' ' + awayPlayersScoring[index][2] };
         })
     }
-    //console.log(sportEvent )
 
-    let STATUS_MATCH = '';
-    let CLASS_STATUS = '';
-    if(sportEvent['event-status'] === 'post-event') {
-        STATUS_MATCH = 'Finalizado';
-        CLASS_STATUS = 'finished';
-    }
-    if(sportEvent['event-status'] === 'pre-event') {
-        STATUS_MATCH = 'Previa';
-        CLASS_STATUS = 'uninitiated';
-    }
-    if(sportEvent['event-status'] === 'intermission') {
-        STATUS_MATCH = 'Intermedio';
-        CLASS_STATUS = 'inter';
-    }
-    if(sportEvent['event-status'] === 'mid-event') {
-        STATUS_MATCH = 'En Vivo';
-        CLASS_STATUS = 'live';
-    }
-    
+    useEffect(() => {
+        const dateEvent = sportEvent['start-date-time']
+        if (sportEvent['event-metadata-soccer']['minutes-elapsed'] === undefined) {
+            const interval = setInterval(() => {
+                setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);
+            }, 1000);
+            return () => clearInterval(interval);
+        } else {
+            setTimeStartEvent(`${sportEvent['event-metadata-soccer']['minutes-elapsed']}'`)
+        }
+    }, []);
+
+    const statusMatch = statusEvent(sportEvent).status;
+    const statusClass = statusEvent(sportEvent).class;
+
     return (
         <>
             <div className="matchlive">
@@ -64,17 +58,17 @@ function MatchLive({ sportEvent, officials, team, eventActions }) {
                     <img className='matchlive__img--away matchlive__img' src={team[1]['team-metadata']['sports-property'][0].value}></img>
                 </>
                 <ul className='matchlive__container container__home'>
-                    {SCORES_HOME?.map((player) => (
-                        <li key={player.id}  className='matchlive__minuteshome matchlive__scores' ><img className='matchlive__img--ball' src={ballImage} alt='image of ball' /> {player.minute + "'" + ' ' + player.name}</li>
+                    {visitorsScoring?.map((player) => (
+                        <li key={player.id} className='matchlive__minuteshome matchlive__scores' ><img className='matchlive__img--ball' src={ballImage} alt='image of ball' /> {player.minute + "'" + ' ' + player.name}</li>
                     ))}
                 </ul>
                 <ul className='matchlive__container container__away'>
-                    {SCORES_AWAY?.map((player) => (
+                    {awayScoring?.map((player) => (
                         <li key={player.id} className='matchlive__minutesaway matchlive__scores' ><img className='matchlive__img--ball' src={ballImage} alt='image of ball' /> {player.minute + "'" + ' ' + player.name}</li>
                     ))}
                 </ul>
-                <span className={`matchlive__time matchlive__time--${CLASS_STATUS}`}>{`${sportEvent['event-metadata-soccer']['minutes-elapsed']}'`}</span>
-                <span className={`matchlive__status matchlive__status--${CLASS_STATUS}`}>{STATUS_MATCH}</span>
+                <span className={`matchlive__time matchlive__time--${statusClass}`}>{timeToStartEvent}</span>
+                <span className={`matchlive__status matchlive__status--${statusClass}`}>{statusMatch}</span>
             </div>
         </>
     )

@@ -2,15 +2,29 @@ import './HomePage.css';
 import logo from '../../assets/liga-mx-logo.png';
 import logoAG from '../../assets/logo-large.svg';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { AuthProvider } from '../../components/authProvider';
-import { auth, logout } from '../../services/firebase';
+import { auth, getAllBets, logout } from '../../services/firebase';
 
 function HomePage() {
     const navigate = useNavigate();
     const [currentUser, setCurrentUser] = useState(null);
     const [stateLogin, setLoginState] = useState(0);
+    const [bets, setBets] = useState([]);
+
+
+    useEffect(()=> {
+        getDataBets();
+
+        async function getDataBets(){
+            const groupBets = await getAllBets();
+            if(groupBets?.length > 0) {
+                setBets(groupBets);
+            }
+            console.log(bets);
+        }
+    },[])
 
     /*
    0: Inicializando
@@ -53,7 +67,7 @@ function HomePage() {
         navigate('stats', { state: currentUser });
     }
     const goToBetting = () => {
-        navigate('betting', { state: currentUser });
+        navigate('betting', { state: {userInfo: currentUser, bets: bets }});
     }
 
 

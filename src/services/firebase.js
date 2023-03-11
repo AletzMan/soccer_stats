@@ -81,46 +81,63 @@ export async function getUserInfo(uid) {
 }
 
 
-export async function insertNewLink(link) {
+export async function insertNewBet(bet) {
   try {
-    const docRef = collection(db, 'links');
-    const res = await addDoc(docRef, link);
+    const docRef = collection(db, 'bets');
+    const res = await addDoc(docRef, bet);
     return res;
   } catch (error) {
     console.error(error);
   }
 }
 
-export async function getLinks(uid) {
-  const links = [];
+export async function getBetsByUser(uid) {
+  const bets = [];
   try {
-    const collectionRef = collection(db, 'links');
+    const collectionRef = collection(db, 'bets');
     const q = query(collectionRef, where('uid', '==', uid));
     const querySnapShot = await getDocs(q);
     querySnapShot.forEach((doc) => {
-      const link = { ...doc.data() };
-      link.docId = doc.id;
-      links.push(link);
+      const bet = { ...doc.data() };
+      bet.docId = doc.id;
+      bets.push(bet);
     });
-    return links;
+    return bets;
   } catch (error) {
     console.error(error);
   }
 }
 
-export async function updateLink(docId, link) {
+export async function getAllBets() {
+  const bets = [];
   try {
-    const docRef = doc(db, 'links', docId);
-    const res = await setDoc(docRef, link);
+    const collectionRef = collection(db, 'bets');
+    const q = query(collectionRef);
+    const querySnapShot = await getDocs(q);
+    querySnapShot.forEach((doc) => {
+      const bet = { ...doc.data() };
+      bet.docId = doc.id;
+      bets.push(bet);
+    });
+    return bets;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function updateBet(docId, bet) {
+  try {
+    const docRef = doc(db, 'bets', docId);
+    const res = await setDoc(docRef, bet);
     return res;
   } catch (error) {
     console.error(error);
   }
 }
 
-export async function deleteeLink(docId) {
+export async function deleteBet(docId) {
   try {
-    const docRef = doc(db, 'links', docId);
+    const docRef = doc(db, 'bets', docId);
     const res = await deleteDoc(docRef);
     return res;
   } catch (error) {

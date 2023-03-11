@@ -10,7 +10,7 @@ function Results({ results }) {
     let dateToday = `${year}-${month}-${day}`;
     const DATE = new Date(dateToday).toLocaleDateString('es-MX', optionsDate);
     let dateFull = DATE.charAt(0).toUpperCase() + DATE.slice(1);
-    
+    console.log(results)
     return (
         <div className='results'>
             <h1 className='results__title'>{dateFull}</h1>
