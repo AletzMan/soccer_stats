@@ -9,6 +9,7 @@ import loadingIcon from '../../assets/loading-icon.svg';
 import uuid from "react-uuid";
 import { insertNewBet } from "../../services/firebase";
 import { async } from "@firebase/util";
+import { getMatchWinner } from "../../services/utilities";
 
 function BettingPage({ calendar }) {
     const [classSelected, setClassSelected] = useState([true, false, false]);
@@ -99,6 +100,8 @@ function BettingPage({ calendar }) {
         setUsername(e.target.value);
     }
 
+
+
     return (
         <div className='bettingpage'>
             <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={calendar} names={names} user={currentUser} />
@@ -129,8 +132,8 @@ function BettingPage({ calendar }) {
                             <MatchHeader key={key['event-key']} team={team} eventData={eventData} />
                         ))}
                     </div>
-                    {currentBets.map((player) => (
-                        <Player key={player.id} name={player.name} results={player.results} idBet={player.uid} userID={currentUser.uid} />
+                    {currentBets.map((player, index) => (
+                        <Player key={player.id} name={player.name} results={player.results} idBet={player.uid} userID={currentUser.uid} calendar={calendar}/>
                     ))}
                 </div>
             }

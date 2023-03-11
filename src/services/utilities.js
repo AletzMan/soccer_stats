@@ -2,15 +2,7 @@ export function countdown(targetDate) {
     const optionsDate = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
     const dateEventLocal = new Date(targetDate).toLocaleDateString('es-MX', optionsDate)
 
-    let today = new Date();
-    let date = {
-        day: today.getDate() < 9 ? '0' + (today.getDate()) : today.getDate(),
-        month: today.getMonth() + 1,
-        year: today.getFullYear(),
-        hour: today.getHours(),
-        minute: today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes(),
-        second: today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds()
-    }
+    let date = getDateToday();
     const { day, month, year, hour, minute, second } = date;
 
     let dateToday = `${day}/${month}/${year}, ${hour}:${minute}:${second}`;
@@ -21,8 +13,8 @@ export function countdown(targetDate) {
 
     timeMinutes = timeMinutes < 10 ? '0' + timeMinutes : timeMinutes;
     timeSeconds = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds;
-    
-    if(timeHours < 0) {
+
+    if (timeHours < 0) {
         return 'Comenzando'
     }
 
@@ -32,22 +24,74 @@ export function countdown(targetDate) {
 export function statusEvent(sportEvent) {
     let STATUS_MATCH = '';
     let CLASS_STATUS = '';
-    
-    if (sportEvent['event-status'] === 'post-event') {
-        STATUS_MATCH = 'Finalizado';
-        CLASS_STATUS = 'finished';
+    try {
+        if (sportEvent['event-status'] === 'post-event') {
+            STATUS_MATCH = 'Finalizado';
+            CLASS_STATUS = 'finished';
+        }
+        if (sportEvent['event-status'] === 'pre-event') {
+            STATUS_MATCH = 'Previa';
+            CLASS_STATUS = 'uninitiated';
+        }
+        if (sportEvent['event-status'] === 'intermission') {
+            STATUS_MATCH = 'Intermedio';
+            CLASS_STATUS = 'inter';
+        }
+        if (sportEvent['event-status'] === 'mid-event') {
+            STATUS_MATCH = 'En Vivo';
+            CLASS_STATUS = 'live';
+        }
+    } catch (error) {
+        return console.error(error)
     }
-    if (sportEvent['event-status'] === 'pre-event') {
-        STATUS_MATCH = 'Previa';
-        CLASS_STATUS = 'uninitiated';
+    return { status: STATUS_MATCH, class: CLASS_STATUS }
+}
+
+export function getDateToday() {
+    let today = new Date();
+    let day = today.getDate() < 9 ? '0' + (today.getDate() + 1) : today.getDate() + 1;
+    let month = today.getMonth() < 9 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;
+    let year = today.getFullYear();
+
+    return {
+        day: today.getDate() < 9 ? '0' + (today.getDate()) : today.getDate(),
+        month: today.getMonth() + 1,
+        year: today.getFullYear(),
+        hour: today.getHours(),
+        minute: today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes(),
+        second: today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds()
     }
-    if (sportEvent['event-status'] === 'intermission') {
-        STATUS_MATCH = 'Intermedio';
-        CLASS_STATUS = 'inter';
+}
+
+export function getMatchWinner(calendar) {
+    let resultData = null;
+    try {
+        const statusMatch = calendar.map(match => {
+            return match['event-metadata']['event-status'];
+        });
+        const resultMatch = {
+            homeScores: calendar.map(match => {
+                return match.team[0]['team-stats'].score
+            }),
+            awayScores: calendar.map(match => {
+                return match.team[1]['team-stats'].score
+            }),
+        }
+        resultData = statusMatch.map((status, index) => {
+            if (status === 'post-event') {
+                if (parseInt(resultMatch.homeScores[index]) > parseInt(resultMatch.awayScores[index])) {
+                    return 'L';
+                } else if (parseInt(resultMatch.homeScores[index]) === parseInt(resultMatch.awayScores[index])) {
+                    return 'E';
+                } else if (parseInt(resultMatch.homeScores[index]) < parseInt(resultMatch.awayScores[index])) {
+                    return 'V';
+                }
+            } else {
+                return null;
+            }
+        });
+    } catch (error) {
+        console.error(error)
     }
-    if (sportEvent['event-status'] === 'mid-event') {
-        STATUS_MATCH = 'En Vivo';
-        CLASS_STATUS = 'live';
-    }    
-    return {status: STATUS_MATCH, class: CLASS_STATUS}
+    return resultData;
 }

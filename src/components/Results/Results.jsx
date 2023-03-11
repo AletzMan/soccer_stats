@@ -2,12 +2,11 @@ import { MatchLive } from '../MatchLive/MatchLive';
 import { useStats } from '../../Hooks/UseData';
 import './Results.css';
 import { useEffect, useState } from 'react';
+import { getDateToday } from '../../services/utilities';
 
 function Results({ results }) {
     const { statsData } = useStats();
     const [resultsData, setResultsData] = useState(results);
-
-
 
     useEffect(() => {
         getData();
@@ -33,15 +32,10 @@ function Results({ results }) {
     }, [resultsData]);
 
     const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    let today = new Date();
-    let day = today.getDate() < 9 ? '0' + (today.getDate() + 1) : today.getDate() + 1;
-    let month = today.getMonth() < 9 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;
-    let year = today.getFullYear();
-    let dateToday = `${year}-${month}-${day}`;
-    const DATE = new Date(dateToday).toLocaleDateString('es-MX', optionsDate);
+    let today = getDateToday();
+    const DATE = new Date(`${today.year}-${today.month}-${today.day}`).toLocaleDateString('es-MX', optionsDate);
     let dateFull = DATE.charAt(0).toUpperCase() + DATE.slice(1);
-    console.log(results)
-    console.log(resultsData)
+
     return (
         <div className='results'>
             <h1 className='results__title'>{dateFull}</h1>

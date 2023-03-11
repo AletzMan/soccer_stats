@@ -37,3 +37,7 @@
 .player__result--true {
   background-color: #182033;
 }
+
+.result__true {
+  background-color: #19d4cb15;
+}

@@ -19,7 +19,7 @@ export const getResultsDay = async () => {
     try {
         const response = await fetch(`${API_URL_RESULTS}`)
         const data = await response.json();
-        console.log(data)
+        //console.log(data)
         return data;
     } catch (err) {
         return console.error(err);
@@ -29,7 +29,7 @@ export const getCalendar = async () => {
     try {
         const response = await fetch(`${API_URL_CALENDAR}`)
         const data = await response.json();
-        console.log(data)
+        //console.log(data)
         return data;
     } catch (err) {
         return console.error(err);
