@@ -1,5 +1,5 @@
 $color_back: #0E131F;
-$color_title: #38405F;
+$color_title: #183c4d;
 $color_mark: #59546C;
 $color_font: #8B939C;
 $color_select: #FF0035;
@@ -8,11 +8,11 @@ $color_select: #FF0035;
     display: grid;
     grid-template-columns: 2fr repeat(9, 1fr);
     grid-column: 1 / span 10;
-    margin: 0rem;
     transition: all 0.3s;
+    margin-bottom: 0.2rem;
 
     &:hover {
-        filter: brightness(180%);
+        filter: brightness(220%);
     }
 
 
@@ -22,8 +22,10 @@ $color_select: #FF0035;
         grid-column: 1 / 2;
         padding: 0.2rem 0;
         font-size: 0.8rem;
-        min-width: 5rem;
-        margin: 0.0025em;
+       width: 10.5rem;
+        margin: 0.0025em 0.2rem 0.0025rem;
+        text-align: left;
+        padding: 0.2rem 0 0 0.3rem;
         border-bottom: 1px solid #7ec929bb;
 
         &--true {
@@ -32,14 +34,13 @@ $color_select: #FF0035;
     }
 
     &__result {
-        width: 100%;
+        width: 5rem;
         align-self: center;
         justify-self: center;
         background-color: $color_back;
         padding: 0.1rem 0;
         color: #e6c73d;
         font-weight: 600;
-        min-width: 3.2rem;
         border-left: 1px solid #2b302c;
         border-right: 1px solid #2b302c;
         border-top: 1px solid #2b302c;
@@ -52,5 +53,6 @@ $color_select: #FF0035;
 }
 
 .result__true {
-    background-color: #19d4cb15;
+    background-color: #0ff07f35;
+    border: 1px solid #77e25c99;
 }

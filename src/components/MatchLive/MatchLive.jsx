@@ -2,46 +2,49 @@ import './MatchLive.css';
 import ballImage from '../../assets/ball.png';
 import { useEffect, useState } from 'react';
 import { countdown, statusEvent } from '../../services/utilities';
+import { useStats } from '../../Hooks/UseData';
 
 function MatchLive({ sportEvent, officials, team, eventActions }) {
+    //const [resultsData, setResultsData] = useState(sportEvent);
     const [timeToStartEvent, setTimeStartEvent] = useState('');
     const HOME_TEAM = team[0]['team-metadata']['team-key'];
     const AWAY_TEAM = team[1]['team-metadata']['team-key'];
     let visitorsScoring = [];
     let awayScoring = [];
+    
+    if (eventActions) {
+        if (eventActions['event-actions-soccer']['action-soccer-score']) {
+            const SCORES = eventActions['event-actions-soccer']['action-soccer-score'];
+            const scoresByTeam = SCORES.map((score) => {
+                if (score['action-soccer-play-participant'][0]['team-idref'] === HOME_TEAM) {
+                    return score = [0, score.minutesElapsed];
+                } else if (score['action-soccer-play-participant'][0]['team-idref'] === AWAY_TEAM) {
+                    return score = [1, score.minutesElapsed];
+                }
+            })
+            const homePlayersScoring = team[0].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
+            const awayPlayersScoring = team[1].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
+            visitorsScoring = scoresByTeam.filter(teamSelect => teamSelect[0] === 0)?.map((teamSelect, index) => {
+                return { id: index, minute: teamSelect[1], name: homePlayersScoring[index][1] + ' ' + homePlayersScoring[index][2] };
+            })
+            awayScoring = scoresByTeam.filter(teamSelect => teamSelect[0] === 1)?.map((teamSelect, index) => {
+                return { id: index, minute: teamSelect[1], name: awayPlayersScoring[index][1] + ' ' + awayPlayersScoring[index][2] };
+            })
+        }
 
-
-    if (eventActions['event-actions-soccer']['action-soccer-score']) {
-        const SCORES = eventActions['event-actions-soccer']['action-soccer-score'];
-        const scoresByTeam = SCORES.map((score) => {
-            if (score['action-soccer-play-participant'][0]['team-idref'] === HOME_TEAM) {
-                return score = [0, score.minutesElapsed];
-            } else if (score['action-soccer-play-participant'][0]['team-idref'] === AWAY_TEAM) {
-                return score = [1, score.minutesElapsed];
-            }
-        })
-        const homePlayersScoring = team[0].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
-        const awayPlayersScoring = team[1].player?.map((player) => { return [player.id, player['player-metadata'].name.first, player['player-metadata'].name.last] })
-        visitorsScoring = scoresByTeam.filter(teamSelect => teamSelect[0] === 0)?.map((teamSelect, index) => {
-            return { id: index, minute: teamSelect[1], name: homePlayersScoring[index][1] + ' ' + homePlayersScoring[index][2] };
-        })
-        awayScoring = scoresByTeam.filter(teamSelect => teamSelect[0] === 1)?.map((teamSelect, index) => {
-            return { id: index, minute: teamSelect[1], name: awayPlayersScoring[index][1] + ' ' + awayPlayersScoring[index][2] };
-        })
     }
-
     useEffect(() => {
         const dateEvent = sportEvent['start-date-time']
         if (sportEvent['event-metadata-soccer']['minutes-elapsed'] === undefined) {
             const interval = setInterval(() => {
-                setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);
+                setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);                
             }, 1000);
             return () => clearInterval(interval);
         } else {
             setTimeStartEvent(`${sportEvent['event-metadata-soccer']['minutes-elapsed']}'`)
         }
     }, []);
-
+    //console.log(resultsData)
     const statusMatch = statusEvent(sportEvent).status;
     const statusClass = statusEvent(sportEvent).class;
 

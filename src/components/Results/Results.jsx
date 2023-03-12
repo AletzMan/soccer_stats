@@ -5,9 +5,7 @@ import { useEffect, useState } from 'react';
 import { getDateToday } from '../../services/utilities';
 
 function Results({ results }) {
-    const { statsData } = useStats();
     const [resultsData, setResultsData] = useState(results);
-
     useEffect(() => {
         getData();
         async function getData() {
@@ -17,7 +15,7 @@ function Results({ results }) {
             }
         }
     }, [])
-
+    
     useEffect(() => {
         const interval = setInterval(() => {
             getData();
@@ -29,7 +27,8 @@ function Results({ results }) {
             }
         }, 30000);
         return () => clearInterval(interval);
-    }, [resultsData]);
+    }, []);
+    console.log(resultsData)
 
     const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     let today = getDateToday();
@@ -39,7 +38,7 @@ function Results({ results }) {
     return (
         <div className='results'>
             <h1 className='results__title'>{dateFull}</h1>
-            {resultsData && resultsData.map(({ ['event-metadata']: id, ['event-metadata']: sportEvent, officials, team, 'event-actions': eventActions }) => (
+            {resultsData && resultsData.map(({ ['event-metadata']: id, ['event-metadata']: sportEvent, officials, team, ['event-actions']: eventActions }) => (
                 <MatchLive key={id['event-key']} sportEvent={sportEvent} officials={officials} team={team} eventActions={eventActions} />
             ))}
             {resultsData.length === 0 && <p>Hoy no hay partidos</p>}

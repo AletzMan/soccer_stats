@@ -21,7 +21,7 @@ function StatsPage({ calendar, results, positionsData }) {
         }
     },[])
 
-    
+    console.log(results)
 
     return (
         <>

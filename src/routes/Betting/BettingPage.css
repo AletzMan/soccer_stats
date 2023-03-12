@@ -1,6 +1,6 @@
 .bettingpage {
   padding: 0.5rem;
-  background-color: #38405F;
+  background-color: #183c4d;
   width: 98%;
 }
 .bettingpage__input {
@@ -130,8 +130,7 @@
   padding: 0.2rem;
 }
 .players__space {
-  width: 100%;
-  min-width: 5rem;
+  width: 11.1rem;
 }
 .players__header {
   display: grid;
@@ -142,4 +141,5 @@
   place-items: center;
   min-width: 3.5rem;
   margin-right: 0.1rem;
+  margin-top: 0.8rem;
 }

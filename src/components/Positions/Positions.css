@@ -29,7 +29,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(1rem, 1fr));
-  background-color: #38405F;
+  background-color: #183c4d;
   color: #cee5ff;
   border-bottom: 1px solid #8B939C;
 }

@@ -1,22 +1,23 @@
 $color_back: #0E131F;
-$color_title: #38405F;
+$color_title: #183c4d;
 $color_mark: #59546C;
 $color_font: #8B939C;
 $color_select: #FF0035;
 
-
-.matchheader {    
+.matchheader {
+    position: relative;
     background-color: $color_back;
     box-shadow: 0 0 10px 1px #00000055;
+    border: 1px solid #7ec92940;
     border-bottom: 1px solid #7ec929bb;
-    width: 90%;
+    width: 4.63rem;
     height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
     place-items: center;
-    padding: 0.07rem;
-    margin-bottom: 0.5rem;
+    padding: 0.1rem;
+    margin: 0 0.1rem 0.7rem 0.1rem;
     overflow: hidden;
 
     &__container {
@@ -26,21 +27,62 @@ $color_select: #FF0035;
         height: 100%;
     }
 
+    &__finished--true {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding-right: 3rem;
+        writing-mode: vertical-rl;
+        text-orientation: sideways-right;
+        background-image: url('../../assets/finish-icon.svg');
+        background-repeat: no-repeat;
+        background-position: 4.6rem bottom;
+        background-size: 1.3rem;
+        background-color: #95e97440;
+    }
+    &__finished--false {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding-right: 2.5rem;
+        writing-mode: vertical-rl;
+        text-orientation: sideways-right;
+        background-image: url('../../assets/pending-icon.svg');
+        background-repeat: no-repeat;
+        background-position: 4.6rem 6.4rem ;
+        background-size: 1.3rem;
+        background-color: #f7dd8640;
+    }
+    &__live--true {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding-right: 3rem;
+        writing-mode: vertical-rl;
+        text-orientation: sideways-right;
+        background-image: url('../../assets/live-icon.svg');
+        background-repeat: no-repeat;
+        background-position: 4.6rem  bottom;
+        background-size: 1.5rem;
+        background-color: #ffffff40;
+    }
+
     &__vs {
         position: absolute;
         font-size: 0.7rem;
         color: #fff569;
         transform: rotate(270deg);
     }
-    
+
     &__name {
         color: #dee3e9;
-        padding:0.3rem 0.2rem;
+        padding: 0.3rem 0.2rem;
         font-weight: 400;
         font-size: 0.8rem;
         writing-mode: vertical-rl;
-        text-orientation:sideways-right;
+        text-orientation: sideways-right;
         transform: rotate(180deg);
+
         &--home {
             grid-column: 1 / 2;
             grid-row: 1 / 2;
@@ -48,7 +90,7 @@ $color_select: #FF0035;
             align-self: flex-end;
             color: #ffc188;
         }
-        
+
         &--away {
             grid-column: 2 / 3;
             grid-row: 1 / 2;
@@ -57,7 +99,7 @@ $color_select: #FF0035;
         }
     }
 
-    &__image {        
+    &__image {
         position: absolute;
         left: -1rem;
         width: 3rem;
@@ -72,7 +114,7 @@ $color_select: #FF0035;
             grid-column: 1 / 2;
             bottom: 0;
         }
-        
+
         &--away {
             grid-row: 2 / 3;
             grid-column: 2 / 3;
