@@ -1,30 +1,16 @@
 import { HashRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { StatsPage } from './routes/Stats/StatsPage'
-import { useStats } from './Hooks/UseData';
 import { HomePage } from './routes/Home/HomaPage';
 import { BettingPage } from './routes/Betting/BettingPage';
 import { Header } from './components/Header/Header';
 import { useEffect, useState } from 'react';
+import { getTablePositions } from './services/getData';
 
 function App() {
   const [positionData, setPositionData] = useState('');
   const [resultData, setResultData] = useState('');
   const [calendarData, setCalendarData] = useState('');
-
-
-
-  useEffect(() => {
-    getData();
-    async function getData() {
-      const result = await useStats();
-      if (result) {
-        setPositionData(result.positionsData);
-        setResultData(result.resultData);
-        setCalendarData(result.calendarData);
-      }
-    }
-  }, [])
 
 
   console.log(positionData)

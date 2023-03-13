@@ -3,6 +3,7 @@ $color_title: #183c4d;
 $color_mark: #59546C;
 $color_font: #8B939C;
 $color_select: #FF0035;
+
 .matchlive {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -85,13 +86,64 @@ $color_select: #FF0035;
         flex-direction: column;
         list-style: none;
         width: 100%;
-    }
+    }    
+
 }
+
+.buttondetails {
+    position: relative;
+    display: flex;
+    grid-row: 3 / 4;
+    grid-column: 7 / 8;
+    font-size: 0.8rem;
+    width: 4rem;
+    height: 1rem;
+    align-self: flex-end;
+    justify-self: end;
+    padding: 0.3rem 2rem 0.3rem 0.5rem;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 300;
+    transition: all 0.3s;
+    color: #ffa600bb;
+    background-color: #c9892922;
+    border: 1px solid #c98929bb;
+    overflow: hidden;
+
+    &:hover {
+        filter: brightness(150%);
+    }
+
+    &__checkbox {
+        position: absolute;
+        width: 7rem;
+        height: 7rem;
+        left: -0.2rem;
+        top: -0.2rem;
+        opacity: 0;        
+        cursor: pointer;
+
+        &:checked ~ .buttondetails__img{
+            transform: rotate(0deg);
+        }
+    }
+
+    &__img {
+        position: absolute;
+        width: 1rem;
+        right: 0.4rem;
+        top: 0.4rem;
+        transition: all 0.3s;
+        transform: rotate(180deg);
+    }
+    
+}
+
+
 
 @keyframes animationLive {
     0% {
         transform: translate(0rem);
-        
+
     }
 
     100% {

@@ -26,7 +26,8 @@ function BettingPage({ calendar }) {
     let matches = [];
     let currentDay = 0;
     let playerResults = {};
-    const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);
+    let SOURCE_MATCHES = {};
+    let MATCHES_OF_THE_DAY 
     const names = ['QUINIELA', 'PARTICIPANTES', null];
 
     useEffect(() => {
@@ -44,17 +45,18 @@ function BettingPage({ calendar }) {
     }
 
 
-
-
-
-    const FIND_MATCH = calendar.find((match, index) => {
-        if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES}`) {
-            lastMatches = index;
-            currentDay = match['event-metadata']['event-metadata-soccer'].week;
-            return match
-        }
-    })
-    const MATCHES_OF_THE_DAY = calendar.filter(match => match['event-metadata']['event-metadata-soccer'].week === `${currentDay}`)
+    if (calendar) {
+        SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer']?.week);
+        const FIND_MATCH = calendar?.find((match, index) => {
+            if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES}`) {
+                lastMatches = index;
+                currentDay = match['event-metadata']['event-metadata-soccer'].week;
+                return match
+            }
+        })
+        MATCHES_OF_THE_DAY = calendar?.filter(match => match['event-metadata']['event-metadata-soccer'].week === `${currentDay}`)
+    }
+    
 
     for (let index = 0; index < lastMatches; index++) {
         matches.push(parseInt(calendar[index]['event-metadata']['event-metadata-soccer'].week))
@@ -107,7 +109,7 @@ function BettingPage({ calendar }) {
             <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={calendar} names={names} user={currentUser} />
             {classSelected[0] &&
                 <div className="bettingpage__betting">
-                    {MATCHES_OF_THE_DAY.map(({ "event-metadata": key, "event-metadata": eventData, team }, index) => (
+                    {MATCHES_OF_THE_DAY.reverse()?.map(({ "event-metadata": key, "event-metadata": eventData, team }, index) => (
                         <MatchBetting key={key['event-key']} team={team} eventData={eventData} updateResults={updateResults} index={index} value={results} />
                     ))}
                     {currentUser && <div className="bettingpage__container">
@@ -128,12 +130,12 @@ function BettingPage({ calendar }) {
                 <div className="bettingpage__players players">
                     <div className="players__space"></div>
                     <div className="players__header">
-                        {MATCHES_OF_THE_DAY.map(({ "event-metadata": key, "event-metadata": eventData, team }) => (
+                        {MATCHES_OF_THE_DAY.reverse()?.map(({ "event-metadata": key, "event-metadata": eventData, team }) => (
                             <MatchHeader key={key['event-key']} team={team} eventData={eventData} />
                         ))}
                     </div>
                     {currentBets.map((player, index) => (
-                        <Player key={player.id} name={player.name} results={player.results} idBet={player.uid} userID={currentUser.uid} calendar={calendar}/>
+                        <Player key={player.id} name={player.name} results={player.results} idBet={player.uid} userID={currentUser.uid} calendar={calendar} />
                     ))}
                 </div>
             }

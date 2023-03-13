@@ -70,6 +70,49 @@
   width: 100%;
 }
 
+.buttondetails {
+  position: relative;
+  display: flex;
+  grid-row: 3/4;
+  grid-column: 7/8;
+  font-size: 0.8rem;
+  width: 4rem;
+  height: 1rem;
+  align-self: flex-end;
+  justify-self: end;
+  padding: 0.3rem 2rem 0.3rem 0.5rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  transition: all 0.3s;
+  color: #ffa600bb;
+  background-color: #c9892922;
+  border: 1px solid #c98929bb;
+  overflow: hidden;
+}
+.buttondetails:hover {
+  filter: brightness(150%);
+}
+.buttondetails__checkbox {
+  position: absolute;
+  width: 7rem;
+  height: 7rem;
+  left: -0.2rem;
+  top: -0.2rem;
+  opacity: 0;
+  cursor: pointer;
+}
+.buttondetails__checkbox:checked ~ .buttondetails__img {
+  transform: rotate(0deg);
+}
+.buttondetails__img {
+  position: absolute;
+  width: 1rem;
+  right: 0.4rem;
+  top: 0.4rem;
+  transition: all 0.3s;
+  transform: rotate(180deg);
+}
+
 @keyframes animationLive {
   0% {
     transform: translate(0rem);

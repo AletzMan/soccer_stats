@@ -8,10 +8,11 @@
   width: 2.5rem;
   padding: 0.5rem;
   display: flex;
-  transition: transform 0.3s linear;
+  transition: all 0.2s linear;
 }
-.header__back:hover {
-  transform: scale(1.05);
+.header__back:hover:hover {
+  background-color: #e9e9e945;
+  border-radius: 50%;
 }
 .header__navlink {
   width: 2.5rem;

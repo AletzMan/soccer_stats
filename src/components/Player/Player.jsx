@@ -6,12 +6,12 @@ function Player({name, results, idBet, userID, calendar}) {
 
     
     const data = getMatchWinner(calendar);
-
+console.log(data)
     return(
         <div  className="player">
             <span className={`player__name player__name--${idBet === userID}`}>{name}</span>
-            {results.map((result, index) => (
-                <span className={`player__result result__${data[index] === result} player__result--${index} player__result--${idBet === userID}`} key={uuid()}>{result}</span>
+             {results?.map((result, index) => (
+                <span className={`player__result result__${data && data[index] === result} player__result--${index} player__result--${idBet === userID}`} key={uuid()}>{result}</span>
             ))}
         </div>
     )

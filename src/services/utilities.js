@@ -22,29 +22,24 @@ export function countdown(targetDate) {
 }
 
 export function statusEvent(sportEvent) {
-    let STATUS_MATCH = '';
     let CLASS_STATUS = '';
     try {
-        if (sportEvent['event-status'] === 'post-event') {
-            STATUS_MATCH = 'Finalizado';
+        if (sportEvent.status.name === 'Finalizado') {
             CLASS_STATUS = 'finished';
         }
-        if (sportEvent['event-status'] === 'pre-event') {
-            STATUS_MATCH = 'Previa';
+        if (sportEvent.status.name === 'Sin comenzar') {
             CLASS_STATUS = 'uninitiated';
         }
-        if (sportEvent['event-status'] === 'intermission') {
-            STATUS_MATCH = 'Intermedio';
+        if (sportEvent.status.name === 'intermission') {
             CLASS_STATUS = 'inter';
         }
-        if (sportEvent['event-status'] === 'mid-event') {
-            STATUS_MATCH = 'En Vivo';
+        if (sportEvent.status.name === 'En juego') {
             CLASS_STATUS = 'live';
         }
     } catch (error) {
         return console.error(error)
     }
-    return { status: STATUS_MATCH, class: CLASS_STATUS }
+    return { class: CLASS_STATUS }
 }
 
 export function getDateToday() {
@@ -66,32 +61,71 @@ export function getDateToday() {
 export function getMatchWinner(calendar) {
     let resultData = null;
     try {
-        const statusMatch = calendar.map(match => {
-            return match['event-metadata']['event-status'];
-        });
-        const resultMatch = {
-            homeScores: calendar.map(match => {
-                return match.team[0]['team-stats'].score
-            }),
-            awayScores: calendar.map(match => {
-                return match.team[1]['team-stats'].score
-            }),
-        }
-        resultData = statusMatch.map((status, index) => {
-            if (status === 'post-event') {
-                if (parseInt(resultMatch.homeScores[index]) > parseInt(resultMatch.awayScores[index])) {
-                    return 'L';
-                } else if (parseInt(resultMatch.homeScores[index]) === parseInt(resultMatch.awayScores[index])) {
-                    return 'E';
-                } else if (parseInt(resultMatch.homeScores[index]) < parseInt(resultMatch.awayScores[index])) {
-                    return 'V';
-                }
-            } else {
-                return null;
+        if (calendar) {
+            const statusMatch = calendar?.map(match => {
+                return match['event-metadata']['event-status'];
+            });
+            const resultMatch = {
+                homeScores: calendar?.map(match => {
+                    return match.team[0]['team-stats'].score
+                }),
+                awayScores: calendar?.map(match => {
+                    return match.team[1]['team-stats'].score
+                }),
             }
-        });
+            resultData = statusMatch?.map((status, index) => {
+                if (status === 'post-event') {
+                    if (parseInt(resultMatch.homeScores[index]) > parseInt(resultMatch.awayScores[index])) {
+                        return 'L';
+                    } else if (parseInt(resultMatch.homeScores[index]) === parseInt(resultMatch.awayScores[index])) {
+                        return 'E';
+                    } else if (parseInt(resultMatch.homeScores[index]) < parseInt(resultMatch.awayScores[index])) {
+                        return 'V';
+                    }
+                } else {
+                    return null;
+                }
+
+            });
+        }
     } catch (error) {
         console.error(error)
     }
-    return resultData;
+    return resultData.reverse();
+}
+
+export function getEventStats(matchData) {
+
+    try {
+        if (matchData) {
+            let eventStats = {
+                homeTeam: {
+                    name: matchData.eventStats.stats.homeTeam.teamInfo.commonNanme,
+                    statsTeam: matchData.eventStats.stats.homeTeam.statsTeam,
+                    lineUp: matchData.lineup.lineups.homeTeam.actualLineup,
+                    formation: matchData.lineup.lineups.homeTeam.fotmationTeam,
+                    manager: matchData.lineup.lineups.homeTeam.manager,
+                    substitutes: matchData.lineup.lineups.homeTeam.manager,
+                    discipline: matchData.event.statsDetails.discipline.homeTeam,
+                    substitutions: matchData.event.statsDetails.substitutions.homeTeam,
+                },
+                awayTeam: {
+                    name: matchData.eventStats.stats.awayTeam.teamInfo.commonNanme,
+                    statsTeam: matchData.eventStats.stats.awayTeam.statsTeam,
+                    lineUp: matchData.lineup.lineups.awayTeam.actualLineup,
+                    formation: matchData.lineup.lineups.awayTeam.fotmationTeam,
+                    manager: matchData.lineup.lineups.awayTeam.manager,
+                    substitutes: matchData.lineup.lineups.awayTeam.manager,
+                    discipline: matchData.event.statsDetails.discipline.awayTeam,
+                    substitutions: matchData.event.statsDetails.substitutions.awayTeam,
+                },
+                summary: matchData.summary.commentaries,
+                narration: matchData.narration.commentaries
+            }
+            return eventStats
+        }
+    } catch (error) {
+        console.error(error);
+    }
+    return null;
 }

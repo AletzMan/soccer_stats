@@ -8,6 +8,7 @@ function Fixtures({ calendar }) {
     let currentDay = 0;
     const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);
     console.log(SOURCE_MATCHES)
+    console.log('jola')
     
 
     const FIND_MATCH = calendar.find((match, index) => {

@@ -1,12 +1,16 @@
 //https://api.unidadeditorial.es/sports/v1/classifications/current/?site=2&type=10&tournament=0168
 //import dataStats from '../../services/data.json';
+import { getTablePositions } from '../../services/getData';
 import { Stats } from '../Stats/Stats';
 import { Team } from '../Team/Team';
 import './Positions.css'
 
-function Positions({positionsData}) {
-    const TEAMS = positionsData;
-    
+function Positions({ }) {
+    const { positions, loading } = getTablePositions();
+    if (positions !== undefined) {
+        console.log(positions?.data)
+    }
+
     return (
         <div className='table'>
             <div className="table__teams">
@@ -14,7 +18,7 @@ function Positions({positionsData}) {
                     <span className="teams__title--pos">Pos</span>
                     <span className="teams__title--team">Club</span>
                 </div>
-                {TEAMS.map(({ _id, name, standing, images }) => (
+                {!loading && positions?.data[0]?.rank?.map(({ _id, name, standing, images }) => (
                     <Team key={_id} props={{ name, standing, images }} />
                 ))}
             </div>
@@ -30,7 +34,7 @@ function Positions({positionsData}) {
                         <span className="stats__title--against">GC</span>
                         <span className="stats__title--dif">DG</span>
                     </div>
-                    {TEAMS.map(({ id, standing }) => (
+                    {!loading && positions?.data[0]?.rank.map(({ id, standing }) => (
                         <Stats key={id} props={{ standing }} />
                     ))}
                 </div>

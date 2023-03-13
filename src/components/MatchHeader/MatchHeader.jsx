@@ -1,7 +1,8 @@
 import './MatchHeader.css';
 
 function MatchHeader({ team, eventData }) {
-    console.log(eventData)
+    //console.log(eventData)
+    //console.log(team)
     const eventStatus = eventData['event-status'] === 'post-event'?true:false;
     const eventStatusLive = eventData['event-status'] === 'mid-event'?true:false;
     return (

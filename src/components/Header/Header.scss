@@ -15,10 +15,13 @@ $color_select: #FF0035;
         width: 2.5rem;
         padding: 0.5rem;
         display: flex;
-        transition: transform 0.3s linear;
+        transition: all 0.2s linear;
 
         &:hover {
-            transform: scale(1.05);
+            &:hover {
+                background-color: #e9e9e945;
+                border-radius: 50%;
+            }
         }
     }    
 
