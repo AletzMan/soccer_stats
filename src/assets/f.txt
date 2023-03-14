@@ -1,1 +1,0 @@
-[["futbolenvivomexico.com",null,"www.futbolenvivomexico.com",[[null,"21692175404",2,1],[null,"21732118914",2,1],[null,"7103",2,1],[null,"360613911",5,0]]],[],[],null,null,[["7103",[["esp.criteo.com","https://static.criteo.net/js/ld/publishertag.ids.js"]]]]]

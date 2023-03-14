@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import { getEventStats } from '../../services/utilities';
 import './MatchDetails.css';
+import { Commentary } from './Commentary';
+import { Statistics } from './Statistics';
+import { LineUp } from './LineUp';
 
 function MatchDetails({ opened, matchData }) {
+    console.log(matchData)
     const [section, setSection] = useState(0);
-    const titles = ['Estadísticas', 'Alineación', 'Resumen'];
+    const titles = ['Estadísticas', 'Alineación', 'Acciones'];
     if (section === 3) setSection(0);
     if (section === -1) setSection(2);
-    console.log(matchData)
     const eventStats = getEventStats(matchData);
-    console.log(eventStats.narration)
     return (
         <div className={`matchdetails matchdetails__${opened}`}>
             <div className='matchdetails__header headerdetails'>
@@ -18,13 +20,18 @@ function MatchDetails({ opened, matchData }) {
                 <button className='headerdetails__right headerdetails__button' onClick={() => setSection(prevState => prevState + 1)}></button>
             </div>
             {section === 0 &&
-                <div>OKZ</div>
+                <Statistics eventStats={eventStats} />
             }
-            <ul>
-                {section === 2 && eventStats.narration.map(comment => (
-                    <li className='matchdetails__narration' key={comment.id}><span>{comment.momentAction} - </span>{comment.commentary}</li>
-                ))}
-            </ul>
+            {section === 1 &&
+                <LineUp  eventStats={eventStats} />
+            }
+            {section === 2 &&
+                <ul className='matchdetails__list'>
+                    {eventStats.narration.map(comment => (
+                        <Commentary key={comment.id} comment={comment} />
+                    ))}
+                </ul>
+            }
         </div>
     );
 }

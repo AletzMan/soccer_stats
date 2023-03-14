@@ -3,9 +3,8 @@ import './App.css'
 import { StatsPage } from './routes/Stats/StatsPage'
 import { HomePage } from './routes/Home/HomaPage';
 import { BettingPage } from './routes/Betting/BettingPage';
-import { Header } from './components/Header/Header';
-import { useEffect, useState } from 'react';
-import { getTablePositions } from './services/getData';
+import {  useState } from 'react';
+
 
 function App() {
   const [positionData, setPositionData] = useState('');

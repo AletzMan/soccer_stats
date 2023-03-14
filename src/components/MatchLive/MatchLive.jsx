@@ -13,11 +13,6 @@ function MatchLive({ sportEvent, idEvent }) {
     const statusMatch = sportEvent.status.name;
     const statusClass = statusEvent(sportEvent).class;
 
-
-    //console.log(sportEvent)
-    //console.log(matchData)
-    //console.log(idEvent)
-
     useEffect(() => {
         const dateEvent = sportEvent.startDate
         if (0) {
@@ -64,6 +59,7 @@ function MatchLive({ sportEvent, idEvent }) {
                     <div className='matchlive__details buttondetails'>
                         <input type='checkbox' onChange={opendDetailStatus} className='buttondetails__checkbox'></input>
                         <img className='buttondetails__img' src={arrowDownIcon} alt="icon arrow down" />
+                        <span className='buttondetails__name'>Details</span>
                     </div>
                     <MatchDetails opened={opened} matchData={matchData.data}></MatchDetails>
                 </div>}

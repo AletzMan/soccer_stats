@@ -1,3 +1,6 @@
+import { COMMENTARIES, IMAGES } from "./constants";
+
+
 export function countdown(targetDate) {
     const optionsDate = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
     const dateEventLocal = new Date(targetDate).toLocaleDateString('es-MX', optionsDate)
@@ -100,22 +103,26 @@ export function getEventStats(matchData) {
         if (matchData) {
             let eventStats = {
                 homeTeam: {
-                    name: matchData.eventStats.stats.homeTeam.teamInfo.commonNanme,
+                    name: matchData.eventStats.stats.homeTeam.teamInfo.commonName,
+                    color: matchData.eventStats.stats.homeTeam.teamKit.colour1,
+                    colorTwo: matchData.eventStats.stats.homeTeam.teamKit.colour2,
                     statsTeam: matchData.eventStats.stats.homeTeam.statsTeam,
                     lineUp: matchData.lineup.lineups.homeTeam.actualLineup,
-                    formation: matchData.lineup.lineups.homeTeam.fotmationTeam,
+                    formation: matchData.lineup.lineups.homeTeam.formationTeam,
                     manager: matchData.lineup.lineups.homeTeam.manager,
-                    substitutes: matchData.lineup.lineups.homeTeam.manager,
+                    substitutes: matchData.lineup.lineups.homeTeam.substitutesActualLineup,
                     discipline: matchData.event.statsDetails.discipline.homeTeam,
                     substitutions: matchData.event.statsDetails.substitutions.homeTeam,
                 },
                 awayTeam: {
-                    name: matchData.eventStats.stats.awayTeam.teamInfo.commonNanme,
+                    name: matchData.eventStats.stats.awayTeam.teamInfo.commonName,
+                    color: matchData.eventStats.stats.awayTeam.teamKit.colour1,
+                    colorTwo: matchData.eventStats.stats.awayTeam.teamKit.colour2,
                     statsTeam: matchData.eventStats.stats.awayTeam.statsTeam,
                     lineUp: matchData.lineup.lineups.awayTeam.actualLineup,
-                    formation: matchData.lineup.lineups.awayTeam.fotmationTeam,
+                    formation: matchData.lineup.lineups.awayTeam.formationTeam,
                     manager: matchData.lineup.lineups.awayTeam.manager,
-                    substitutes: matchData.lineup.lineups.awayTeam.manager,
+                    substitutes: matchData.lineup.lineups.awayTeam.substitutesActualLineup,
                     discipline: matchData.event.statsDetails.discipline.awayTeam,
                     substitutions: matchData.event.statsDetails.substitutions.awayTeam,
                 },
@@ -128,4 +135,39 @@ export function getEventStats(matchData) {
         console.error(error);
     }
     return null;
+}
+
+export function getImagesForCommentaries(comment) {
+   
+    for (let index = 0; index < COMMENTARIES.length; index++) {
+        if (comment.commentary.includes(COMMENTARIES[index])) {
+            return {
+                url: `../src/assets/${IMAGES[index]}-icon.svg`,
+                name: IMAGES[index]
+            };
+        }
+    }
+
+    return { url: null, name: null };
+}
+
+export function getValuesOfStatistics(statistics) {
+    const arrayStatistics = [
+        statistics.goals,
+        statistics.shotsOnGoal,
+        statistics.shots,
+        statistics.possPercentage,
+        statistics.successPass,
+        statistics.lostPass,
+        statistics.ballsLost,
+        statistics.ballsRecovery,
+        statistics.duelsWon,
+        statistics.totalOffsides,
+        statistics.wonCorners,
+        statistics.fouls,
+        statistics.yellowCards,
+        statistics.redCards
+    ];
+
+    return arrayStatistics;
 }

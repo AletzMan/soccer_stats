@@ -2,9 +2,15 @@
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   place-items: center;
+  width: 99%;
   padding: 0.4rem;
   background-color: #0E131F;
   border-bottom: 1px solid #7ec929BB;
+}
+@media (max-width: 540px) {
+  .matchlive {
+    width: 96%;
+  }
 }
 .matchlive__img {
   height: 3rem;
@@ -104,6 +110,9 @@
 .buttondetails__checkbox:checked ~ .buttondetails__img {
   transform: rotate(0deg);
 }
+.buttondetails__checkbox:checked ~ .buttondetails__name {
+  color: #ffd68bbb;
+}
 .buttondetails__img {
   position: absolute;
   width: 1rem;
@@ -111,6 +120,11 @@
   top: 0.4rem;
   transition: all 0.3s;
   transform: rotate(180deg);
+  pointer-events: none;
+}
+.buttondetails__name {
+  margin: 0 0 0 1rem;
+  pointer-events: none;
 }
 
 @keyframes animationLive {
