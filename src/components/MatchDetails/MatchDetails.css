@@ -1,7 +1,7 @@
 .matchdetails {
   position: relative;
   top: 0;
-  grid-row: 4/5;
+  grid-row: 5/6;
   grid-column: 1/span 7;
   width: 100%;
   height: 0rem;
@@ -65,6 +65,8 @@
   border-bottom: 1px solid #0E131F65;
   margin-bottom: 0.2rem;
   place-items: center;
+  padding: 0.1rem;
+  gap: 0.2rem;
 }
 .narration__minute {
   width: 2rem;
@@ -81,6 +83,9 @@
   width: 2rem;
   height: 2rem;
   grid-column: 2/3;
+  background-color: #acbf65;
+  border-radius: 50%;
+  border: 1px solid #daf7fc;
 }
 .narration__comment {
   grid-column: 3/4;
@@ -176,17 +181,23 @@
 }
 
 .substitutes {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 3fr;
+  gap: 0.2rem;
   font-size: 0.7rem;
+  border-bottom: 1px solid #183c4d;
+  background-color: #d1d1d115;
+  padding: 0.1rem;
+  width: 100%;
 }
 .substitutes__jersey {
   display: flex;
   position: relative;
   grid-column: 1/2;
   grid-row: 1/span 2;
-  width: 3rem;
-  height: 3rem;
+  width: 2.7rem;
+  height: 2.7rem;
   border-radius: 50%;
   text-align: center;
   z-index: 1;
@@ -206,14 +217,58 @@
 .substitutes__name {
   grid-row: 1/2;
   grid-column: 2/3;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 .substitutes__position {
   grid-row: 2/3;
   grid-column: 2/3;
   font-size: 0.55rem;
   color: #eed963;
-  font-size: 0.6rem;
+  font-size: 0.55rem;
+}
+.substitutes__card {
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  z-index: 3;
+}
+.substitutes__change {
+  position: absolute;
+  width: 1rem;
+  left: 1.5rem;
+  top: 0.1rem;
+  border-radius: 50%;
+  background-color: #e0d9d9;
+  border: 1px solid #00000088;
+  z-index: 3;
+}
+.substitutes__goal {
+  position: absolute;
+  width: 1rem;
+  bottom: 0.1rem;
+  left: 0.1rem;
+  z-index: 3;
+}
+.substitutes__goals {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 0rem;
+  bottom: 0.7rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  background-color: #108499;
+  border: 1px solid #dfe0e0;
+  z-index: 3;
+}
+.substitutes__goals--number {
+  position: absolute;
+  top: -0.4rem;
+  font-weight: 600;
 }
 
 .jersey {
@@ -222,6 +277,7 @@
 }
 
 .field {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
@@ -247,11 +303,11 @@
 }
 .field__home {
   grid-row: 1/2;
-  background-color: #e7181811;
+  background-color: #e7181800;
 }
 .field__away {
   grid-row: 2/3;
-  background-color: #a4d32211;
+  background-color: #a4d32200;
 }
 
 .starting {
@@ -350,7 +406,8 @@
   grid-row: 2/3;
 }
 .starting__jersey {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   position: relative;
   grid-column: 1/2;
   width: 2.3rem;
@@ -373,12 +430,14 @@
   background-color: #0E131Faa;
 }
 .starting__name {
-  grid-row: 2/3;
-  grid-column: 1/2;
   font-size: 0.58rem;
   font-weight: 600;
   color: #000000;
+  background-color: #dfdddd55;
+  width: 4rem;
+  border-radius: 0.5rem;
   text-shadow: 0 0 5px #ffffff;
+  justify-self: center;
 }
 .starting__name--home {
   grid-row: 2/3;
@@ -394,4 +453,70 @@
   font-size: 0.55rem;
   color: #eed963;
   font-size: 0.5rem;
+}
+.starting__card {
+  position: absolute;
+}
+.starting__change {
+  position: absolute;
+  width: 1rem;
+  right: 0;
+  border-radius: 50%;
+  background-color: #e0d9d9;
+  border: 1px solid #00000088;
+}
+.starting__goal {
+  position: absolute;
+  width: 1rem;
+  bottom: 0;
+  right: 0;
+}
+
+.card__yellow--true {
+  background-color: #ecc236;
+  width: 0.75rem;
+  height: 1rem;
+  border-radius: 0.12rem;
+  border: 1px solid #866e04;
+}
+
+.card__red--true {
+  background-color: #fc2b24;
+  width: 0.75rem;
+  height: 1rem;
+  border-radius: 0.12rem;
+  border: 1px solid #8f1b13;
+}
+
+.manager {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  gap: 0.35rem;
+  width: 13rem;
+  height: 4rem;
+  align-items: center;
+  background-color: #0E131F00;
+}
+.manager__image {
+  width: 1.5rem;
+  background-color: #000000;
+  border-radius: 50%;
+}
+.manager__name {
+  font-size: 0.8rem;
+  background-color: #000000;
+  padding: 0 0.2rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-weight: 600;
+}
+.manager__home {
+  left: -6.6rem;
+  transform: rotate(90deg);
+  top: calc(50% - 1rem);
+}
+.manager__away {
+  right: -6.5rem;
+  transform: rotate(270deg);
+  bottom: calc(50% - 1rem);
 }

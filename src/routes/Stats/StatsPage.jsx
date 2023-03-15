@@ -7,14 +7,13 @@ import { Results } from '../../components/Results/Results';
 import { getResults } from '../../services/getData';
 
 
-function StatsPage({ calendar, positionsData }) {
+function StatsPage({ calendar }) {
     const [classSelected, setClassSelected] = useState([true, false, false]);
     const [currentUser, setCurrentUser] = useState(null);
     const userInfo = useLocation().state;
     const navigate = useNavigate();
     
     const names = ['JORANDA', 'RESULTADOS', 'POSICIONES'];
-    let resultFilter = {};
 
     useEffect(() => {
         setCurrentUser(userInfo);
@@ -23,10 +22,7 @@ function StatsPage({ calendar, positionsData }) {
         }
     }, [])
 
-const date = new Date();
-    console.log(date.getDate())
-    console.log(date.getMonth())
- 
+    
 
     return (
         <>

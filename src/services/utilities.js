@@ -47,9 +47,6 @@ export function statusEvent(sportEvent) {
 
 export function getDateToday() {
     let today = new Date();
-    let day = today.getDate() < 9 ? '0' + (today.getDate() + 1) : today.getDate() + 1;
-    let month = today.getMonth() < 9 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;
-    let year = today.getFullYear();
 
     return {
         day: today.getDate() < 9 ? '0' + (today.getDate()) : today.getDate(),
@@ -58,6 +55,43 @@ export function getDateToday() {
         hour: today.getHours(),
         minute: today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes(),
         second: today.getSeconds() < 10 ? '0' + today.getSeconds() : today.getSeconds()
+    }
+}
+
+export function getDateTodayString() {
+    const { year, month, day } = getDateToday();
+    let dayFull = day < 10 ? '0' + day  : day;
+    let monthFull = month < 10 ? '0' + month : month;
+    return `${year}-${monthFull}-${dayFull}`
+
+}
+
+export function getDateToString(date) {
+    
+}
+
+export function getPrevOrNextDay(day, type) {
+    const nextDay = (new Date(day));
+    const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    if (type === 'prev') {
+        nextDay.setDate(nextDay.getDate() - 1);
+    }
+    if (type === 'next') {
+        nextDay.setDate(nextDay.getDate() + 1);
+    }
+    const localDay = nextDay.toLocaleDateString('es-MX', optionsDate);
+    let date = localDay.charAt(0).toUpperCase() + localDay.slice(1);
+    
+    const actualDate = new Date(nextDay)
+    const dayActual = actualDate.getDate() < 10 ? '0' + actualDate.getDate() : actualDate.getDate();
+    const monthActual = actualDate.getMonth() < 10 ? '0' + (actualDate.getMonth() + 1) : (actualDate.getMonth() + 1);
+    const yearActual = actualDate.getFullYear();
+    const fullDate = `${yearActual}-${monthActual}-${dayActual}`
+
+    return {
+        day: nextDay,
+        dayString: date,
+        dayFetch: fullDate
     }
 }
 
@@ -107,6 +141,7 @@ export function getEventStats(matchData) {
                     color: matchData.eventStats.stats.homeTeam.teamKit.colour1,
                     colorTwo: matchData.eventStats.stats.homeTeam.teamKit.colour2,
                     statsTeam: matchData.eventStats.stats.homeTeam.statsTeam,
+                    statsPlayers: matchData.eventStats.stats.homeTeam.statsPlayers,
                     lineUp: matchData.lineup.lineups.homeTeam.actualLineup,
                     formation: matchData.lineup.lineups.homeTeam.formationTeam,
                     manager: matchData.lineup.lineups.homeTeam.manager,
@@ -119,6 +154,7 @@ export function getEventStats(matchData) {
                     color: matchData.eventStats.stats.awayTeam.teamKit.colour1,
                     colorTwo: matchData.eventStats.stats.awayTeam.teamKit.colour2,
                     statsTeam: matchData.eventStats.stats.awayTeam.statsTeam,
+                    statsPlayers: matchData.eventStats.stats.awayTeam.statsPlayers,
                     lineUp: matchData.lineup.lineups.awayTeam.actualLineup,
                     formation: matchData.lineup.lineups.awayTeam.formationTeam,
                     manager: matchData.lineup.lineups.awayTeam.manager,
@@ -138,7 +174,7 @@ export function getEventStats(matchData) {
 }
 
 export function getImagesForCommentaries(comment) {
-   
+
     for (let index = 0; index < COMMENTARIES.length; index++) {
         if (comment.commentary.includes(COMMENTARIES[index])) {
             return {
@@ -170,4 +206,8 @@ export function getValuesOfStatistics(statistics) {
     ];
 
     return arrayStatistics;
+}
+
+export function orderArray(array) {
+
 }

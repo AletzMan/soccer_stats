@@ -31,7 +31,7 @@
 .matchlive__status {
   grid-column: 4/5;
   font-size: 0.9rem;
-  grid-row: 3/4;
+  grid-row: 4/5;
 }
 .matchlive__status--finished {
   color: #FF0035;
@@ -68,6 +68,7 @@
   gap: 0.3rem;
   align-items: center;
   justify-content: left;
+  padding: 0;
 }
 .matchlive__container {
   display: flex;
@@ -76,10 +77,54 @@
   width: 100%;
 }
 
+.redcards {
+  font-size: 0.7rem;
+  color: #b0bbeb;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-self: flex-start;
+  gap: 0.3rem;
+  list-style: none;
+  padding: 0;
+}
+.redcards__home {
+  grid-row: 3/4;
+  grid-column: 2/3;
+}
+@media (max-width: 500px) {
+  .redcards__home {
+    grid-column: 1/span 3;
+  }
+}
+.redcards__away {
+  grid-row: 3/4;
+  grid-column: 5/6;
+}
+@media (max-width: 500px) {
+  .redcards__away {
+    grid-column: 5/span 3;
+  }
+}
+.redcards__card {
+  width: 0.8rem;
+  height: 1rem;
+  border-radius: 0.1rem;
+  transform: rotate(-5deg);
+  background-color: #b31913;
+}
+.redcards__list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  width: 100%;
+  list-style: none;
+}
+
 .buttondetails {
   position: relative;
   display: flex;
-  grid-row: 3/4;
+  grid-row: 4/5;
   grid-column: 7/8;
   font-size: 0.8rem;
   width: 4rem;
@@ -136,16 +181,20 @@
   }
 }
 .container__home {
+  grid-row: 2/3;
   grid-column: 2/span 2;
+  padding: 0;
 }
 @media (max-width: 500px) {
   .container__home {
-    grid-column: 1/span 3;
+    grid-column: 1/span 4;
   }
 }
 
 .container__away {
   grid-column: 5/span 2;
+  grid-row: 2/3;
+  padding: 0;
 }
 @media (max-width: 500px) {
   .container__away {

@@ -1,17 +1,22 @@
 import './MatchLive.css';
 import ballImage from '../../assets/ball.png';
 import { useEffect, useState } from 'react';
-import { countdown, statusEvent } from '../../services/utilities';
+import { countdown, getEventStats, statusEvent } from '../../services/utilities';
 import { getMatchData } from '../../services/getData';
 import { MatchDetails } from '../MatchDetails/MatchDetails';
 import arrowDownIcon from '../../assets/arrowdown-icon.svg';
 
-function MatchLive({ sportEvent, idEvent }) {
+function MatchLive({ sportEvent, idEvent, date }) {
     const [timeToStartEvent, setTimeStartEvent] = useState('');
     const [opened, setOpened] = useState(false);
     const { loading, matchData } = getMatchData(idEvent);
     const statusMatch = sportEvent.status.name;
     const statusClass = statusEvent(sportEvent).class;
+    const [ dateChanged, setDateChanged ] = useState(date);
+
+    useEffect(() => {
+        setDateChanged(date)
+    }, [date]);
 
     useEffect(() => {
         const dateEvent = sportEvent.startDate
@@ -29,8 +34,7 @@ function MatchLive({ sportEvent, idEvent }) {
         setOpened(e.target.checked);
     }
 
-
-
+    const eventStats = !loading ? getEventStats(matchData.data) : null;
     return (
         <>
             {!loading &&
@@ -48,10 +52,22 @@ function MatchLive({ sportEvent, idEvent }) {
                         {matchData.data.event.scoreDetails.goals.homeTeam?.map((goal) => (
                             <li key={goal._id} className='matchlive__minuteshome matchlive__scores' ><img className='matchlive__img--ball' src={ballImage} alt='image of ball' /> {goal.matchTime + "'" + ' ' + goal.playerFullName}</li>
                         ))}
+
+                    </ul>
+                    <ul className='matchalive__redcards redcards redcards__home'>a
+                        {eventStats.homeTeam.discipline.redCards?.map((player) => (
+                            <li key={player._id} className='redcards__list'><div className='redcards__card'></div> {player.matchTime + "'" + ' ' + player.playerFullName}</li>
+                        ))}
                     </ul>
                     <ul className='matchlive__container container__away'>
                         {matchData.data.event.scoreDetails.goals.awayTeam?.map((goal) => (
                             <li key={goal._id} className='matchlive__minutesaway matchlive__scores' ><img className='matchlive__img--ball' src={ballImage} alt='image of ball' /> {goal.matchTime + "'" + ' ' + goal.playerFullName}</li>
+                        ))}
+
+                    </ul>
+                    <ul className='matchalive__redcards redcards redcards__away' >
+                        {eventStats.awayTeam.discipline.redCards?.map((player) => (
+                            <li key={player._id} className='redcards__list'><div className='redcards__card'></div> {player.matchTime + "'" + ' ' + player.playerFullName}</li>
                         ))}
                     </ul>
                     <span className={`matchlive__time matchlive__time--${statusClass}`}>{timeToStartEvent}</span>

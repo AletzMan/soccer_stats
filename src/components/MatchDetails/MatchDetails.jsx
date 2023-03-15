@@ -6,9 +6,8 @@ import { Statistics } from './Statistics';
 import { LineUp } from './LineUp';
 
 function MatchDetails({ opened, matchData }) {
-    console.log(matchData)
     const [section, setSection] = useState(0);
-    const titles = ['Estadísticas', 'Alineación', 'Acciones'];
+    const titles = ['Estadísticas', 'Alineación', 'Cronología'];
     if (section === 3) setSection(0);
     if (section === -1) setSection(2);
     const eventStats = getEventStats(matchData);

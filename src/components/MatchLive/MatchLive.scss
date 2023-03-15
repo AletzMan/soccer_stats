@@ -12,8 +12,9 @@ $color_select: #FF0035;
     padding: 0.4rem;
     background-color: $color_back;
     border-bottom: 1px solid #7ec929BB;
+
     @media (max-width: 540px) {
-        width: 96%; 
+        width: 96%;
     }
 
     &__img {
@@ -38,7 +39,7 @@ $color_select: #FF0035;
     &__status {
         grid-column: 4 / 5;
         font-size: 0.9rem;
-        grid-row: 3 / 4;
+        grid-row: 4 / 5;
 
         &--finished {
             color: #FF0035;
@@ -74,6 +75,8 @@ $color_select: #FF0035;
         color: #f8ce8e;
     }
 
+
+
     &__scores {
         font-size: 0.7rem;
         color: #b0bbeb;
@@ -82,6 +85,7 @@ $color_select: #FF0035;
         gap: 0.3rem;
         align-items: center;
         justify-content: left;
+        padding: 0;
 
     }
 
@@ -90,14 +94,63 @@ $color_select: #FF0035;
         flex-direction: column;
         list-style: none;
         width: 100%;
-    }    
+    }
+
+}
+
+
+
+.redcards {
+    font-size: 0.7rem;
+    color: #b0bbeb;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-self: flex-start;
+    gap: 0.3rem;
+    list-style: none;
+    padding: 0;
+
+    &__home {
+        grid-row: 3 / 4;
+        grid-column: 2 / 3;
+
+        @media (max-width: 500px) {
+            grid-column: 1 / span 3;
+        }
+    }
+
+    &__away {
+        grid-row: 3 / 4;
+        grid-column: 5 / 6;
+
+        @media (max-width: 500px) {
+            grid-column: 5 / span 3;
+        }
+    }
+
+    &__card {
+        width: 0.8rem;
+        height: 1rem;
+        border-radius: 0.1rem;
+        transform: rotate(-5deg);
+        background-color: #b31913;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        width: 100%;
+        list-style: none;
+    }
 
 }
 
 .buttondetails {
     position: relative;
     display: flex;
-    grid-row: 3 / 4;
+    grid-row: 4 / 5;
     grid-column: 7 / 8;
     font-size: 0.8rem;
     width: 4rem;
@@ -123,13 +176,14 @@ $color_select: #FF0035;
         height: 7rem;
         left: -0.2rem;
         top: -0.2rem;
-        opacity: 0;        
+        opacity: 0;
         cursor: pointer;
 
-        &:checked ~ .buttondetails__img{
+        &:checked~.buttondetails__img {
             transform: rotate(0deg);
         }
-        &:checked ~ .buttondetails__name{
+
+        &:checked~.buttondetails__name {
             color: #ffd68bbb;
         }
     }
@@ -148,7 +202,7 @@ $color_select: #FF0035;
         margin: 0 0 0 1rem;
         pointer-events: none;
     }
-    
+
 }
 
 
@@ -165,15 +219,19 @@ $color_select: #FF0035;
 }
 
 .container__home {
+    grid-row: 2 / 3;
     grid-column: 2 / span 2;
+    padding: 0;
 
     @media (max-width: 500px) {
-        grid-column: 1 / span 3;
+        grid-column: 1 / span 4;
     }
 }
 
 .container__away {
     grid-column: 5 / span 2;
+    grid-row: 2 / 3;
+    padding: 0;
 
     @media (max-width: 500px) {
         grid-column: 5 / span 3;
