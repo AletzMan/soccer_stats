@@ -1,6 +1,13 @@
 .fixtures {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 15rem;
   padding: 0.5rem;
   background-color: #183c4d;
+}
+.fixtures__match {
+  width: 100%;
 }
 .fixtures__label {
   justify-self: left;

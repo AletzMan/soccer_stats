@@ -9,7 +9,7 @@
   border-bottom: 1px solid #7ec929bb;
 }
 .match:hover {
-  transform: scale(1.05);
+  filter: brightness(150%);
 }
 .match__teams {
   width: 100%;

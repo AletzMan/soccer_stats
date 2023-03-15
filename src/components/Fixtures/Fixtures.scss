@@ -5,8 +5,16 @@ $color_font: #8B939C;
 $color_select: #FF0035;
 
 .fixtures {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 15rem;
     padding: 0.5rem;
     background-color: $color_title;
+
+    &__match {
+        width: 100%;
+    }
 
     &__label {
         justify-self: left;

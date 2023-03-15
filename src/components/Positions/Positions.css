@@ -1,8 +1,18 @@
+.positions {
+  display: flex;
+  min-height: 15rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .table {
+  width: 100%;
   position: relative;
   border: 1px solid #8B939C;
   display: grid;
   grid-auto-flow: column;
+  place-items: center;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
 }

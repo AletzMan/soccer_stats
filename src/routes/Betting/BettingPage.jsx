@@ -8,8 +8,9 @@ import './BettingPage.css';
 import loadingIcon from '../../assets/loading-icon.svg';
 import uuid from "react-uuid";
 import { insertNewBet } from "../../services/firebase";
-import { async } from "@firebase/util";
-import { getMatchWinner } from "../../services/utilities";
+import { getCalendar, getCalendarByDate } from "../../services/getData";
+import { Loading } from "../../components/Loading/Loading";
+import { getEventDetails, getNextWeekEnd } from "../../services/utilities";
 
 function BettingPage({ calendar }) {
     const [classSelected, setClassSelected] = useState([true, false, false]);
@@ -17,18 +18,15 @@ function BettingPage({ calendar }) {
     const [currentUser, setCurrentUser] = useState(null);
     const [error, setError] = useState('');
     const [sending, setSending] = useState(null);
-    const [results, setResults] = useState(['0', '0', '0', '0', '0', '0', '0', '0', '0']);
+    const [resultsBets, setResults] = useState(['0', '0', '0', '0', '0', '0', '0', '0', '0']);
     const [currentBets, setCurrentBets] = useState();
     const userInfo = useLocation().state.userInfo;
     const betsInfo = useLocation().state.bets;
     const navigate = useNavigate();
-    let lastMatches = 0;
-    let matches = [];
-    let currentDay = 0;
     let playerResults = {};
-    let SOURCE_MATCHES = {};
-    let MATCHES_OF_THE_DAY 
     const names = ['QUINIELA', 'PARTICIPANTES', null];
+    const resultDate = getNextWeekEnd();
+    const { loading, results } = getCalendarByDate(resultDate);
 
     useEffect(() => {
         setCurrentUser(userInfo);
@@ -39,28 +37,12 @@ function BettingPage({ calendar }) {
     }, [])
 
     const updateResults = (value, index) => {
-        const result = [...results];
+        const result = [...resultsBets];
         result[index] = value;
         setResults(result);
     }
 
-
-    if (calendar) {
-        SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer']?.week);
-        const FIND_MATCH = calendar?.find((match, index) => {
-            if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES}`) {
-                lastMatches = index;
-                currentDay = match['event-metadata']['event-metadata-soccer'].week;
-                return match
-            }
-        })
-        MATCHES_OF_THE_DAY = calendar?.filter(match => match['event-metadata']['event-metadata-soccer'].week === `${currentDay}`)
-    }
     
-
-    for (let index = 0; index < lastMatches; index++) {
-        matches.push(parseInt(calendar[index]['event-metadata']['event-metadata-soccer'].week))
-    }
     const handleSend = async () => {
         setError('');
         if (username.length === 0) {
@@ -71,7 +53,7 @@ function BettingPage({ calendar }) {
             setError('El nombre debe tener máximo 12 caracteres');
         } else if (!username.match(/^[a-zA-Z0-9]+$/i)) {
             setError('El nombre solo puede tener numeros y letras');
-        } else if (results.filter(result => result === '0').length !== 0 || results.length === 0) {
+        } else if (resultsBets.filter(result => result === '0').length !== 0 || resultsBets.length === 0) {
             setError('Debes completar todos los partidos');
         } else if (error === '') {
             setSending(true);
@@ -79,7 +61,7 @@ function BettingPage({ calendar }) {
                 id: uuid(),
                 uid: currentUser.uid,
                 name: username,
-                results: results
+                results: resultsBets
             }
 
             const res = await insertNewBet(playerResults);
@@ -102,50 +84,54 @@ function BettingPage({ calendar }) {
         setUsername(e.target.value);
     }
 
-
-
+    console.log(resultDate)
     return (
-        <div className='bettingpage'>
-            <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={calendar} names={names} user={currentUser} />
-            {classSelected[0] &&
-                <div className="bettingpage__betting">
-                    {MATCHES_OF_THE_DAY.reverse()?.map(({ "event-metadata": key, "event-metadata": eventData, team }, index) => (
-                        <MatchBetting key={key['event-key']} team={team} eventData={eventData} updateResults={updateResults} index={index} value={results} />
-                    ))}
-                    {currentUser && <div className="bettingpage__container">
-                        <input className="bettingpage__input" name="name" placeholder="Nombre" value={username} onChange={handleChangeInput}></input>
-                        <button className="bettingpage__send" onClick={handleSend}>Enviar</button>
-                        <span className="bettingpage__error">{error}</span>
-                        {sending && <img className="bettingpage__loading" src={loadingIcon} alt="icon loading"></img>}
-                        {sending === false && <span className="bettingpage__message">{'Enviado'}</span>}
-                    </div>}
-                    {!currentUser &&
-                        <div className="bettingpage__modal modal">
-                            <div className="modal__message">Inicia sesión para rellenar y enviar tu quiniela</div>
+        <>
+            {!loading &&
+                <main className='bettingpage'>
+                    <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={results} names={names} user={currentUser} />
+                    {classSelected[0] &&
+                        <section className="bettingpage__betting">
+                            {results.map((result, index, { id }) => (
+                                <MatchBetting key={id} eventData={result} updateResults={updateResults} index={index} value={resultsBets} />
+                            ))}
+                            {currentUser &&
+                                <div className="bettingpage__container">
+                                    <input className="bettingpage__input" name="name" placeholder="Nombre" value={username} onChange={handleChangeInput}></input>
+                                    <button className="bettingpage__send" onClick={handleSend}>Enviar</button>
+                                    <span className="bettingpage__error">{error}</span>
+                                    {sending && <img className="bettingpage__loading" src={loadingIcon} alt="icon loading"></img>}
+                                    {sending === false && <span className="bettingpage__message">{'Enviado'}</span>}
+                                </div>}
+                            {!currentUser &&
+                                <div className="bettingpage__modal modal">
+                                    <div className="modal__message">Inicia sesión para rellenar y enviar tu quiniela</div>
+                                </div>
+                            }
+                        </section>
+                    }
+                    {classSelected[1] &&
+                        <section className="bettingpage__players players">
+                            <div className="players__space"></div>
+                            <div className="players__header">
+                                {results.map((result, { id }) => (
+                                    <MatchHeader key={id} eventData={result} />
+                                ))}
+                            </div>
+                            {currentBets.map((player) => (
+                                <Player key={player.id} name={player.name} results={player.results} idBet={player.uid} userID={currentUser.uid} calendar={results} />
+                            ))}
+                        </section>
+                    }
+                    {(!classSelected[0] && !classSelected[1] && !classSelected[2]) &&
+                        <div className="bettingpage__goodlook goodlook">
+                            <span className="goodlook__message">{`Quiniela enviada \n`}</span>
+                            <span className="goodlook__good">¡Suerte!</span>
                         </div>
                     }
-                </div>
-            }
-            {classSelected[1] &&
-                <div className="bettingpage__players players">
-                    <div className="players__space"></div>
-                    <div className="players__header">
-                        {MATCHES_OF_THE_DAY.reverse()?.map(({ "event-metadata": key, "event-metadata": eventData, team }) => (
-                            <MatchHeader key={key['event-key']} team={team} eventData={eventData} />
-                        ))}
-                    </div>
-                    {currentBets.map((player, index) => (
-                        <Player key={player.id} name={player.name} results={player.results} idBet={player.uid} userID={currentUser.uid} calendar={calendar} />
-                    ))}
-                </div>
-            }
-            {(!classSelected[0] && !classSelected[1] && !classSelected[2]) &&
-                <div className="bettingpage__goodlook goodlook">
-                    <span className="goodlook__message">{`Quiniela enviada \n`}</span>
-                    <span className="goodlook__good">¡Suerte!</span>
-                </div>
-            }
-        </div>
+                </main>}
+            {loading && <Loading/>}
+        </>
     )
 }
 

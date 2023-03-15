@@ -4,12 +4,22 @@ $color_mark: #59546C;
 $color_font: #8B939C;
 $color_select: #FF0035;
 
+.positions{
+    display: flex;
+    min-height: 15rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
 .table {
+    width: 100%;
     position: relative;
     //background-color: #0E131F;
     border: 1px solid $color_font;
     display: grid;
     grid-auto-flow: column;
+    place-items: center;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
 

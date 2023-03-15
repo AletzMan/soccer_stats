@@ -1,35 +1,33 @@
 import './Fixtures.css'
 //import dataMatches from '../../services/dataMatches.json';
 import { Match } from '../Match/Match';
+import { getCalendarByDate } from '../../services/getData';
+import { Loading } from "../../components/Loading/Loading";
+import { getEventDetails, getNextWeekEnd } from '../../services/utilities';
+import { useEffect, useState } from 'react';
 
-function Fixtures({ calendar }) {
-    let lastMatches = 0;
-    let matches = [];
-    let currentDay = 0;
-    const SOURCE_MATCHES = parseInt(calendar[0]['event-metadata']['event-metadata-soccer'].week);
-    console.log(SOURCE_MATCHES)
-    console.log('jola')
-    
+function Fixtures({ setWeek }) {
+    const resultDate = getNextWeekEnd();
+    const { loading, results } = getCalendarByDate(resultDate);
 
-    const FIND_MATCH = calendar.find((match, index) => {
-        if (match['event-metadata']['event-metadata-soccer'].week === `${SOURCE_MATCHES}`) {
-            lastMatches = index;
-            currentDay = match['event-metadata']['event-metadata-soccer'].week;
-            return match
-        }        
-    })
-    const MATCHES_OF_THE_DAY = calendar.filter(match => match['event-metadata']['event-metadata-soccer'].week === `${currentDay}`)
-    
-    for (let index = 0; index < lastMatches; index++) {
-        matches.push(parseInt(calendar[index]['event-metadata']['event-metadata-soccer'].week))        
-    }
+
+    useEffect(() => {
+        if (!loading) {
+            const details = getEventDetails(results[0]);
+            setWeek(details.week);
+        }
+    }, [loading])
+
 
     return (
-        <div className='fixtures'>
-            {MATCHES_OF_THE_DAY.map(({ "event-metadata": key, "event-metadata": eventData, team }) => (
-                <Match key={key['event-key']} team={team} eventData={eventData} />
-            ))}
-        </div>
+        <section className='fixtures'>
+            {!loading && <div className='fixtures__match'>
+                {results.map((result, { id, }) => (
+                    <Match key={id} eventData={result} />
+                ))}
+            </div>}
+            {loading && <Loading />}
+        </section>
     )
 }
 

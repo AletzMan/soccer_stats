@@ -1,13 +1,14 @@
 import { MatchLive } from '../MatchLive/MatchLive';
 import './Results.css';
-import { useEffect, useState } from 'react';
+import loadingIcon from '../../assets/loading-icon.svg';
+import { useState } from 'react';
 import { getDateToday, getDateTodayString, getPrevOrNextDay } from '../../services/utilities';
 import { getResults } from '../../services/getData';
-import { async } from '@firebase/util';
+import { Loading } from '../Loading/Loading';
 
 function Results() {
     const [daySelected, setDaySelected] = useState(getDateTodayString());
-    const [ dateFetch, setDateFecth ] = useState(daySelected);
+    const [dateFetch, setDateFetch] = useState(daySelected);
     const { results, loading } = getResults(dateFetch);
     const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     let today = getDateToday();
@@ -19,24 +20,29 @@ function Results() {
         const { day, dayString, dayFetch } = getPrevOrNextDay(daySelected, 'next');
         setDaySelected(day);
         setDayString(dayString);
-        setDateFecth(dayFetch);
+        setDateFetch(dayFetch);
     }
     const prevDay = () => {
         const { day, dayString, dayFetch } = getPrevOrNextDay(daySelected, 'prev');
         setDaySelected(day);
         setDayString(dayString);
-        setDateFecth(dayFetch);
+        setDateFetch(dayFetch);
     }
+    const isLastDay = dateFull === dayString;
+    console.log(loading)
     return (
-        <div className='results'>
-            <button onClick={nextDay}>+</button>
-            <button onClick={prevDay}>-</button>
-            <h1 className='results__title'>{dayString}</h1>
+        <section className='results'>
+            <header className='results__header'>
+                <button className={`results__button results__prev results__prev--false`} onClick={prevDay}></button>
+                <h1 className='results__title'>{dayString}</h1>
+                <button className={`results__button results__next results__next--${isLastDay}`} disabled={isLastDay} onClick={nextDay}></button>
+            </header>
             {(!loading && results) && results?.data.map(({ id, sportEvent }) => (
-                <MatchLive key={id} sportEvent={sportEvent} idEvent={id} date={daySelected} />
+                <MatchLive key={id} sportEvent={sportEvent} idEvent={id} />
             ))}
-            {results?.length === 0 && <p>Hoy no hay partidos</p>}
-        </div>
+            {!loading && results?.length === 0 && <span className='results__empty'>Hoy no hay partidos</span>}
+            {loading && <Loading/>}
+        </section>
     )
 }
 

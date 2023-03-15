@@ -60,14 +60,35 @@ export function getDateToday() {
 
 export function getDateTodayString() {
     const { year, month, day } = getDateToday();
-    let dayFull = day < 10 ? '0' + day  : day;
+    let dayFull = day < 10 ? '0' + day : day;
     let monthFull = month < 10 ? '0' + month : month;
-    return `${year}-${monthFull}-${dayFull}`
-
+    return `${year}-${monthFull}-${dayFull}`;
 }
 
-export function getDateToString(date) {
-    
+export function getNextWeekEnd() {
+    let today = new Date(); // fecha actual
+    let dayOfWeek = today.getDay(); // día de la semana (0-6)
+    let daysUntilThursday = 4 - dayOfWeek; // días hasta el jueves
+    console.log(daysUntilThursday)
+    console.log(dayOfWeek)
+    if (daysUntilThursday < 0) {
+        daysUntilThursday += 7;
+    }
+    if (dayOfWeek === 0) {
+        daysUntilThursday -= 7;
+    }
+    let thursday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysUntilThursday); // fecha del próximo jueves
+    let friday = new Date(thursday.getFullYear(), thursday.getMonth(), thursday.getDate() + 1); // fecha del próximo viernes
+    let saturday = new Date(thursday.getFullYear(), thursday.getMonth(), thursday.getDate() + 2); // fecha del próximo sábado
+    let sunday = new Date(thursday.getFullYear(), thursday.getMonth(), thursday.getDate() + 3); // fecha del próximo domingo
+    let monday = new Date(thursday.getFullYear(), thursday.getMonth(), thursday.getDate() + 4); // fecha del próximo lunes
+    return {
+        thursday: thursday.toISOString().slice(0, 10), // formato 'yyyy-mm-dd'
+        friday: friday.toISOString().slice(0, 10),
+        saturday: saturday.toISOString().slice(0, 10),
+        sunday: sunday.toISOString().slice(0, 10),
+        monday: monday.toISOString().slice(0, 10),
+    };
 }
 
 export function getPrevOrNextDay(day, type) {
@@ -81,7 +102,7 @@ export function getPrevOrNextDay(day, type) {
     }
     const localDay = nextDay.toLocaleDateString('es-MX', optionsDate);
     let date = localDay.charAt(0).toUpperCase() + localDay.slice(1);
-    
+
     const actualDate = new Date(nextDay)
     const dayActual = actualDate.getDate() < 10 ? '0' + actualDate.getDate() : actualDate.getDate();
     const monthActual = actualDate.getMonth() < 10 ? '0' + (actualDate.getMonth() + 1) : (actualDate.getMonth() + 1);
@@ -100,18 +121,18 @@ export function getMatchWinner(calendar) {
     try {
         if (calendar) {
             const statusMatch = calendar?.map(match => {
-                return match['event-metadata']['event-status'];
+                return match.sportEvent.status.name;
             });
             const resultMatch = {
                 homeScores: calendar?.map(match => {
-                    return match.team[0]['team-stats'].score
+                    return match.score.awayTeam.totalScore
                 }),
                 awayScores: calendar?.map(match => {
-                    return match.team[1]['team-stats'].score
+                    return match.score.homeTeam.totalScore
                 }),
             }
             resultData = statusMatch?.map((status, index) => {
-                if (status === 'post-event') {
+                if (status === 'Finalizado') {
                     if (parseInt(resultMatch.homeScores[index]) > parseInt(resultMatch.awayScores[index])) {
                         return 'L';
                     } else if (parseInt(resultMatch.homeScores[index]) === parseInt(resultMatch.awayScores[index])) {
@@ -208,6 +229,49 @@ export function getValuesOfStatistics(statistics) {
     return arrayStatistics;
 }
 
-export function orderArray(array) {
+export function getEventDetails(events) {
 
+    if (events) {
+        let eventDetails = {
+            event: events.sportEvent.name.replace('Fútbol Liga Mexicana Clausura ', ''),
+            status: events.sportEvent.status.name,
+            week: events.sportEvent.matchDay,
+            name: {
+                home: {
+                    full: events.sportEvent.competitors.homeTeam.fullName,
+                    abb: events.sportEvent.competitors.homeTeam.abbName,
+                },
+                away: {
+                    full: events.sportEvent.competitors.awayTeam.fullName,
+                    abb: events.sportEvent.competitors.awayTeam.abbName,
+                }
+            },
+            logo: {
+                home: events.sportEvent.competitors.homeTeam.images.urlLogo[0],
+                away: events.sportEvent.competitors.awayTeam.images.urlLogo[0],
+            },
+            date: getLocalDate(events.startDate)[0],
+            time: getLocalDate(events.startDate)[1],
+            location: {
+                city: events.sportEvent.location.address,
+                stadium: events.sportEvent.location.name,
+            }
+
+        }
+        return eventDetails
+    }
+
+    return null
+}
+
+function getLocalDate(date) {
+    const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsTime = { hour: 'numeric', minute: 'numeric' };
+    const DATE = new Date(date).toLocaleDateString('es-MX', optionsDate);
+    const HOUR = new Date(date).getHours();
+    const MINUTES = new Date(date).getMinutes() < 10 ? '0' + new Date(date).getMinutes() : new Date(date).getMinutes();
+    const TIME = HOUR + ':' + MINUTES;
+    const DATE_FULL = DATE.charAt(0).toUpperCase() + DATE.slice(1);
+
+    return [DATE_FULL, TIME];
 }

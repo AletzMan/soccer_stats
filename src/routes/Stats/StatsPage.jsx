@@ -7,13 +7,13 @@ import { Results } from '../../components/Results/Results';
 import { getResults } from '../../services/getData';
 
 
-function StatsPage({ calendar }) {
+function StatsPage() {
     const [classSelected, setClassSelected] = useState([true, false, false]);
     const [currentUser, setCurrentUser] = useState(null);
     const userInfo = useLocation().state;
     const navigate = useNavigate();
-    
-    const names = ['JORANDA', 'RESULTADOS', 'POSICIONES'];
+    const [week, setWeek] = useState('')
+    const names = ['JORNADA', 'RESULTADOS', 'POSICIONES'];
 
     useEffect(() => {
         setCurrentUser(userInfo);
@@ -21,14 +21,13 @@ function StatsPage({ calendar }) {
             navigate('/');
         }
     }, [])
-
     
 
     return (
         <>
-            <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={calendar} names={names} user={currentUser} />
-            {(classSelected[0] && calendar) && <Fixtures calendar={calendar} />}
-            {(classSelected[1]) && <Results />}
+            <Header classSelected={classSelected} setClassSelected={setClassSelected} names={names} user={currentUser} week={week} />
+            {classSelected[0]  && <Fixtures setWeek={setWeek}/>}
+            {classSelected[1] && <Results />}
             {classSelected[2] && <Positions />}
         </>
     )

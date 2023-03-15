@@ -4,9 +4,8 @@ import { getMatchWinner } from '../../services/utilities';
 
 function Player({name, results, idBet, userID, calendar}) {
 
-    
+    //const details = getEventDetails(calendar);
     const data = getMatchWinner(calendar);
-console.log(data)
     return(
         <div  className="player">
             <span className={`player__name player__name--${idBet === userID}`}>{name}</span>

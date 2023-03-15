@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { AuthProvider } from '../../components/authProvider';
 import { auth, getAllBets, logout } from '../../services/firebase';
+import { Loading } from '../../components/Loading/Loading';
 
 function HomePage() {
     const navigate = useNavigate();
@@ -99,7 +100,7 @@ function HomePage() {
             userNotLoggedIn={handleNotLoggedIn}
             userNotRegistered={handleNotRegistered}
         >
-            <div>Loading...</div>
+            {<Loading/>}
         </AuthProvider>
 
     );

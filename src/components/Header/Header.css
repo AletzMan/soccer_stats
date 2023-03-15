@@ -21,7 +21,12 @@
 }
 .header__title {
   background-color: #FFFFFF10;
-  color: #FF0035;
+  color: #7cac46;
+  width: 20rem;
+  border-radius: 4rem;
+  border: 1px solid #e9e9e915;
+  justify-self: center;
+  align-self: center;
 }
 
 .userinfo {

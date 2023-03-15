@@ -10,8 +10,91 @@ $color_select: #FF0035;
     flex-direction: column;
     gap: 0.3rem;
 
+    &__header {
+        display: grid;
+        grid-template-columns: 0.5fr 5fr 0.5fr;
+        align-items: center;
+        width: 100%;
+        background-color: #183c4d;
+        border: 1px solid #8B939C77;
+
+    }
+
     &__title {
+        grid-column: 2 / 3;
         font-size: 1.5rem;
         color: $color_font;
+
+        @media (max-width: 540px) {
+            font-size: 1rem;
+        }
+    }
+
+    &__button {
+        width: 2.3rem;
+        height: 2.3rem;
+        margin-left: 0.5rem;
+        background-color: transparent;
+        border: none;
+        background-repeat: no-repeat;
+        background-size: 1.8rem;
+        background-position: center;
+        background-image: url('../../assets/backbutton.svg');
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    &__prev {
+        grid-column: 1 / 2;
+
+        &--false {
+            &:hover {
+                background-color: #e9e9e945;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &__next {
+        grid-column: 3 / 4;
+        transform: rotate(180deg);
+        margin-right: 0.5rem;
+        justify-self: flex-end;
+
+        &--true {
+            opacity: 0.1;
+            cursor: default;
+        }
+
+        &--false {
+            &:hover {
+                background-color: #e9e9e945;
+                border-radius: 50%;
+            }
+
+        }
+    }
+
+    &__empty {
+        color: #adcbda;
+        width: 15rem;
+        justify-self: center;
+        align-self: center;
+        font-size: 1.2rem;
+        margin: 2rem 0;
+        border-radius: 3rem;
+        padding: 0.5rem 0;
+        background-color: #adcbda22;
+    }
+
+}
+
+@keyframes animationLoading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
