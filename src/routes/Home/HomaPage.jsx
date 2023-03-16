@@ -15,17 +15,17 @@ function HomePage() {
     const [bets, setBets] = useState([]);
 
 
-    useEffect(()=> {
+    useEffect(() => {
         getDataBets();
 
-        async function getDataBets(){
+        async function getDataBets() {
             const groupBets = await getAllBets();
-            if(groupBets?.length > 0) {
+            if (groupBets?.length > 0) {
                 setBets(groupBets);
             }
             console.log(bets);
         }
-    },[])
+    }, [])
 
     /*
    0: Inicializando
@@ -68,7 +68,7 @@ function HomePage() {
         navigate('stats', { state: currentUser });
     }
     const goToBetting = () => {
-        navigate('betting', { state: {userInfo: currentUser, bets: bets }});
+        navigate('betting', { state: { userInfo: currentUser, bets: bets } });
     }
 
 
@@ -100,7 +100,9 @@ function HomePage() {
             userNotLoggedIn={handleNotLoggedIn}
             userNotRegistered={handleNotRegistered}
         >
-            {<Loading/>}
+            <section className='home'>
+                {<Loading />}
+            </section>
         </AuthProvider>
 
     );

@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { getDateToday, getDateTodayString, getPrevOrNextDay } from '../../services/utilities';
 import { getResults } from '../../services/getData';
 import { Loading } from '../Loading/Loading';
+import { FaceSad } from '../Globals/faceSad';
 
 function Results() {
     const [daySelected, setDaySelected] = useState(getDateTodayString());
@@ -29,7 +30,7 @@ function Results() {
         setDateFetch(dayFetch);
     }
     const isLastDay = dateFull === dayString;
-    console.log(loading)
+    console.log(results)
     return (
         <section className='results'>
             <header className='results__header'>
@@ -37,11 +38,16 @@ function Results() {
                 <h1 className='results__title'>{dayString}</h1>
                 <button className={`results__button results__next results__next--${isLastDay}`} disabled={isLastDay} onClick={nextDay}></button>
             </header>
-            {(!loading && results) && results?.data.map(({ id, sportEvent }) => (
+            {(!loading && results?.data?.length > 0) && results?.data.map(({ id, sportEvent }) => (
                 <MatchLive key={id} sportEvent={sportEvent} idEvent={id} />
             ))}
-            {!loading && results?.length === 0 && <span className='results__empty'>Hoy no hay partidos</span>}
-            {loading && <Loading/>}
+            {loading && <Loading />}
+            {!results &&
+                <>
+                    <span className='results__empty'>Hoy no hay partidos</span>
+                   <FaceSad />
+                </>
+            }
         </section>
     )
 }

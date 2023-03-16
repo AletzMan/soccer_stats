@@ -22,8 +22,8 @@ function Fixtures({ setWeek }) {
     return (
         <section className='fixtures'>
             {!loading && <div className='fixtures__match'>
-                {results.map((result, { id, }) => (
-                    <Match key={id} eventData={result} />
+                {results.map((result,) => (
+                    <Match key={result.id} eventData={result} />
                 ))}
             </div>}
             {loading && <Loading />}

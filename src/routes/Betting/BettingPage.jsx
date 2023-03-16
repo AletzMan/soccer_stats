@@ -20,6 +20,7 @@ function BettingPage({ calendar }) {
     const [sending, setSending] = useState(null);
     const [resultsBets, setResults] = useState(['0', '0', '0', '0', '0', '0', '0', '0', '0']);
     const [currentBets, setCurrentBets] = useState();
+    const [week, setWeek] = useState('')
     const userInfo = useLocation().state.userInfo;
     const betsInfo = useLocation().state.bets;
     const navigate = useNavigate();
@@ -89,11 +90,11 @@ function BettingPage({ calendar }) {
         <>
             {!loading &&
                 <main className='bettingpage'>
-                    <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={results} names={names} user={currentUser} />
+                    <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={results} names={names} user={currentUser}  week={week}  />
                     {classSelected[0] &&
                         <section className="bettingpage__betting">
                             {results.map((result, index, { id }) => (
-                                <MatchBetting key={id} eventData={result} updateResults={updateResults} index={index} value={resultsBets} />
+                                <MatchBetting key={id} eventData={result} updateResults={updateResults} index={index} value={resultsBets} setWeek={setWeek}/>
                             ))}
                             {currentUser &&
                                 <div className="bettingpage__container">

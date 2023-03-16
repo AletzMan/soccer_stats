@@ -14,32 +14,50 @@
 .match__teams {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   place-items: center;
+  gap: 0.2rem;
   grid-column: 1/span 3;
   grid-row: 1/2;
 }
 .match__teams--name {
+  grid-column: 2/span 2;
   color: #8B939C;
   font-weight: 600;
   font-size: 1.2rem;
 }
+.match__teams--away {
+  grid-column: 4/5;
+}
 .match__date {
-  grid-column: 2/3;
+  grid-column: 2/span 2;
   grid-row: 2/3;
   font-size: 0.8rem;
   font-weight: 300;
-  color: #778eec;
+  color: #8da3fd;
 }
 .match__hour {
   grid-column: 2/3;
   grid-row: 3/4;
   font-size: 0.8rem;
   font-weight: 300;
+  justify-self: flex-end;
   color: #ecc377;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.8rem;
+  background-color: #a4aa6944;
+}
+.match__city {
+  grid-column: 3/4;
+  grid-row: 3/4;
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin-left: 0.5rem;
+  justify-self: flex-start;
+  color: #83e2e6;
 }
 .match__site {
-  grid-column: 2/3;
+  grid-column: 2/span 2;
   grid-row: 4/5;
   font-size: 0.8rem;
   font-weight: 300;

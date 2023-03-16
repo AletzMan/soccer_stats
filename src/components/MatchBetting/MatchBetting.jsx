@@ -1,11 +1,15 @@
 
+import { useEffect } from 'react';
 import { getEventDetails } from '../../services/utilities';
 import './MatchBetting.css'
 
-function MatchBetting({ team, eventData, updateResults, index, value }) {
+function MatchBetting({ eventData, updateResults, index, value, setWeek }) {
     const handleRadioCheck = (e) => {
         updateResults(e.target.id, index);    
     }
+    useEffect(()=>{
+        setWeek(details.week);
+    },[])
 
     const details = getEventDetails(eventData);
 

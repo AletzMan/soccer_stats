@@ -155,7 +155,7 @@ export function getMatchWinner(calendar) {
 export function getEventStats(matchData) {
 
     try {
-        if (matchData) {
+        if (matchData.eventStats) {
             let eventStats = {
                 homeTeam: {
                     name: matchData.eventStats.stats.homeTeam.teamInfo.commonName,

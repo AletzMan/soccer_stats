@@ -130,7 +130,7 @@ export const getMatchData =  (id) => {
         const fetchData = async () => {
             try {
                 const { data: response } = await axios.get(`${API_URL_MATCH_DATA}${id}/full?site=19`);
-
+                console.log(response)
                 setMatchData(response);
             } catch (error) {
                 console.error(error)
