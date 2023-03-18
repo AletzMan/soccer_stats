@@ -85,7 +85,6 @@ function BettingPage({ calendar }) {
         setUsername(e.target.value);
     }
 
-    console.log(resultDate)
     return (
         <>
             {!loading &&

@@ -2,13 +2,13 @@ import { COMMENTARIES, IMAGES } from "./constants";
 
 
 export function countdown(targetDate) {
-    const optionsDate = { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    const dateEventLocal = new Date(targetDate).toLocaleDateString('es-MX', optionsDate)
+    const optionsDate = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const dateEventLocal = new Date(targetDate);
     let date = getDateToday();
     const { day, month, year, hour, minute, second } = date;
-
-    let dateToday = `${day}/${month}/${year}, ${hour}:${minute}:${second}`;
-    let differenceTime = new Date(dateEventLocal) - new Date(dateToday);
+    
+    let dateToday = `${year}/${month}/${day}, ${hour}:${minute}:${second}`;
+    let differenceTime = (new Date(dateEventLocal)) - (new Date(dateToday));
     let timeHours = Math.floor(((differenceTime / 1000) / 60) / 60)
     let timeMinutes = Math.floor(((differenceTime / 1000) / 60) - timeHours * 60);
     let timeSeconds = (differenceTime / 1000) - ((timeHours * 60 * 60) + (timeMinutes * 60));
@@ -19,7 +19,7 @@ export function countdown(targetDate) {
     if (timeHours < 0) {
         return 'Comenzando'
     }
-
+    
     return `${timeHours}:${timeMinutes}:${timeSeconds}`
 }
 
@@ -135,10 +135,10 @@ export function getMatchWinner(calendar) {
             });
             const resultMatch = {
                 homeScores: calendar?.map(match => {
-                    return match.score.awayTeam.totalScore
+                    return match.score.homeTeam.totalScore
                 }),
                 awayScores: calendar?.map(match => {
-                    return match.score.homeTeam.totalScore
+                    return match.score.awayTeam.totalScore
                 }),
             }
             resultData = statusMatch?.map((status, index) => {
@@ -159,11 +159,10 @@ export function getMatchWinner(calendar) {
     } catch (error) {
         console.error(error)
     }
-    return resultData.reverse();
+    return resultData;
 }
 
 export function getEventStats(matchData) {
-
     try {
         if (matchData.eventStats) {
             let eventStats = {
@@ -240,7 +239,6 @@ export function getValuesOfStatistics(statistics) {
 }
 
 export function getEventDetails(events) {
-    console.log(events)
     if (events) {
         let eventDetails = {
             event: events.sportEvent.alternateNames.enEN.replace('Football Liga Mexicana Clausura MX', ''),

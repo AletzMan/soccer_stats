@@ -26,7 +26,6 @@ export async function userExists(userID) {
   try {
     const docRef = doc(db, 'users', userID);
     const res = await getDoc(docRef);
-    console.log(res);
     return res.exists();    
   } catch (error) {
      console.error(error);

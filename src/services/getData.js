@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { getEventStats } from "./utilities";
 
 const API_URL = 'https://api.unidadeditorial.es/sports/v1/classifications/current/?site=2&type=10&tournament=0168';
 //const API_URL_MATCHES = 'https://api.unidadeditorial.es/sports/v1/events/preset/74_183a06e3?timezoneOffset=-6&date=2023-03-03';
@@ -129,6 +130,7 @@ export const getMatchData =  (id) => {
         const fetchData = async () => {
             try {
                 const { data: response } = await axios.get(`${API_URL_MATCH_DATA}${id}/full?site=19`);
+                //const eventStats = getEventStats(matchData?.data);
                 setMatchData(response);
             } catch (error) {
                 console.error(error)
