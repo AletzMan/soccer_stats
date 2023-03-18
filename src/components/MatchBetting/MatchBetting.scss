@@ -70,10 +70,12 @@ $color_select: #FF0035;
         width: 2rem;
         height: 2rem;
         background-color: $color_mark;
-        border: 1px solid $color_font;
+        border: 2px solid $color_font;
+        transition: all 0.3s;
 
         &:hover {
-            border-color: #c0d031;
+            border-color: #81b326;
+            background-color: #4b4d37;
         }
     }
     

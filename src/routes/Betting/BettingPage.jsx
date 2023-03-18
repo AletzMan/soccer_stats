@@ -21,8 +21,8 @@ function BettingPage({ calendar }) {
     const [resultsBets, setResults] = useState(['0', '0', '0', '0', '0', '0', '0', '0', '0']);
     const [currentBets, setCurrentBets] = useState();
     const [week, setWeek] = useState('')
-    const userInfo = useLocation().state.userInfo;
-    const betsInfo = useLocation().state.bets;
+    const userInfo = useLocation().state?.userInfo;
+    const betsInfo = useLocation().state?.bets;
     const navigate = useNavigate();
     let playerResults = {};
     const names = ['QUINIELA', 'PARTICIPANTES', null];
