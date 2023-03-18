@@ -17,6 +17,8 @@ function Results() {
     let dateFull = DATE.charAt(0).toUpperCase() + DATE.slice(1);
     const [dayString, setDayString] = useState(dateFull);
 
+
+
     const nextDay = () => {
         const { day, dayString, dayFetch } = getPrevOrNextDay(daySelected, 'next');
         setDaySelected(day);
@@ -30,7 +32,6 @@ function Results() {
         setDateFetch(dayFetch);
     }
     const isLastDay = dateFull === dayString;
-    console.log(results)
     return (
         <section className='results'>
             <header className='results__header'>
@@ -39,7 +40,7 @@ function Results() {
                 <button className={`results__button results__next results__next--${isLastDay}`} disabled={isLastDay} onClick={nextDay}></button>
             </header>
             {(!loading && results?.data?.length > 0) && results?.data.map(({ id, sportEvent }) => (
-                <MatchLive key={id} sportEvent={sportEvent} idEvent={id} />
+                <MatchLive key={id} sportEvent={sportEvent} idEvent={id} daySelected0={daySelected} />
             ))}
             {loading && <Loading />}
             {!results &&

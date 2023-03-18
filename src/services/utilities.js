@@ -2,9 +2,8 @@ import { COMMENTARIES, IMAGES } from "./constants";
 
 
 export function countdown(targetDate) {
-    const optionsDate = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const optionsDate = { day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
     const dateEventLocal = new Date(targetDate).toLocaleDateString('es-MX', optionsDate)
-
     let date = getDateToday();
     const { day, month, year, hour, minute, second } = date;
 
@@ -24,7 +23,7 @@ export function countdown(targetDate) {
     return `${timeHours}:${timeMinutes}:${timeSeconds}`
 }
 
-export function statusEvent(sportEvent) {
+export function statusEvent(sportEvent, eventStats) {
     let CLASS_STATUS = '';
     try {
         if (sportEvent.status.name === 'Finalizado') {
@@ -37,7 +36,13 @@ export function statusEvent(sportEvent) {
             CLASS_STATUS = 'inter';
         }
         if (sportEvent.status.name === 'En juego') {
-            CLASS_STATUS = 'live';
+            //console.log(parseInt(eventStats?.narration[0]?.momentAction))
+            //console.log(eventStats.narration[0].commentary.includes('segunda parte') )
+            if (parseInt(eventStats?.narration[0]?.momentAction < 90 && eventStats.narration[0].commentary.includes('segunda parte'))) {
+                CLASS_STATUS = 'inter';
+            } else {
+                CLASS_STATUS = 'live';
+            }
         }
     } catch (error) {
         return console.error(error)
@@ -68,12 +73,17 @@ export function getDateTodayString() {
 export function getNextWeekEnd() {
     let today = new Date(); // fecha actual
     let dayOfWeek = today.getDay(); // día de la semana (0-6)
-    let daysUntilThursday = 4 - dayOfWeek; // días hasta el jueves
-    console.log(daysUntilThursday)
-    console.log(dayOfWeek)
-    if (daysUntilThursday < 0) {
+    let daysUntilThursday = 0; /* 4 - dayOfWeek; */// días hasta el jueves
+    /*if (daysUntilThursday < 0) {
         daysUntilThursday += 7;
+    }*/
+
+
+    if (dayOfWeek >= 4 ) {
+        daysUntilThursday = 4 - dayOfWeek;
     }
+
+
     if (dayOfWeek === 0) {
         daysUntilThursday -= 7;
     }
@@ -230,10 +240,10 @@ export function getValuesOfStatistics(statistics) {
 }
 
 export function getEventDetails(events) {
-
+    console.log(events)
     if (events) {
         let eventDetails = {
-            event: events.sportEvent.name.replace('Fútbol Liga Mexicana Clausura ', ''),
+            event: events.sportEvent.alternateNames.enEN.replace('Football Liga Mexicana Clausura MX', ''),
             status: events.sportEvent.status.name,
             week: events.sportEvent.matchDay,
             name: {

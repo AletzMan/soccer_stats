@@ -69,7 +69,6 @@ export const getCalendarByDate =  (dateArray) => {
     let month = today.getMonth() < 9 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;
     let year = today.getFullYear();
     let dateToday = `${year}-${month}-${day}`;
-    console.log(dateToday)
     useEffect(() => {
         setLoading(true);
         const fetchData = async () => {
@@ -130,7 +129,6 @@ export const getMatchData =  (id) => {
         const fetchData = async () => {
             try {
                 const { data: response } = await axios.get(`${API_URL_MATCH_DATA}${id}/full?site=19`);
-                console.log(response)
                 setMatchData(response);
             } catch (error) {
                 console.error(error)

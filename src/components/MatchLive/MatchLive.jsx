@@ -2,43 +2,44 @@ import './MatchLive.css';
 import ballImage from '../../assets/ball.png';
 import { useEffect, useState } from 'react';
 import { countdown, getEventStats, statusEvent } from '../../services/utilities';
-import { getMatchData } from '../../services/getData';
+import { getMatchData, getResults } from '../../services/getData';
 import { MatchDetails } from '../MatchDetails/MatchDetails';
 import arrowDownIcon from '../../assets/arrowdown-icon.svg';
 
 function MatchLive({ sportEvent, idEvent }) {
-    const [timeToStartEvent, setTimeStartEvent] = useState('');
-    const [opened, setOpened] = useState(false);
-    console.log(sportEvent)
     const { loading, matchData } = getMatchData(idEvent);
-    const statusMatch = sportEvent.status.name;
-    const statusClass = statusEvent(sportEvent).class;
- 
+    const eventStats = !loading ? getEventStats(matchData?.data) : null;
+    const [timeToStartEvent, setTimeStartEvent] = useState(eventStats?.narration[0]?.momentAction);
+    const [opened, setOpened] = useState(false);
 
+    const statusMatch = sportEvent.status.name;
+    const statusClass = statusEvent(sportEvent, eventStats).class;
+
+    console.log(matchData)
+    console.log(eventStats)
     useEffect(() => {
-        const dateEvent = sportEvent.startDate
-        if (0) {
+        const dateEvent = matchData?.data?.event.startDate;
+        if (sportEvent.status.name === 'Sin comenzar') {
             const interval = setInterval(() => {
-                setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);
+                setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);s
             }, 1000);
             return () => clearInterval(interval);
-        } else {
-            //setTimeStartEvent(`${sportEvent['event-metadata-soccer']['minutes-elapsed']}'`)
+        } if (sportEvent.status.name === 'Finalizado') {
+            setTimeStartEvent(``);
         }
-    }, []);
+        else {
+            setTimeStartEvent(`${eventStats?.narration[0]?.momentAction}'`);
+        }
+    }, [eventStats]);
 
     const opendDetailStatus = (e) => {
         setOpened(e.target.checked);
     }
 
- 
-    console.log(matchData)
-    const eventStats = !loading ? getEventStats(matchData?.data) : null;
 
-    console.log(eventStats)
     return (
         <>
-            {(!loading && eventStats ) &&
+            {(!loading && eventStats) &&
                 <div className="matchlive">
                     <>
                         <img className='matchlive__img--home matchlive__img' src={sportEvent?.competitors.homeTeam.images.urlLogo[0]}></img>
@@ -80,8 +81,8 @@ function MatchLive({ sportEvent, idEvent }) {
                     </div>
                     <MatchDetails opened={opened} matchData={matchData.data}></MatchDetails>
                 </div>}
-                
-           
+
+
         </>
     )
 }

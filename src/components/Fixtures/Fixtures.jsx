@@ -10,6 +10,8 @@ function Fixtures({ setWeek }) {
     const resultDate = getNextWeekEnd();
     const { loading, results } = getCalendarByDate(resultDate);
 
+    //console.log(resultDate)
+    //console.log(results)
 
     useEffect(() => {
         if (!loading) {
@@ -17,8 +19,7 @@ function Fixtures({ setWeek }) {
             setWeek(details.week);
         }
     }, [loading])
-
-
+    
     return (
         <section className='fixtures'>
             {!loading && <div className='fixtures__match'>
