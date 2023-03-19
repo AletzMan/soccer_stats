@@ -26,6 +26,7 @@ function Results() {
         setDateFetch(dayFetch);
     }
     const prevDay = () => {
+        console.log(daySelected)
         const { day, dayString, dayFetch } = getPrevOrNextDay(daySelected, 'prev');
         setDaySelected(day);
         setDayString(dayString);

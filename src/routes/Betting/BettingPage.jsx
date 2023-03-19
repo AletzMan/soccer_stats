@@ -92,8 +92,8 @@ function BettingPage({ calendar }) {
                     <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={results} names={names} user={currentUser}  week={week}  />
                     {classSelected[0] &&
                         <section className="bettingpage__betting">
-                            {results.map((result, index, { id }) => (
-                                <MatchBetting key={id} eventData={result} updateResults={updateResults} index={index} value={resultsBets} setWeek={setWeek}/>
+                            {results.map((result, index) => (
+                                <MatchBetting key={uuid()} eventData={result} updateResults={updateResults} index={index} value={resultsBets} setWeek={setWeek}/>
                             ))}
                             {currentUser &&
                                 <div className="bettingpage__container">

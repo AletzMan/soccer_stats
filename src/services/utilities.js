@@ -6,7 +6,7 @@ export function countdown(targetDate) {
     const dateEventLocal = new Date(targetDate);
     let date = getDateToday();
     const { day, month, year, hour, minute, second } = date;
-    
+
     let dateToday = `${year}/${month}/${day}, ${hour}:${minute}:${second}`;
     let differenceTime = (new Date(dateEventLocal)) - (new Date(dateToday));
     let timeHours = Math.floor(((differenceTime / 1000) / 60) / 60)
@@ -19,11 +19,12 @@ export function countdown(targetDate) {
     if (timeHours < 0) {
         return 'Comenzando'
     }
-    
+
     return `${timeHours}:${timeMinutes}:${timeSeconds}`
 }
 
 export function statusEvent(sportEvent, eventStats) {
+
     let CLASS_STATUS = '';
     try {
         if (sportEvent.status.name === 'Finalizado') {
@@ -36,13 +37,7 @@ export function statusEvent(sportEvent, eventStats) {
             CLASS_STATUS = 'inter';
         }
         if (sportEvent.status.name === 'En juego') {
-            //console.log(parseInt(eventStats?.narration[0]?.momentAction))
-            //console.log(eventStats.narration[0].commentary.includes('segunda parte') )
-            if (parseInt(eventStats?.narration[0]?.momentAction < 90 && eventStats.narration[0].commentary.includes('segunda parte'))) {
-                CLASS_STATUS = 'inter';
-            } else {
-                CLASS_STATUS = 'live';
-            }
+            CLASS_STATUS = 'live';
         }
     } catch (error) {
         return console.error(error)
@@ -79,7 +74,7 @@ export function getNextWeekEnd() {
     }*/
 
 
-    if (dayOfWeek >= 4 ) {
+    if (dayOfWeek >= 4) {
         daysUntilThursday = 4 - dayOfWeek;
     }
 
@@ -102,14 +97,17 @@ export function getNextWeekEnd() {
 }
 
 export function getPrevOrNextDay(day, type) {
-    const nextDay = (new Date(day));
     const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    console.log(day)
+    const nextDay = (new Date(day));
+    console.log(nextDay)
     if (type === 'prev') {
         nextDay.setDate(nextDay.getDate() - 1);
     }
     if (type === 'next') {
         nextDay.setDate(nextDay.getDate() + 1);
     }
+    
     const localDay = nextDay.toLocaleDateString('es-MX', optionsDate);
     let date = localDay.charAt(0).toUpperCase() + localDay.slice(1);
 

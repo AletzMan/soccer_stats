@@ -19,7 +19,7 @@ function MatchLive({ sportEvent, idEvent }) {
     const [opened, setOpened] = useState(false);
 
     const statusMatch = sportEvent.status.name;
-    const statusClass = statusEvent(sportEvent, eventStats).class;
+    const statusClass = !loading ? statusEvent(sportEvent, eventStats).class: null;
 
     useEffect(() => {
         const dateEvent = matchData?.data?.event.startDate;
@@ -32,6 +32,7 @@ function MatchLive({ sportEvent, idEvent }) {
             setTimeStartEvent(``);
         }
         else {
+            if(!loading)
             setTimeStartEvent(`${eventStats?.narration[0]?.momentAction}'`);
         }
     }, [loading]);
