@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 
 function Fixtures({ setWeek }) {
     const resultDate = getNextWeekEnd();
+    console.log(resultDate)
     const { loading, results } = getCalendarByDate(resultDate);
 
     //console.log(resultDate)

@@ -80,7 +80,7 @@ export function getNextWeekEnd() {
 
 
     if (dayOfWeek === 0) {
-        daysUntilThursday -= 7;
+        daysUntilThursday = -3;
     }
     let thursday = new Date(today.getFullYear(), today.getMonth(), today.getDate() + daysUntilThursday); // fecha del próximo jueves
     let friday = new Date(thursday.getFullYear(), thursday.getMonth(), thursday.getDate() + 1); // fecha del próximo viernes
@@ -98,9 +98,9 @@ export function getNextWeekEnd() {
 
 export function getPrevOrNextDay(day, type) {
     const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    console.log(day)
+    
     const nextDay = (new Date(day));
-    console.log(nextDay)
+    
     if (type === 'prev') {
         nextDay.setDate(nextDay.getDate() - 1);
     }

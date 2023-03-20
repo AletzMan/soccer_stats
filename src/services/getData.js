@@ -65,11 +65,7 @@ export const getCalendar =  () => {
 export const getCalendarByDate =  (dateArray) => {
     const [results, setResults] = useState({});
     const [loading, setLoading] = useState(true);
-    let today = new Date();
-    let day = today.getDate() < 9 ? '0' + (today.getDate()) : today.getDate();
-    let month = today.getMonth() < 9 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;
-    let year = today.getFullYear();
-    let dateToday = `${year}-${month}-${day}`;
+    
     useEffect(() => {
         setLoading(true);
         const fetchData = async () => {

@@ -3,7 +3,7 @@ import { getEventDetails } from '../../services/utilities';
 
 function Match({ eventData }) {
     
-
+    
     const details = getEventDetails(eventData);
 
     return (

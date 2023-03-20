@@ -14,12 +14,12 @@ function MatchLive({ sportEvent, idEvent }) {
     if (!loading && matchDataIsVisible) {
         eventStats = getEventStats(matchData?.data);
     }
-    
+
     const [timeToStartEvent, setTimeStartEvent] = useState('0');
     const [opened, setOpened] = useState(false);
 
     const statusMatch = sportEvent.status.name;
-    const statusClass = !loading ? statusEvent(sportEvent, eventStats).class: null;
+    const statusClass = !loading ? statusEvent(sportEvent, eventStats).class : null;
 
     useEffect(() => {
         const dateEvent = matchData?.data?.event.startDate;
@@ -32,14 +32,22 @@ function MatchLive({ sportEvent, idEvent }) {
             setTimeStartEvent(``);
         }
         else {
-            if(!loading)
-            setTimeStartEvent(`${eventStats?.narration[0]?.momentAction}'`);
+            if (!loading)
+                setTimeStartEvent(`${eventStats?.narration[0]?.momentAction}'`);
         }
     }, [loading]);
 
 
     const opendDetailStatus = (e) => {
         setOpened(e.target.checked);
+        const newScroll = 550;
+        if (e.target.checked) {
+            console.log(screenY)
+            setTimeout(() => {
+                
+                window.scroll(0, 400)
+            }, 100);
+        }
     }
 
 
