@@ -1,7 +1,6 @@
 {
   "homepage": "https://AletzMan.github.io/soccer_stats",
   "name": "soccer_stats",
-  "homepage":"https://AletzMan.github.io/soccer_stats",
   "private": true,
   "version": "0.0.0",
   "type": "module",

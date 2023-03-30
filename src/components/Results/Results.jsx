@@ -1,6 +1,5 @@
 import { MatchLive } from '../MatchLive/MatchLive';
 import './Results.css';
-import loadingIcon from '../../assets/loading-icon.svg';
 import { useState } from 'react';
 import { getDateToday, getDateTodayString, getPrevOrNextDay } from '../../services/utilities';
 import { getResults } from '../../services/getData';

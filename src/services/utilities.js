@@ -1,4 +1,17 @@
-import { COMMENTARIES, IMAGES } from "./constants";
+import { COMMENTARIES } from "./constants";
+import goal from '../assets/goal-icon.svg';
+import referee from '../assets/goal-icon.svg';
+import injury from '../assets/injury-icon.svg';
+import red from '../assets/red-icon.svg';
+import yellow from '../assets/yellow-icon.svg';
+import flag from '../assets/flag-icon.svg';
+import shoot from '../assets/shoot-icon.svg';
+import fault from '../assets/fault-icon.svg';
+import corner from '../assets/corner-icon.svg';
+import varview from '../assets/var-icon.svg';
+import change from '../assets/change-icon.svg';
+
+const IMAGES = [goal, referee, injury, red, yellow, flag, shoot, fault, corner, varview, change];
 
 
 export function countdown(targetDate, status) {

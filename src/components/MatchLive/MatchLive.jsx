@@ -2,7 +2,7 @@ import './MatchLive.css';
 import ballImage from '../../assets/ball.png';
 import { useEffect, useState } from 'react';
 import { countdown, getEventStats, statusEvent } from '../../services/utilities';
-import { getMatchData, getResults } from '../../services/getData';
+import { getMatchData } from '../../services/getData';
 import { MatchDetails } from '../MatchDetails/MatchDetails';
 import arrowDownIcon from '../../assets/arrowdown-icon.svg';
 
@@ -94,16 +94,14 @@ function MatchLive({ sportEvent, idEvent }) {
                     }
                     <span className={`matchlive__time matchlive__time--${statusClass}`}>{timeToStartEvent}</span>
                     <span className={`matchlive__status matchlive__status--${statusClass}`}>{statusMatch}</span>
-                    {eventStats &&
-                        <>
-                            <div className='matchlive__details buttondetails'>
-                                <input type='checkbox' onChange={opendDetailStatus} className='buttondetails__checkbox'></input>
-                                <img className='buttondetails__img' src={arrowDownIcon} alt="icon arrow down" />
-                                <span className='buttondetails__name'>Details</span>
-                            </div>
-                            <MatchDetails opened={opened} matchData={matchData.data}></MatchDetails>
-                        </>
-                    }
+                    <div className='matchlive__details buttondetails'>
+                        <input type='checkbox' onChange={opendDetailStatus} className='buttondetails__checkbox'></input>
+                        <img className='buttondetails__img' src={arrowDownIcon} alt="icon arrow down" />
+                        <span className='buttondetails__name'>Details</span>
+                    </div>
+                    {eventStats && <MatchDetails opened={opened} matchData={matchData.data}></MatchDetails>}
+
+
                 </div>}
 
 
