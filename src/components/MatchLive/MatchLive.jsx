@@ -13,10 +13,6 @@ function MatchLive({ sportEvent, idEvent }) {
     const { loading, matchData } = getMatchData(idEvent);
     const matchDataIsVisible = matchData?.data?.event.scoreDetails;
 
-    if (!loading && matchDataIsVisible) {
-        eventStats = getEventStats(matchData?.data);
-    }
-
 
     const statusMatch = sportEvent.status.name;
     const statusClass = statusEvent(sportEvent).class;
@@ -24,9 +20,15 @@ function MatchLive({ sportEvent, idEvent }) {
 
     useEffect(() => {
         if (sportEvent.startDate || matchData?.data?.event.startDate) {
+            console.log(matchData)
             const interval = setInterval(() => {
-                const dateEvent = sportEvent.startDate || matchData?.data?.event.startDate
-                setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);
+                if (matchData?.data) {
+                    const dateEvent = matchData?.data?.event.score.period.startTime;
+                    setTimeStartEvent(`${countdown(dateEvent, matchData.data.event.score.period.name)}`);
+                } else {
+                    const dateEvent = sportEvent.startDate || matchData?.data?.event.startDate
+                    setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);
+                }
                 //console.log(dateEvent)
             }, 1000);
             return () => clearInterval(interval);
@@ -41,7 +43,7 @@ function MatchLive({ sportEvent, idEvent }) {
         if (e.target.checked) {
             console.log(screenY)
             setTimeout(() => {
-                
+
                 window.scroll(0, 400)
             }, 100);
         }
@@ -49,7 +51,7 @@ function MatchLive({ sportEvent, idEvent }) {
 
 
     const eventStats = getEventStats(matchData?.data);
-    
+
     return (
         <>
             {(!loading) &&

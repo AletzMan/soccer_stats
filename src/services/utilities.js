@@ -1,29 +1,38 @@
 import { COMMENTARIES, IMAGES } from "./constants";
 
 
-export function countdown(targetDate) {
-    const optionsDate = { year: 'numeric', month: 'numeric', day: 'numeric',  hour: 'numeric', minute: 'numeric', second: 'numeric' };
+export function countdown(targetDate, status) {
+    const optionsDate = { year: 'numeric', month: 'numeric', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
     const dateEventLocal = new Date(targetDate);
-    
+
     let date = getDateToday();
     const { day, month, year, hour, minute, second } = date;
-    
+
     let dateToday = `${year}/${month}/${day}, ${hour}:${minute}:${second}`;
     //let startEvent = new Date(dateEventLocal);
     //let actualTime = new Date(dateToday);
-    let differenceTime = (new Date(dateEventLocal)) - (new Date(dateToday));
+    let differenceTime;
+    console.log(status)
+    if (status === 'Descanso') {
+        return 'Descanso'
+    } else if (status === '1ª parte') {
+        differenceTime = (new Date(dateToday)) - (new Date(dateEventLocal));
+    } else {
+        differenceTime = (new Date(dateToday)) - (new Date(dateEventLocal));
+    }
     let timeHours = Math.floor(((differenceTime / 1000) / 60) / 60)
     let timeMinutes = Math.floor(((differenceTime / 1000) / 60) - timeHours * 60);
     let timeSeconds = (differenceTime / 1000) - ((timeHours * 60 * 60) + (timeMinutes * 60));
-    
+
     timeMinutes = timeMinutes < 10 ? '0' + timeMinutes : timeMinutes;
     timeSeconds = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds;
 
     if (timeHours < 0) {
-        return 'Comenzando'
+        // return 'Comenzando'
     }
 
-    return `${timeHours}:${timeMinutes}:${timeSeconds}`
+
+    return status === '2nd half' ? `${timeHours}:${45 + parseInt(timeMinutes)}:${timeSeconds}` : `${timeHours}:${timeMinutes}:${timeSeconds}`
 }
 
 export function statusEvent(sportEvent, eventStats) {
@@ -81,6 +90,10 @@ export function getNextWeekEnd() {
         daysUntilThursday = 4 - dayOfWeek;
     }
 
+    if (dayOfWeek > 0 && dayOfWeek < 5) {
+        daysUntilThursday = 4 - dayOfWeek;
+    }
+
 
     if (dayOfWeek === 0) {
         daysUntilThursday = -3;
@@ -101,16 +114,16 @@ export function getNextWeekEnd() {
 
 export function getPrevOrNextDay(day, type) {
     const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    
+
     const nextDay = (new Date(day));
-    
+
     if (type === 'prev') {
         nextDay.setDate(nextDay.getDate() - 1);
     }
     if (type === 'next') {
         nextDay.setDate(nextDay.getDate() + 1);
     }
-    
+
     const localDay = nextDay.toLocaleDateString('es-MX', optionsDate);
     let date = localDay.charAt(0).toUpperCase() + localDay.slice(1);
 
