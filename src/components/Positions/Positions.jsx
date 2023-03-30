@@ -9,9 +9,7 @@ import { Loading } from '../Loading/Loading';
 
 function Positions() {
     const { positions, loading } = getTablePositions();
-    if (positions !== undefined) {
-        console.log(positions?.data)
-    }
+    
 
     return (
         <main className='positions'>

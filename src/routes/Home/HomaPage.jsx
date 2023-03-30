@@ -23,7 +23,6 @@ function HomePage() {
             if (groupBets?.length > 0) {
                 setBets(groupBets);
             }
-            console.log(bets);
         }
     }, [])
 

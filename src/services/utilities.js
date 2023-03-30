@@ -2,18 +2,20 @@ import { COMMENTARIES, IMAGES } from "./constants";
 
 
 export function countdown(targetDate) {
-    const optionsDate = { hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    const dateEventLocal = new Date(targetDate).toLocaleDateString('es-MX', optionsDate)
-
+    const optionsDate = { year: 'numeric', month: 'numeric', day: 'numeric',  hour: 'numeric', minute: 'numeric', second: 'numeric' };
+    const dateEventLocal = new Date(targetDate);
+    
     let date = getDateToday();
     const { day, month, year, hour, minute, second } = date;
-
-    let dateToday = `${day}/${month}/${year}, ${hour}:${minute}:${second}`;
-    let differenceTime = new Date(dateEventLocal) - new Date(dateToday);
+    
+    let dateToday = `${year}/${month}/${day}, ${hour}:${minute}:${second}`;
+    //let startEvent = new Date(dateEventLocal);
+    //let actualTime = new Date(dateToday);
+    let differenceTime = (new Date(dateEventLocal)) - (new Date(dateToday));
     let timeHours = Math.floor(((differenceTime / 1000) / 60) / 60)
     let timeMinutes = Math.floor(((differenceTime / 1000) / 60) - timeHours * 60);
     let timeSeconds = (differenceTime / 1000) - ((timeHours * 60 * 60) + (timeMinutes * 60));
-
+    
     timeMinutes = timeMinutes < 10 ? '0' + timeMinutes : timeMinutes;
     timeSeconds = timeSeconds < 10 ? '0' + timeSeconds : timeSeconds;
 
@@ -154,39 +156,42 @@ export function getMatchWinner(calendar) {
 
 export function getEventStats(matchData) {
 
+
     try {
-        if (matchData.eventStats) {
-            let eventStats = {
-                homeTeam: {
-                    name: matchData.eventStats.stats.homeTeam.teamInfo.commonName,
-                    color: matchData.eventStats.stats.homeTeam.teamKit.colour1,
-                    colorTwo: matchData.eventStats.stats.homeTeam.teamKit.colour2,
-                    statsTeam: matchData.eventStats.stats.homeTeam.statsTeam,
-                    statsPlayers: matchData.eventStats.stats.homeTeam.statsPlayers,
-                    lineUp: matchData.lineup.lineups.homeTeam.actualLineup,
-                    formation: matchData.lineup.lineups.homeTeam.formationTeam,
-                    manager: matchData.lineup.lineups.homeTeam.manager,
-                    substitutes: matchData.lineup.lineups.homeTeam.substitutesActualLineup,
-                    discipline: matchData.event.statsDetails.discipline.homeTeam,
-                    substitutions: matchData.event.statsDetails.substitutions.homeTeam,
-                },
-                awayTeam: {
-                    name: matchData.eventStats.stats.awayTeam.teamInfo.commonName,
-                    color: matchData.eventStats.stats.awayTeam.teamKit.colour1,
-                    colorTwo: matchData.eventStats.stats.awayTeam.teamKit.colour2,
-                    statsTeam: matchData.eventStats.stats.awayTeam.statsTeam,
-                    statsPlayers: matchData.eventStats.stats.awayTeam.statsPlayers,
-                    lineUp: matchData.lineup.lineups.awayTeam.actualLineup,
-                    formation: matchData.lineup.lineups.awayTeam.formationTeam,
-                    manager: matchData.lineup.lineups.awayTeam.manager,
-                    substitutes: matchData.lineup.lineups.awayTeam.substitutesActualLineup,
-                    discipline: matchData.event.statsDetails.discipline.awayTeam,
-                    substitutions: matchData.event.statsDetails.substitutions.awayTeam,
-                },
-                summary: matchData.summary.commentaries,
-                narration: matchData.narration.commentaries
+        if (matchData !== undefined) {
+            if (matchData.eventStats !== undefined) {
+                let eventStats = {
+                    homeTeam: {
+                        name: matchData.eventStats.stats.homeTeam.teamInfo.commonName,
+                        color: matchData.eventStats.stats.homeTeam.teamKit.colour1,
+                        colorTwo: matchData.eventStats.stats.homeTeam.teamKit.colour2,
+                        statsTeam: matchData.eventStats.stats.homeTeam.statsTeam,
+                        statsPlayers: matchData.eventStats.stats.homeTeam.statsPlayers,
+                        lineUp: matchData.lineup.lineups.homeTeam.actualLineup,
+                        formation: matchData.lineup.lineups.homeTeam.formationTeam,
+                        manager: matchData.lineup.lineups.homeTeam.manager,
+                        substitutes: matchData.lineup.lineups.homeTeam.substitutesActualLineup,
+                        discipline: matchData.event.statsDetails.discipline.homeTeam,
+                        substitutions: matchData.event.statsDetails.substitutions.homeTeam,
+                    },
+                    awayTeam: {
+                        name: matchData.eventStats.stats.awayTeam.teamInfo.commonName,
+                        color: matchData.eventStats.stats.awayTeam.teamKit.colour1,
+                        colorTwo: matchData.eventStats.stats.awayTeam.teamKit.colour2,
+                        statsTeam: matchData.eventStats.stats.awayTeam.statsTeam,
+                        statsPlayers: matchData.eventStats.stats.awayTeam.statsPlayers,
+                        lineUp: matchData.lineup.lineups.awayTeam.actualLineup,
+                        formation: matchData.lineup.lineups.awayTeam.formationTeam,
+                        manager: matchData.lineup.lineups.awayTeam.manager,
+                        substitutes: matchData.lineup.lineups.awayTeam.substitutesActualLineup,
+                        discipline: matchData.event.statsDetails.discipline.awayTeam,
+                        substitutions: matchData.event.statsDetails.substitutions.awayTeam,
+                    },
+                    summary: matchData.summary.commentaries,
+                    narration: matchData.narration.commentaries
+                }
+                return eventStats
             }
-            return eventStats
         }
     } catch (error) {
         console.error(error);
@@ -199,7 +204,7 @@ export function getImagesForCommentaries(comment) {
     for (let index = 0; index < COMMENTARIES.length; index++) {
         if (comment.commentary.includes(COMMENTARIES[index])) {
             return {
-                url: `../src/assets/${IMAGES[index]}-icon.svg`,
+                url: `${IMAGES[index]}`,
                 name: IMAGES[index]
             };
         }
