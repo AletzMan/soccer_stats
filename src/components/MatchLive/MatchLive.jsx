@@ -19,8 +19,7 @@ function MatchLive({ sportEvent, idEvent }) {
 
 
     useEffect(() => {
-        if (sportEvent.startDate || matchData?.data?.event.startDate) {
-            console.log(matchData)
+        if (sportEvent.startDate || matchData?.data?.event.startDate && sportEvent?.status?.name !== 'Finalizado') {
             const interval = setInterval(() => {
                 if (matchData?.data) {
                     const dateEvent = matchData?.data?.event.score.period.startTime;
@@ -33,7 +32,7 @@ function MatchLive({ sportEvent, idEvent }) {
             }, 1000);
             return () => clearInterval(interval);
         } if (sportEvent.status.name === 'Finalizado') {
-            setTimeStartEvent(``);
+            setTimeStartEvent(''); console.log(timeToStartEvent)
         }
     }, [matchData]);
 
