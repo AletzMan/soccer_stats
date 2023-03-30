@@ -57,10 +57,12 @@
   width: 2rem;
   height: 2rem;
   background-color: #59546C;
-  border: 1px solid #8B939C;
+  border: 2px solid #8B939C;
+  transition: all 0.3s;
 }
 .bettingcheck__container:hover {
-  border-color: #c0d031;
+  border-color: #81b326;
+  background-color: #4b4d37;
 }
 .bettingcheck__check {
   position: absolute;

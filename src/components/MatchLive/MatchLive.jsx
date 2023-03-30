@@ -2,7 +2,7 @@ import './MatchLive.css';
 import ballImage from '../../assets/ball.png';
 import { useEffect, useState } from 'react';
 import { countdown, getEventStats, statusEvent } from '../../services/utilities';
-import { getMatchData } from '../../services/getData';
+import { getMatchData, getResults } from '../../services/getData';
 import { MatchDetails } from '../MatchDetails/MatchDetails';
 import arrowDownIcon from '../../assets/arrowdown-icon.svg';
 
@@ -11,6 +11,13 @@ function MatchLive({ sportEvent, idEvent }) {
     const [opened, setOpened] = useState(false);
 
     const { loading, matchData } = getMatchData(idEvent);
+    const matchDataIsVisible = matchData?.data?.event.scoreDetails;
+
+    if (!loading && matchDataIsVisible) {
+        eventStats = getEventStats(matchData?.data);
+    }
+
+
     const statusMatch = sportEvent.status.name;
     const statusClass = statusEvent(sportEvent).class;
 
@@ -23,13 +30,21 @@ function MatchLive({ sportEvent, idEvent }) {
                 //console.log(dateEvent)
             }, 1000);
             return () => clearInterval(interval);
-        } else {
-            //setTimeStartEvent(`${sportEvent['event-metadata-soccer']['minutes-elapsed']}'`)
+        } if (sportEvent.status.name === 'Finalizado') {
+            setTimeStartEvent(``);
         }
     }, [matchData]);
 
     const opendDetailStatus = (e) => {
         setOpened(e.target.checked);
+        const newScroll = 550;
+        if (e.target.checked) {
+            console.log(screenY)
+            setTimeout(() => {
+                
+                window.scroll(0, 400)
+            }, 100);
+        }
     }
 
 

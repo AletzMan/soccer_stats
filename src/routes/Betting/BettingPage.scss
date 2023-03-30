@@ -23,8 +23,9 @@ $color_select: #FF0035;
         background-color: $color_back;
         border: 1px solid $color_font;
         font-family: 'Raleway', sans-serif;
-        transition: border-color 0.2s linear;
+        transition: all 0.2s linear;
         justify-self: flex-start;
+        color: #c4cacf;
         cursor: pointer;
 
         &:hover {

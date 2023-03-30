@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { getEventStats } from "./utilities";
 
 const API_URL = 'https://api.unidadeditorial.es/sports/v1/classifications/current/?site=2&type=10&tournament=0168';
 //const API_URL_MATCHES = 'https://api.unidadeditorial.es/sports/v1/events/preset/74_183a06e3?timezoneOffset=-6&date=2023-03-03';
@@ -64,12 +65,7 @@ export const getCalendar =  () => {
 export const getCalendarByDate =  (dateArray) => {
     const [results, setResults] = useState({});
     const [loading, setLoading] = useState(true);
-    let today = new Date();
-    let day = today.getDate() < 9 ? '0' + (today.getDate()) : today.getDate();
-    let month = today.getMonth() < 9 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1;
-    let year = today.getFullYear();
-    let dateToday = `${year}-${month}-${day}`;
-    console.log(dateToday)
+    
     useEffect(() => {
         setLoading(true);
         const fetchData = async () => {
@@ -130,7 +126,7 @@ export const getMatchData =  (id) => {
         const fetchData = async () => {
             try {
                 const { data: response } = await axios.get(`${API_URL_MATCH_DATA}${id}/full?site=19`);
-                console.log(response)
+                //const eventStats = getEventStats(matchData?.data);
                 setMatchData(response);
             } catch (error) {
                 console.error(error)

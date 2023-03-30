@@ -12,7 +12,7 @@ import { getCalendar, getCalendarByDate } from "../../services/getData";
 import { Loading } from "../../components/Loading/Loading";
 import { getEventDetails, getNextWeekEnd } from "../../services/utilities";
 
-function BettingPage({ calendar }) {
+function BettingPage() {
     const [classSelected, setClassSelected] = useState([true, false, false]);
     const [username, setUsername] = useState('');
     const [currentUser, setCurrentUser] = useState(null);
@@ -21,13 +21,15 @@ function BettingPage({ calendar }) {
     const [resultsBets, setResults] = useState(['0', '0', '0', '0', '0', '0', '0', '0', '0']);
     const [currentBets, setCurrentBets] = useState();
     const [week, setWeek] = useState('')
-    const userInfo = useLocation().state.userInfo;
-    const betsInfo = useLocation().state.bets;
+    const userInfo = useLocation().state?.userInfo;
+    const betsInfo = useLocation().state?.bets;
     const navigate = useNavigate();
     let playerResults = {};
     const names = ['QUINIELA', 'PARTICIPANTES', null];
     const resultDate = getNextWeekEnd();
     const { loading, results } = getCalendarByDate(resultDate);
+    const todayDay = new Date().getDay();
+    console.log(results)
 
     useEffect(() => {
         setCurrentUser(userInfo);
@@ -85,7 +87,6 @@ function BettingPage({ calendar }) {
         setUsername(e.target.value);
     }
 
-    console.log(resultDate)
     return (
         <>
             {!loading &&
@@ -93,10 +94,10 @@ function BettingPage({ calendar }) {
                     <Header classSelected={classSelected} setClassSelected={setClassSelected} calendar={results} names={names} user={currentUser}  week={week}  />
                     {classSelected[0] &&
                         <section className="bettingpage__betting">
-                            {results.map((result, index, { id }) => (
-                                <MatchBetting key={id} eventData={result} updateResults={updateResults} index={index} value={resultsBets} setWeek={setWeek}/>
+                            {results.map((result, index) => (
+                                <MatchBetting key={uuid()} eventData={result} updateResults={updateResults} index={index} value={resultsBets} setWeek={setWeek}/>
                             ))}
-                            {currentUser &&
+                            {!(todayDay === 0 || todayDay >= 4) &&
                                 <div className="bettingpage__container">
                                     <input className="bettingpage__input" name="name" placeholder="Nombre" value={username} onChange={handleChangeInput}></input>
                                     <button className="bettingpage__send" onClick={handleSend}>Enviar</button>
@@ -104,9 +105,9 @@ function BettingPage({ calendar }) {
                                     {sending && <img className="bettingpage__loading" src={loadingIcon} alt="icon loading"></img>}
                                     {sending === false && <span className="bettingpage__message">{'Enviado'}</span>}
                                 </div>}
-                            {!currentUser &&
+                            {(todayDay === 0 || todayDay >= 4) &&
                                 <div className="bettingpage__modal modal">
-                                    <div className="modal__message">Inicia sesión para rellenar y enviar tu quiniela</div>
+                                    <div className="modal__message">El tiempo para enviar tu quiniela ha terminado, recuerda que es hasta 1 hora antes del primer partido.</div>
                                 </div>
                             }
                         </section>
@@ -115,8 +116,8 @@ function BettingPage({ calendar }) {
                         <section className="bettingpage__players players">
                             <div className="players__space"></div>
                             <div className="players__header">
-                                {results.map((result, { id }) => (
-                                    <MatchHeader key={id} eventData={result} />
+                                {results.map((result ) => (
+                                    <MatchHeader key={uuid()} eventData={result} />
                                 ))}
                             </div>
                             {currentBets.map((player) => (

@@ -51,29 +51,29 @@ $color_select: #FF0035;
         color: #8da3fd;
     }
     &__hour {
-        grid-column: 2 / 3;
+        grid-column: 2 / span 2;
         grid-row: 3 / 4;
         font-size: 0.8rem;
         font-weight: 300;
-        justify-self: flex-end;
+        justify-self: center;
         color: #ecc377;
         padding: 0.1rem 0.4rem;
         border-radius: 0.8rem;
         background-color: #a4aa6944;
     }
     &__city {
-        grid-column: 3 / 4;
-        grid-row: 3 / 4;
+        grid-column: 2 / span 2;
+        grid-row: 4 / 5;
         font-size: 0.8rem;
         font-weight: 300;
         margin-left: 0.5rem;
-        justify-self: flex-start;
+        justify-self: center;
         color: #83e2e6;
     }
 
     &__site {
         grid-column: 2 / span 2;
-        grid-row: 4 / 5;
+        grid-row: 5 / 6;
         font-size: 0.8rem;
         font-weight: 300;
         color: $color_select;
