@@ -25,13 +25,16 @@ export function countdown(targetDate, status) {
     //let startEvent = new Date(dateEventLocal);
     //let actualTime = new Date(dateToday);
     let differenceTime;
-    console.log(status)
+    //console.log(targetDate)
+    //console.log(dateEventLocal)
+    //console.log(dateToday)
+    //console.log(status)
     if (status === 'Descanso') {
         return 'Descanso'
     } else if (status === '1ª parte') {
         differenceTime = (new Date(dateToday)) - (new Date(dateEventLocal));
     } else {
-        differenceTime = (new Date(dateToday)) - (new Date(dateEventLocal));
+        differenceTime = (new Date(dateEventLocal)) - (new Date(dateToday));
     }
     let timeHours = Math.floor(((differenceTime / 1000) / 60) / 60)
     let timeMinutes = Math.floor(((differenceTime / 1000) / 60) - timeHours * 60);
@@ -43,7 +46,7 @@ export function countdown(targetDate, status) {
     if (timeHours < 0) {
         // return 'Comenzando'
     }
-
+   // console.log(`${timeHours}:${timeMinutes}:${timeSeconds}`)
 
     return status === '2nd half' ? `${timeHours}:${45 + parseInt(timeMinutes)}:${timeSeconds}` : `${timeHours}:${timeMinutes}:${timeSeconds}`
 }

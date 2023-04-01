@@ -21,9 +21,11 @@ function MatchLive({ sportEvent, idEvent }) {
     useEffect(() => {
         if (sportEvent.startDate || matchData?.data?.event.startDate && sportEvent?.status?.name !== 'Finalizado') {
             const interval = setInterval(() => {
-                if (matchData?.data) {
+                if (matchData?.data?.event.score.period.startTime) {
                     const dateEvent = matchData?.data?.event.score.period.startTime;
                     setTimeStartEvent(`${countdown(dateEvent, matchData.data.event.score.period.name)}`);
+                    console.log('o aqui')
+                    console.log(matchData)
                 } else {
                     const dateEvent = sportEvent.startDate || matchData?.data?.event.startDate
                     setTimeStartEvent(`Faltan: ${countdown(dateEvent)}`);
